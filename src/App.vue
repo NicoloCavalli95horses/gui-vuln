@@ -2,48 +2,75 @@
   <div class="main">
     <div class="inputs">
       <InputText v-model:text="custom_filter" placeholder="search in summary or details" />
-      <p class="t-12">Tot. results: {{ out.length }}, filtered: {{ outFiltered?.length }}</p>
-      <table class="t-24">
+      <p class="t-12">{{ outFiltered?.length }} results found (tot. results: {{ out.length }})</p>
+      <h2 class="t-24">Containing in the summary or details</h2>
+      <table class="t-12">
         <thead>
           <tr>
-            <th>Containing in the summary or details</th>
+            <th>Keywords</th>
+            <th>Abs.</th>
+            <th>%</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(cve, i) in cveType" :key="cve">
+          <tr v-for="cve in cveType" :key="cve.id">
             <td>{{ CVE_KEYWORDS[cve.id]?.join(", ")?.toString() }}</td>
             <td>{{ cve.size }}</td>
+            <td>{{ (out.length*cve.size/100).toFixed(2) }}%</td>
           </tr>
-          <td class="orange-text">Classified in more than one category</td>
-          <td class="orange-text">{{ cveType.reduce((acc, cve) => acc + cve.size, null) - out.length }}</td>
+          <tr class="orange-text">
+            <td>Classified in more than one category</td>
+            <td>{{ totMultiClassified }}</td>
+            <td>{{ (out.length*totMultiClassified/100).toFixed(2) }}%</td>
+          </tr>
         </tbody>
       </table>
-      <table class="t-48">
+      <h2 class="t-24">Severity</h2>
+      <table class="t-12">
         <thead>
           <tr>
             <th>Severity</th>
+            <th>Abs.</th>
+            <th>%</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>Critical</td>
-            <td>{{ tot.critical }}</td>
+            <td>{{ severityCount.critical }}</td>
+            <td>{{ (out.length*severityCount.critical/100).toFixed(2) }}%</td>
           </tr>
           <tr>
             <td>High</td>
-            <td>{{ tot.high }}</td>
+            <td>{{ severityCount.high }}</td>
+            <td>{{ (out.length*severityCount.high/100).toFixed(2) }}%</td>
           </tr>
           <tr>
             <td>Moderate</td>
-            <td>{{ tot.moderate }}</td>
+            <td>{{ severityCount.moderate }}</td>
+            <td>{{ (out.length*severityCount.moderate/100).toFixed(2) }}%</td>
           </tr>
           <tr>
             <td>Low</td>
-            <td>{{ tot.low }}</td>
+            <td>{{ severityCount.low }}</td>
+            <td>{{ (out.length*severityCount.low/100).toFixed(2) }}%</td>
           </tr>
+        </tbody>
+      </table>
+      <h2 class="t-24">Framework, language and library</h2>
+      <table class="t-12">
+        <thead>
           <tr>
-            <td></td>
-            <td>{{ Object.values(tot).length ? Object.values(tot).reduce((acc, i) => acc + i) : null }}</td>
+            <th>Framework/language</th>
+            <th>Abs.</th>
+            <th>%</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="lang in langTypes" :key="lang.id">
+            <td>{{ FRAMEWORK[lang.id]?.join(", ")?.toString() }}</td>
+            <td>{{ lang.size }}</td>
+            <td>{{ (out.length*lang.size/100).toFixed(2) }}%</td>
           </tr>
         </tbody>
       </table>
@@ -80,18 +107,31 @@ const CVE_KEYWORDS = {
   prototypePollution: ['prototype pollution'],
   spoofing: ['spoofing'],
   crash: ['crash'],
-  directoryTraversal: ['directory traversal'], // to study
+  directoryTraversal: ['directory traversal'],
   remoteCodeExecution: ['code exec', 'remote exec', 'command exec', 'remote comm'],
   smuggling: ['smuggling'],
   contentSecurityPolicy: ['csp', 'content-security'],
-  cachePoisoning: ['cache poisoning'], // to study
+  cachePoisoning: ['cache poisoning'],
   bluetooth: ['bluetooth'],
   contextIsolationBypass: ['contextisolation', 'context isolation bypass', 'context bypass'],
   asarIntegrity: ['asar integrity'],
   fileRead: ['file read'],
   trojan: ['trojan', 'horse'],
   internalProcessCommunication: ['ipc', 'internal-process communication'],
-  autoupdater: ['autoupdater']
+  autoupdater: ['autoupdater'],
+};
+
+const FRAMEWORK = {
+  vue: ['vue'],
+  angular: ['angular'],
+  react: ['react'],
+  electron: ['electron'],
+  three: ['three'],
+  vanillaJS: ['canvas', 'html'],
+  preact: ['preact'],
+  svelte: ['svelte'],
+  next: ['next.js'],
+  i18next: ['i18next']
 }
 
 
@@ -100,23 +140,12 @@ const CVE_KEYWORDS = {
 //====================================
 const out = ref([]);
 const custom_filter = ref(undefined);
-const tot = ref({});
+const severityCount = ref({});
 
 const outFiltered = computed( () => custom_filter.value ? filterResults([custom_filter.value]) : out.value);
-const cveType = computed(() => {
-  const ret = [];
-  if (!out.value) return ret;
-
-  for (const [id, keywords] of Object.entries(CVE_KEYWORDS)) {
-    const matches = filterResults(keywords);
-    const obj = { id, matches, size: matches?.length || 0 };
-    ret.push(obj);
-  }
-
-  ret.sort((a, b) => b.size - a.size);
-  return ret;
-});
-
+const cveType     = computed( () => classifyCVEs(CVE_KEYWORDS));
+const langTypes   = computed( () => classifyCVEs(FRAMEWORK));
+const totMultiClassified = computed( () => cveType.value.reduce((acc, cve) => acc + cve.size, null) - out.value.length)
 
 
 //====================================
@@ -132,13 +161,28 @@ function filterResults( arr ) {
 function countSeverity() {
   out.value.forEach(o => {
     const severity =  o.database_specific?.severity?.toLowerCase();
-    if (Number.isInteger(tot.value[ severity ])) {
-      tot.value[ severity ] = tot.value[ severity ] + 1;
+    if (Number.isInteger(severityCount.value[ severity ])) {
+      severityCount.value[ severity ] = severityCount.value[ severity ] + 1;
     } else {
-      tot.value[ severity ] = 1;
+      severityCount.value[ severity ] = 1;
     }
   });
 }
+
+function classifyCVEs( obj ) {
+  const ret = [];
+  if (!out.value) return ret;
+
+  for (const [id, keywords] of Object.entries(obj)) {
+    const matches = filterResults(keywords);
+    const obj = { id, matches, size: matches?.length || 0 };
+    ret.push(obj);
+  }
+
+  ret.sort((a, b) => b.size - a.size);
+  return ret;
+}
+
 
 //====================================
 // Life cycle
@@ -156,28 +200,24 @@ onMounted(async () => {
 .main {
   display: grid;
   grid-template-columns: 2fr 3fr;
-  grid-gap: 10px;
+  grid-gap: 20px;
   width: 100%;
   height: 100vh;
   box-sizing: border-box;
   overflow: hidden;
-}
+  padding: 32px 20px;
+  .inputs {
+    height: 100%;
+    overflow-y: scroll;
+    padding: 0 12px;
+  }
 
-.inputs {
-  padding: 20px;
-
-}
-
-.output {
-  color: white;
-  padding: 20px;
-  background-color: #333;
-  height: 100%;
-  overflow-y: scroll;
-  font-size: 14px;
-
-  pre {
-    white-space: break-spaces;
+  .output {
+    color: white;
+    background-color: #333;
+    height: 100%;
+    overflow-y: scroll;
+    padding: 20px;
   }
 }
 </style>
