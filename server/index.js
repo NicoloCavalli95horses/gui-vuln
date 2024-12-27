@@ -26,7 +26,7 @@ const processQueries = async (queries) => {
 
   // Save a JSON file with the data
   const jsonData = JSON.stringify(allVulns, null, 2);
-  fs.writeFile('../public/data.json', jsonData, (err) => {
+  fs.writeFile('../public/api.json', jsonData, (err) => {
     err ? console.error('Error writing file:', err.message) : console.log('File saved');
   });
 };

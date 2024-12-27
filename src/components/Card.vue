@@ -1,11 +1,11 @@
 <template>
   <div class="card">
-    <p>Severity:
+    <p v-if="item.database_specific?.severity">Severity:
       <span :class="{
-        'purple-text': item.database_specific?.severity?.toLowerCase() == 'critical',
-        'red-text': item.database_specific?.severity?.toLowerCase() == 'high',
-        'orange-text': item.database_specific?.severity?.toLowerCase() == 'moderate',
-        'green-text': item.database_specific?.severity?.toLowerCase() == 'low',
+        'purple-text': item.database_specific.severity.toLowerCase() == 'critical',
+        'red-text': item.database_specific.severity.toLowerCase() == 'high',
+        'orange-text': item.database_specific.severity.toLowerCase() == 'moderate',
+        'green-text': item.database_specific.severity.toLowerCase() == 'low',
         }"
         class="label"
       >
@@ -27,8 +27,6 @@ const props = defineProps({
     default: () => ({})
   },
 });
-
-
 
 </script>
 

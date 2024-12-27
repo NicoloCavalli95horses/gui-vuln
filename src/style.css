@@ -543,8 +543,14 @@ label {
   text-transform: uppercase;
   letter-spacing: -0.5px;
   background-color: var(--grey-33);
-  padding: 8px 12px;
+  padding: 4px 8px;
   border-radius: var(--radius-xl);
+  cursor: pointer;
+  margin: 2px;
+  transition-duration: 400ms;
+}
+.tag.active {
+  background-color: var(--primary);
 }
 
 .error-msg, .red-text {
