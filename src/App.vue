@@ -1,12 +1,21 @@
 <template>
+  <Loading v-show="is_loading" />
   <div class="main">
     <div class="left">
-      <div class="fixed-top">
-        <InputText v-model:text="custom_filter" placeholder="search in summary or details" />
-        <div class="flex-center start t-12">
-          <span v-for="s in SRC_NAMES" :key="s" :class="{'active' : src === s}" class="tag" @click="src = s">{{ s }}</span>
-        </div>
+      <InputText v-model:text="custom_filter" :disabled="!out" placeholder="search in summary or details" />
+      <div class="flex-center start t-12 flex-wrap">
+        <span
+          v-for="s in SRC_NAMES"
+          :key="s"
+          :class="{'active' : src === s.toLowerCase()}"
+          class="tag"
+          @click="() => { src = s.toLowerCase(); custom_filter = undefined; }"
+        >
+        {{ s }}
+      </span>
       </div>
+
+      <p class="grey-text t-12">The API data are a result of manually crafted APIs calls to the OSV server. Other data simply refers to filtered sections of the whole database</p>
 
       <p class="t-12">{{ outFiltered?.length }} results found (tot. results: {{ out.length }})</p>
       <h2 class="t-24">Containing in the summary or details</h2>
@@ -22,12 +31,12 @@
           <tr v-for="cve in cveType" :key="cve.id">
             <td>{{ CVE_KEYWORDS[cve.id]?.join(", ")?.toString() }}</td>
             <td>{{ cve.size }}</td>
-            <td>{{ (cve.size/out.length*100).toFixed(2) }}%</td>
+            <td>{{ (cve.size/outFiltered.length*100).toFixed(2) }}%</td>
           </tr>
           <tr v-if="totMultiClassified > 0" class="orange-text">
             <td>Classified in more than one category</td>
             <td>{{ totMultiClassified }}</td>
-            <td>{{ (totMultiClassified/out.length*100).toFixed(2) }}%</td>
+            <td>{{ (totMultiClassified/outFiltered.length*100).toFixed(2) }}%</td>
           </tr>
         </tbody>
       </table>
@@ -42,25 +51,10 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Critical</td>
-              <td>{{ severityCount.critical }}</td>
-              <td>{{ (severityCount.critical/out.length*100).toFixed(2) }}%</td>
-            </tr>
-            <tr>
-              <td>High</td>
-              <td>{{ severityCount.high }}</td>
-              <td>{{ (severityCount.high/out.length*100).toFixed(2) }}%</td>
-            </tr>
-            <tr>
-              <td>Moderate</td>
-              <td>{{ severityCount.moderate }}</td>
-              <td>{{ (severityCount.moderate/out.length*100).toFixed(2) }}%</td>
-            </tr>
-            <tr>
-              <td>Low</td>
-              <td>{{ severityCount.low }}</td>
-              <td>{{ (severityCount.low/out.length*100/100).toFixed(2) }}%</td>
+            <tr v-for="(count, severity) in severityCount" :key="severity">
+              <td>{{ severity }}</td>
+              <td>{{ count || 0 }}</td>
+              <td>{{ count ? ((count / outFiltered.length) * 100).toFixed(2) : 0 }}%</td>
             </tr>
           </tbody>
         </table>
@@ -78,13 +72,13 @@
           <tr v-for="lang in langTypes" :key="lang.id">
             <td>{{ FRAMEWORK[lang.id]?.join(", ")?.toString() }}</td>
             <td>{{ lang.size }}</td>
-            <td>{{ (lang.size/out.length*100).toFixed(2) }}%</td>
+            <td>{{ (lang.size/outFiltered.length*100).toFixed(2) }}%</td>
           </tr>
         </tbody>
       </table>
     </div>
     <div class="right">
-      <Card v-for="o in outFiltered" :key="o.id" :item="o" />
+      <Card v-for="o in outFiltered" :key="o.id" :item="o" :custom_filter="custom_filter" />
     </div>
   </div>
 </template>
@@ -97,11 +91,11 @@ import {
   ref,
   watch,
   computed,
-  onMounted,
 } from 'vue';
 
 import Card      from './components/Card.vue';
 import InputText from './components/InputText.vue';
+import Loading   from './components/Loading.vue';
 
 //====================================
 // Consts
@@ -109,7 +103,7 @@ import InputText from './components/InputText.vue';
 
 const CVE_KEYWORDS = {
   // Each CVE is classified based on the presence of these keywords in summary or details
-  crossSite: ['xss', 'cross-site', 'injection'],
+  crossSite: ['xss', 'cross-site', 'injection', 'csfr', 'xsrf'],
   denialOfService: ['dos', 'denial', 'service', 'redos', 'sanitize-html'],
   bufferOveflow: ['buffer', 'overflow'],
   openRedirect: ['open redirect', 'navigation'],
@@ -117,11 +111,10 @@ const CVE_KEYWORDS = {
   spoofing: ['spoofing'],
   crash: ['crash'],
   directoryTraversal: ['directory traversal'],
-  remoteCodeExecution: ['code exec', 'remote exec', 'command exec', 'remote comm'],
+  remoteCodeExecution: ['code exececution', 'remote execution', 'command execution', 'remote command'],
   smuggling: ['smuggling'],
   contentSecurityPolicy: ['csp', 'content-security'],
   cachePoisoning: ['cache poisoning'],
-  bluetooth: ['bluetooth'],
   contextIsolationBypass: ['contextisolation', 'context isolation bypass', 'context bypass'],
   asarIntegrity: ['asar integrity'],
   fileRead: ['file read'],
@@ -143,46 +136,82 @@ const FRAMEWORK = {
   i18next: ['i18next']
 }
 
-const SRC_NAMES = [ 'alpine', 'android', 'api', 'npm' ];
+const SRC_NAMES = [
+  'AlmaLinux',
+  'Alpine',
+  'Android',
+  'api',
+  'GIT',
+  'Go',
+  'Hex',
+  'JavaScript',
+  'Maven',
+  'miscellaneous',
+  'npm',
+  'NuGet',
+  'PyPI',
+  'RubyGems',
+];
 
 //====================================
 // Consts
 //====================================
-const out = ref([]);
-const custom_filter = ref(undefined);
-const severityCount = ref({});
-const src = ref( 'api' );
+const out             = ref( [] );
+const custom_filter   = ref( undefined );
+const severityCount   = ref( {} );
+const src             = ref( 'api' );
+const is_loading      = ref( false );
+const debouncedFilter = ref( undefined );
 
-const outFiltered        = computed( () => custom_filter.value ? filterResults([custom_filter.value]) : out.value);
+const outFiltered        = computed( () =>  debouncedFilter.value ? filterResults([debouncedFilter.value]) : out.value);
 const cveType            = computed( () => classifyCVEs(CVE_KEYWORDS));
 const langTypes          = computed( () => classifyCVEs(FRAMEWORK));
-const totMultiClassified = computed( () => cveType.value.reduce((acc, cve) => acc + cve.size, null) - out.value.length)
+const totMultiClassified = computed( () => cveType.value.reduce((acc, cve) => acc + cve.size, 0) - outFiltered.value.length);
 
 
 //====================================
 // Functions
 //====================================
+function containsWord(text, words = []) {
+  return words.some(w => {
+    const regex = new RegExp(`\\b${w}\\b`, 'i'); // word delimitation, case-insensitive
+    return regex.test(text);
+  })
+}
+
 function filterResults( arr ) {
-  return out.value.length ? out.value.filter(i => {
+  return outFiltered.value.length ? outFiltered.value.filter(i => {
     const text = `${i.summary || ''} ${i.details || ''}`.toLowerCase();
-    return arr.some(keyword => text.includes(keyword));
+    return containsWord(text, arr);
   }) : [];
 }
 
 function countSeverity() {
-  out.value.forEach(o => {
-    const severity =  o.database_specific?.severity?.toLowerCase();
-    if (Number.isInteger(severityCount.value[ severity ])) {
-      severityCount.value[ severity ] = severityCount.value[ severity ] + 1;
+  severityCount.value = {
+    critical: 0,
+    high: 0,
+    moderate: 0,
+    low: 0,
+    unknown: 0
+  };
+
+  outFiltered.value.forEach(o => {
+    let severity = o.database_specific?.severity?.toLowerCase();
+    if ( severity === 'medium' ) {
+      severity = 'moderate';
+    }
+
+    if (severity) {
+      severityCount.value[severity] += 1;
     } else {
-      severityCount.value[ severity ] = 1;
+      severityCount.value.unknown += 1;
     }
   });
 }
 
 function classifyCVEs( obj ) {
   const ret = [];
-  if (!out.value) return ret;
+  if (!Array.isArray(outFiltered.value) || outFiltered.value.length === 0) return ret;
 
   for (const [id, keywords] of Object.entries(obj)) {
     const matches = filterResults(keywords);
@@ -199,12 +228,30 @@ function classifyCVEs( obj ) {
 // Life cycle
 //====================================
 watch(src, async (newSrc) => {
+  is_loading.value = true;
   if (newSrc) {
     const data = await fetch(`${newSrc}.json`);
     out.value = await data.json();
     countSeverity();
+    is_loading.value = false;
   }
 }, {immediate: true});
+
+
+watch(outFiltered, () => {
+  if (!is_loading.value) {
+    countSeverity();
+  }
+});
+
+let debouncer;
+watch(custom_filter, (newValue) => {
+  clearTimeout(debouncer);
+  debouncer = setTimeout(() => {
+    debouncedFilter.value = newValue;
+  }, 500);
+});
+
 
 
 </script>
@@ -224,12 +271,6 @@ watch(src, async (newSrc) => {
     height: 100%;
     overflow-y: scroll;
     padding: 0 12px;
-    margin-top: 80px;
-    .fixed-top {
-      width: calc(100% / 6 * 2);
-      position: fixed;
-      top: 12px;
-    }
   }
 
   .right {
@@ -237,6 +278,7 @@ watch(src, async (newSrc) => {
     background-color: #333;
     height: 100%;
     overflow-y: scroll;
+    overflow-x: hidden;
     padding: 20px;
   }
 }

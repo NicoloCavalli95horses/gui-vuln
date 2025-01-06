@@ -1,23 +1,30 @@
 <template>
   <div class="card">
-    <p v-if="item.database_specific?.severity">Severity:
-      <span :class="{
-        'purple-text': item.database_specific.severity.toLowerCase() == 'critical',
-        'red-text': item.database_specific.severity.toLowerCase() == 'high',
-        'orange-text': item.database_specific.severity.toLowerCase() == 'moderate',
-        'green-text': item.database_specific.severity.toLowerCase() == 'low',
+    <p>Severity:
+      <span v-if="severity" :class="{
+        'purple-text': severity == 'critical',
+        'red-text': severity == 'high',
+        'orange-text': ['moderate', 'medium'].includes(severity),
+        'green-text': severity == 'low',
         }"
         class="label"
       >
-      {{ item.database_specific?.severity }}</span>
+        {{ severity.toUpperCase() }}
+      </span>
+      <span v-else class="grey">unknown</span>
     </p><br>
     <p>Id: <span class="grey">{{ item.id }}</span></p>
-    <p>Summary: <span class="grey">{{ item.summary }}</span></p><br>
-    <p>Details <br><span class="grey">{{ item.details }}</span></p>
+    <p v-if="item.summary">Summary: <span class="grey" v-html="highlightWord(item.summary)"></span></p><br>
+    <p v-if="item.details">Details <br><span class="grey"v-html="highlightWord(item.details)"></span></p>
   </div>
 </template>
 
 <script setup>
+//====================================
+// Import
+//====================================
+import { computed } from 'vue';
+
 //====================================
 // Props
 //====================================
@@ -26,7 +33,37 @@ const props = defineProps({
     type: Object,
     default: () => ({})
   },
+  custom_filter: String,
 });
+
+//====================================
+// Const
+//====================================
+const severity = computed( () => props.item.database_specific?.severity?.toLowerCase() );
+
+
+//====================================
+// Functions
+//====================================
+function highlightWord(text) {
+  const escapeHtml = (unsafeText) => {
+    return unsafeText
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  };
+
+  if (props.custom_filter) {
+    const escapedFilter = props.custom_filter.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const regex = new RegExp(`(${escapedFilter})`, "gi");
+    return escapeHtml(text).replace(regex, '<span style="color: lightgreen; font-weight: bold;">$1</span>');
+  } else {
+    return escapeHtml(text);
+  }
+}
+
 
 </script>
 

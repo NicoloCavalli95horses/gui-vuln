@@ -1,6 +1,7 @@
 <template>
   <input
     v-if="['text', 'password'].includes(type)"
+    :disabled="disabled"
     :type="type"
     :autocomplete="autocomplete"
     :value="text"
@@ -11,6 +12,7 @@
 
   <textarea
     v-else-if="type == 'textarea'"
+    :disabled="disabled"
     :autocomplete="autocomplete"
     :value="text"
     :required="is_required"
@@ -35,6 +37,7 @@ const props = defineProps({
   },
   placeholder: String,
   is_required: Boolean,
+  disabled: Boolean,
 });
 
 const emit = defineEmits([
