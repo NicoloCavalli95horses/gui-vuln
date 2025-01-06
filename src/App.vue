@@ -146,7 +146,6 @@ const SRC_NAMES = [
   'Hex',
   'JavaScript',
   'Maven',
-  'miscellaneous',
   'npm',
   'NuGet',
   'PyPI',
