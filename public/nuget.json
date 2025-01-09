@@ -1,5 +1,351 @@
 [
   {
+    "id": "GHSA-257q-pv89-v3xv",
+    "summary": "Duplicate Advisory: jQuery Cross Site Scripting vulnerability",
+    "details": "## Duplicate Advisory\nThis advisory has been withdrawn because it is a duplicate of [GHSA-jpcq-cgw6-v4j6](https://github.com/advisories/GHSA-jpcq-cgw6-v4j6). This link is maintained to preserve external references.\n\n## Original Description\n\nCross Site Scripting vulnerability in jQuery v.2.2.0 until v.3.5.0 allows a remote attacker to execute arbitrary code via the `<options>` element.",
+    "modified": "2024-05-15T20:16:00.933954Z",
+    "published": "2023-06-26T21:30:58Z",
+    "withdrawn": "2024-05-15T20:10:38Z",
+    "database_specific": {
+      "nvd_published_at": "2023-06-26T19:15:09Z",
+      "cwe_ids": [
+        "CWE-79"
+      ],
+      "severity": "MODERATE",
+      "github_reviewed": true,
+      "github_reviewed_at": "2023-07-07T15:07:56Z"
+    },
+    "references": [
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-23064"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/jquery/jquery/commit/1d61fd9407e6fbe82fe55cb0b938307aa0791f77"
+      },
+      {
+        "type": "WEB",
+        "url": "https://blog.jquery.com/2020/04/10/jquery-3-5-0-released"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://github.com/advisories/GHSA-jpcq-cgw6-v4j6"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/jquery/jquery"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/rails/jquery-rails/blob/master/CHANGELOG.md#410"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/rails/jquery-rails/blob/master/CHANGELOG.md#440"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/rails/jquery-rails/blob/v4.3.5/vendor/assets/javascripts/jquery3.js#L5979"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/rails/jquery-rails/blob/v4.4.0/vendor/assets/javascripts/jquery3.js#L6162"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/jquery-rails/CVE-2020-23064.yml"
+      },
+      {
+        "type": "WEB",
+        "url": "https://security.netapp.com/advisory/ntap-20230725-0003"
+      },
+      {
+        "type": "WEB",
+        "url": "https://snyk.io/vuln/SNYK-JS-JQUERY-565129"
+      }
+    ],
+    "affected": [
+      {
+        "package": {
+          "name": "jquery",
+          "ecosystem": "npm",
+          "purl": "pkg:npm/jquery"
+        },
+        "ranges": [
+          {
+            "type": "SEMVER",
+            "events": [
+              {
+                "introduced": "1.0.3"
+              },
+              {
+                "fixed": "3.5.0"
+              }
+            ]
+          }
+        ],
+        "ecosystem_specific": {
+          "affected_functions": [
+            "(jquery).htmlPrefilter"
+          ]
+        },
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2023/06/GHSA-257q-pv89-v3xv/GHSA-257q-pv89-v3xv.json"
+        }
+      },
+      {
+        "package": {
+          "name": "jQuery",
+          "ecosystem": "NuGet",
+          "purl": "pkg:nuget/jQuery"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "1.0.3"
+              },
+              {
+                "fixed": "3.5.0"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "1.10.0",
+          "1.10.0.1",
+          "1.10.1",
+          "1.10.2",
+          "1.11.0",
+          "1.11.1",
+          "1.11.2",
+          "1.11.3",
+          "1.12.0",
+          "1.12.1",
+          "1.12.2",
+          "1.12.3",
+          "1.12.4",
+          "1.4.1",
+          "1.4.2",
+          "1.4.3",
+          "1.4.4",
+          "1.5.0",
+          "1.5.1",
+          "1.5.2",
+          "1.6.0",
+          "1.6.1",
+          "1.6.2",
+          "1.6.3",
+          "1.6.4",
+          "1.7.0",
+          "1.7.1",
+          "1.7.1.1",
+          "1.7.2",
+          "1.8.0",
+          "1.8.1",
+          "1.8.2",
+          "1.8.3",
+          "1.9.0",
+          "1.9.1",
+          "2.0.0",
+          "2.0.1",
+          "2.0.1.1",
+          "2.0.2",
+          "2.0.3",
+          "2.1.0",
+          "2.1.1",
+          "2.1.2",
+          "2.1.3",
+          "2.1.4",
+          "2.2.0",
+          "2.2.1",
+          "2.2.2",
+          "2.2.3",
+          "2.2.4",
+          "3.0.0",
+          "3.0.0.1",
+          "3.1.0",
+          "3.1.1",
+          "3.2.1",
+          "3.3.1",
+          "3.4.0",
+          "3.4.1"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2023/06/GHSA-257q-pv89-v3xv/GHSA-257q-pv89-v3xv.json"
+        }
+      },
+      {
+        "package": {
+          "name": "jquery-rails",
+          "ecosystem": "RubyGems",
+          "purl": "pkg:gem/jquery-rails"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "0"
+              },
+              {
+                "fixed": "4.4.0"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "0.1.1",
+          "0.1.2",
+          "0.1.3",
+          "0.2",
+          "0.2.1",
+          "0.2.2",
+          "0.2.3",
+          "0.2.4",
+          "0.2.5",
+          "0.2.6",
+          "0.2.7",
+          "1.0",
+          "1.0.1",
+          "1.0.10",
+          "1.0.11",
+          "1.0.12",
+          "1.0.13",
+          "1.0.14",
+          "1.0.15",
+          "1.0.16",
+          "1.0.17",
+          "1.0.18",
+          "1.0.19",
+          "1.0.2",
+          "1.0.3",
+          "1.0.4",
+          "1.0.5",
+          "1.0.6",
+          "1.0.7",
+          "1.0.8",
+          "1.0.9",
+          "1.0.rc",
+          "2.0.1",
+          "2.0.2",
+          "2.0.3",
+          "2.1.0",
+          "2.1.1",
+          "2.1.2",
+          "2.1.3",
+          "2.1.4",
+          "2.2.0",
+          "2.2.1",
+          "2.2.2",
+          "2.3.0",
+          "3.0.0",
+          "3.0.1",
+          "3.0.2",
+          "3.0.3",
+          "3.0.4",
+          "3.1.0",
+          "3.1.1",
+          "3.1.2",
+          "3.1.3",
+          "3.1.4",
+          "3.1.5",
+          "4.0.0",
+          "4.0.0.beta1",
+          "4.0.0.beta2",
+          "4.0.1",
+          "4.0.2",
+          "4.0.3",
+          "4.0.4",
+          "4.0.5",
+          "4.1.0",
+          "4.1.1",
+          "4.2.0",
+          "4.2.1",
+          "4.2.2",
+          "4.3.0",
+          "4.3.1",
+          "4.3.2",
+          "4.3.3",
+          "4.3.4",
+          "4.3.5"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2023/06/GHSA-257q-pv89-v3xv/GHSA-257q-pv89-v3xv.json"
+        }
+      },
+      {
+        "package": {
+          "name": "org.webjars.npm:jquery",
+          "ecosystem": "Maven",
+          "purl": "pkg:maven/org.webjars.npm/jquery"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "1.0.3"
+              },
+              {
+                "fixed": "3.5.0"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "1.11.0",
+          "1.11.1",
+          "1.11.3",
+          "1.12.1",
+          "1.12.2",
+          "1.12.3",
+          "1.12.4",
+          "1.7.2",
+          "1.7.3",
+          "1.8.2",
+          "1.8.3",
+          "1.9.1",
+          "2.1.0",
+          "2.1.1",
+          "2.1.1-rc1",
+          "2.1.1-rc2",
+          "2.1.3",
+          "2.1.4",
+          "2.2.0",
+          "2.2.1",
+          "2.2.2",
+          "2.2.3",
+          "2.2.4",
+          "3.0.0",
+          "3.0.0-alpha1",
+          "3.0.0-beta1",
+          "3.0.0-rc1",
+          "3.1.0",
+          "3.1.1",
+          "3.2.0",
+          "3.2.1",
+          "3.3.0",
+          "3.3.1",
+          "3.4.0",
+          "3.4.1"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2023/06/GHSA-257q-pv89-v3xv/GHSA-257q-pv89-v3xv.json"
+        }
+      }
+    ],
+    "schema_version": "1.6.0",
+    "severity": [
+      {
+        "type": "CVSS_V3",
+        "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+      }
+    ]
+  },
+  {
     "id": "GHSA-2pqj-h3vj-pqgw",
     "summary": "Cross-Site Scripting in jquery",
     "details": "Affected versions of `jquery` are vulnerable to cross-site scripting. This occurs because the main `jquery` function uses a regular expression to differentiate between HTML and selectors, but does not properly anchor the regular expression. The result is that `jquery` may interpret HTML as selectors when given certain inputs, allowing for client side code execution.\n\n## Proof of Concept\n```\n$(\"#log\").html(\n    $(\"element[attribute='<img src=\\\"x\\\" onerror=\\\"alert(1)\\\" />']\").html()\n);\n```\n\n\n\n\n## Recommendation\n\nUpdate to version 1.9.0 or later.",
@@ -1522,28 +1868,161 @@
     ]
   },
   {
-    "id": "GHSA-674j-7m97-j2p9",
-    "summary": "curl FTP path confusion leads to NIL byte out of bounds write",
-    "details": "curl can be coerced into writing a zero byte out of bounds.\n\nThis bug can trigger when curl is told to work on an FTP URL, with the setting to only issue a single CWD command (--ftp-method singlecwd or the libcurl alternative [CURLOPT_FTP_FILEMETHOD](https://curl.se/libcurl/c/CURLOPT_FTP_FILEMETHOD.html)).\n\ncurl then URL-decodes the given path, calls strlen() on the result and deducts the length of the file name part to find the end of the directory within the buffer. It then writes a zero byte on that index, in a buffer allocated on the heap.\n\nIf the directory part of the URL contains a `%00` sequence, the directory length might end up shorter than the file name path, making the calculation `size_t index = directory_len - filepart_len` end up with a huge index variable for where the zero byte gets stored: `heap_buffer[index] = 0`. On several architectures that huge index will wrap and work as a negative value, thus overwriting memory before the intended heap buffer.\n\nBy using different file part lengths and putting the string `%00` in different places in the URL, an attacker that can control what paths a curl-using application uses can write that zero byte on different indexes.\n",
+    "id": "GHSA-6c3j-c64m-qhgq",
+    "summary": "XSS in jQuery as used in Drupal, Backdrop CMS, and other products",
+    "details": "jQuery from 1.1.4 until 3.4.0, as used in Drupal, Backdrop CMS, and other products, mishandles `jQuery.extend(true, {}, ...)` because of `Object.prototype` pollution. If an unsanitized source object contained an enumerable `__proto__` property, it could extend the native `Object.prototype`.",
     "aliases": [
-      "CURL-CVE-2018-1000120",
-      "CVE-2018-1000120"
+      "CVE-2019-11358",
+      "SNYK-JS-JQUERY-174006"
     ],
-    "modified": "2024-03-12T05:17:27.525518Z",
-    "published": "2022-05-14T00:58:02Z",
+    "modified": "2024-11-05T20:22:31.903343Z",
+    "published": "2019-04-26T16:29:11Z",
     "database_specific": {
-      "nvd_published_at": "2018-03-14T18:29:00Z",
+      "nvd_published_at": "2019-04-20T00:29:00Z",
       "cwe_ids": [
-        "CWE-787"
+        "CWE-1321",
+        "CWE-79"
       ],
-      "severity": "CRITICAL",
+      "severity": "MODERATE",
       "github_reviewed": true,
-      "github_reviewed_at": "2023-03-01T22:23:11Z"
+      "github_reviewed_at": "2019-04-26T16:28:41Z"
     },
     "references": [
       {
         "type": "ADVISORY",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-1000120"
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-11358"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/maximebf/php-debugbar/issues/447"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/jquery/jquery/pull/4333"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/maximebf/php-debugbar/commit/847216e60544258c881f2733d699bbcfeefac0fc"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/django/django/commit/34ec52269ade54af31a021b12969913129571a3f"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/django/django/commit/95649bc08547a878cebfa1d019edec8cb1b80829"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/django/django/commit/baaf187a4e354bf3976c51e2c83a0d2f8ee6e6ad"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/jquery/jquery/commit/753d591aea698e57d6db58c9f722cd0808619b1b"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/WZW27UCJ5CYFL4KFFFMYMIBNMIU2ALG5"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/4UOAZIFCSZ3ENEFOR5IXX6NFAD3HV7FA"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/5IABSKTYZ5JUGL735UKGXL5YPRYOPUYI"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/KYH3OAGR2RTCHRA5NOKX2TES7SNQMWGO"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/QV3PKZC3PQCO3273HAT76PAQZFBEO4KP"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/RLXRX23725JL366CNZGJZ7AQQB7LHQ6F"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/WZW27UCJ5CYFL4KFFFMYMIBNMIU2ALG5"
+      },
+      {
+        "type": "WEB",
+        "url": "https://seclists.org/bugtraq/2019/Apr/32"
+      },
+      {
+        "type": "WEB",
+        "url": "https://seclists.org/bugtraq/2019/Jun/12"
+      },
+      {
+        "type": "WEB",
+        "url": "https://seclists.org/bugtraq/2019/May/18"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.tenable.com/security/tns-2020-02"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/RLXRX23725JL366CNZGJZ7AQQB7LHQ6F"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/QV3PKZC3PQCO3273HAT76PAQZFBEO4KP"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/KYH3OAGR2RTCHRA5NOKX2TES7SNQMWGO"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/5IABSKTYZ5JUGL735UKGXL5YPRYOPUYI"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/4UOAZIFCSZ3ENEFOR5IXX6NFAD3HV7FA"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.debian.org/debian-lts-announce/2023/08/msg00040.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.debian.org/debian-lts-announce/2020/02/msg00024.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.debian.org/debian-lts-announce/2019/05/msg00029.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.debian.org/debian-lts-announce/2019/05/msg00006.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/rca37935d661f4689cb4119f1b3b224413b22be161b678e6e6ce0c69b@%3Ccommits.nifi.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/rca37935d661f4689cb4119f1b3b224413b22be161b678e6e6ce0c69b%40%3Ccommits.nifi.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/rac25da84ecdcd36f6de5ad0d255f4e967209bbbebddb285e231da37d@%3Cissues.flink.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.tenable.com/security/tns-2019-08"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.synology.com/security/advisory/Synology_SA_19_19"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.privacy-wise.com/mitigating-cve-2019-11358-in-old-versions-of-jquery"
       },
       {
         "type": "WEB",
@@ -1555,101 +2034,726 @@
       },
       {
         "type": "WEB",
-        "url": "https://www.oracle.com/technetwork/security-advisory/cpujan2019-5072801.html"
+        "url": "https://www.oracle.com/security-alerts/cpuoct2021.html"
       },
       {
         "type": "WEB",
-        "url": "https://www.debian.org/security/2018/dsa-4136"
+        "url": "https://www.oracle.com/security-alerts/cpuoct2020.html"
       },
       {
         "type": "WEB",
-        "url": "https://web.archive.org/web/20201220134609/http://www.securityfocus.com/bid/103414"
+        "url": "https://www.oracle.com/security-alerts/cpujul2020.html"
       },
       {
         "type": "WEB",
-        "url": "https://web.archive.org/web/20201220134105/http://www.securitytracker.com/id/1040531"
+        "url": "https://www.oracle.com/security-alerts/cpujan2022.html"
       },
       {
         "type": "WEB",
-        "url": "https://usn.ubuntu.com/3598-2"
+        "url": "https://www.oracle.com/security-alerts/cpujan2021.html"
       },
       {
         "type": "WEB",
-        "url": "https://usn.ubuntu.com/3598-1"
+        "url": "https://www.oracle.com/security-alerts/cpujan2020.html"
       },
       {
         "type": "WEB",
-        "url": "https://lists.debian.org/debian-lts-announce/2018/03/msg00012.html"
+        "url": "https://www.oracle.com/security-alerts/cpuapr2020.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.oracle.com/security-alerts/cpuApr2021.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.oracle.com//security-alerts/cpujul2021.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.drupal.org/sa-core-2019-006"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.djangoproject.com/weblog/2019/jun/03/security-releases"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.debian.org/security/2019/dsa-4460"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.debian.org/security/2019/dsa-4434"
+      },
+      {
+        "type": "WEB",
+        "url": "https://web.archive.org/web/20190824065237/http://www.securityfocus.com/bid/108023"
+      },
+      {
+        "type": "WEB",
+        "url": "https://supportportal.juniper.net/s/article/2021-07-Security-Bulletin-Junos-OS-Multiple-J-Web-vulnerabilities-resolved-in-Junos-OS-21-2R1"
+      },
+      {
+        "type": "WEB",
+        "url": "https://snyk.io/vuln/SNYK-JS-JQUERY-174006"
+      },
+      {
+        "type": "WEB",
+        "url": "https://security.snyk.io/vuln/SNYK-DOTNET-JQUERY-450226"
+      },
+      {
+        "type": "WEB",
+        "url": "https://security.netapp.com/advisory/ntap-20190919-0001"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/b0656d359c7d40ec9f39c8cc61bca66802ef9a2a12ee199f5b0c1442@%3Cdev.drill.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/b0656d359c7d40ec9f39c8cc61bca66802ef9a2a12ee199f5b0c1442%40%3Cdev.drill.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/88fb0362fd40e5b605ea8149f63241537b8b6fb5bfa315391fc5cbb7@%3Ccommits.airflow.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/88fb0362fd40e5b605ea8149f63241537b8b6fb5bfa315391fc5cbb7%40%3Ccommits.airflow.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/6097cdbd6f0a337bedd9bb5cc441b2d525ff002a96531de367e4259f@%3Ccommits.airflow.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/6097cdbd6f0a337bedd9bb5cc441b2d525ff002a96531de367e4259f%40%3Ccommits.airflow.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/5928aa293e39d248266472210c50f176cac1535220f2486e6a7fa844@%3Ccommits.airflow.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/5928aa293e39d248266472210c50f176cac1535220f2486e6a7fa844%40%3Ccommits.airflow.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/519eb0fd45642dcecd9ff74cb3e71c20a4753f7d82e2f07864b5108f@%3Cdev.drill.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/519eb0fd45642dcecd9ff74cb3e71c20a4753f7d82e2f07864b5108f%40%3Cdev.drill.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/08720ef215ee7ab3386c05a1a90a7d1c852bf0706f176a7816bf65fc@%3Ccommits.airflow.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/08720ef215ee7ab3386c05a1a90a7d1c852bf0706f176a7816bf65fc%40%3Ccommits.airflow.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://kb.pulsesecure.net/articles/Pulse_Security_Advisories/SA44601"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/jquery-rails/CVE-2019-11358.yml"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/rails/jquery-rails/blob/master/CHANGELOG.md#434"
       },
       {
         "type": "PACKAGE",
-        "url": "https://github.com/coapp-packages/curl"
+        "url": "https://github.com/jquery/jquery"
       },
       {
         "type": "WEB",
-        "url": "https://curl.se/docs/CVE-2018-1000120.html"
+        "url": "https://blog.jquery.com/2019/04/10/jquery-3-4-0-released"
       },
       {
         "type": "WEB",
-        "url": "https://curl.haxx.se/docs/adv_2018-9cd6.html"
+        "url": "https://backdropcms.org/security/backdrop-sa-core-2019-009"
       },
       {
         "type": "WEB",
-        "url": "https://access.redhat.com/errata/RHSA-2020:0594"
+        "url": "https://access.redhat.com/errata/RHSA-2019:3024"
       },
       {
         "type": "WEB",
-        "url": "https://access.redhat.com/errata/RHSA-2020:0544"
+        "url": "https://access.redhat.com/errata/RHSA-2019:3023"
       },
       {
         "type": "WEB",
-        "url": "https://access.redhat.com/errata/RHSA-2019:1543"
+        "url": "https://access.redhat.com/errata/RHSA-2019:2587"
       },
       {
         "type": "WEB",
-        "url": "https://access.redhat.com/errata/RHSA-2018:3558"
+        "url": "https://access.redhat.com/errata/RHSA-2019:1456"
       },
       {
         "type": "WEB",
-        "url": "https://access.redhat.com/errata/RHSA-2018:3157"
+        "url": "https://access.redhat.com/errata/RHBA-2019:1570"
       },
       {
         "type": "WEB",
-        "url": "https://access.redhat.com/errata/RHBA-2019:0327"
+        "url": "https://lists.apache.org/thread.html/rac25da84ecdcd36f6de5ad0d255f4e967209bbbebddb285e231da37d%40%3Cissues.flink.apache.org%3E"
       },
       {
         "type": "WEB",
-        "url": "http://www.oracle.com/technetwork/security-advisory/cpujul2018-4258247.html"
+        "url": "https://lists.apache.org/thread.html/r7e8ebccb7c022e41295f6fdb7b971209b83702339f872ddd8cf8bf73@%3Cissues.flink.apache.org%3E"
       },
       {
         "type": "WEB",
-        "url": "http://www.oracle.com/technetwork/security-advisory/cpuoct2018-4428296.html"
+        "url": "https://lists.apache.org/thread.html/r7e8ebccb7c022e41295f6fdb7b971209b83702339f872ddd8cf8bf73%40%3Cissues.flink.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r7d64895cc4dff84d0becfc572b20c0e4bf9bfa7b10c6f5f73e783734@%3Cdev.storm.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r7d64895cc4dff84d0becfc572b20c0e4bf9bfa7b10c6f5f73e783734%40%3Cdev.storm.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r7aac081cbddb6baa24b75e74abf0929bf309b176755a53e3ed810355@%3Cdev.flink.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r7aac081cbddb6baa24b75e74abf0929bf309b176755a53e3ed810355%40%3Cdev.flink.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r41b5bfe009c845f67d4f68948cc9419ac2d62e287804aafd72892b08@%3Cissues.flink.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r41b5bfe009c845f67d4f68948cc9419ac2d62e287804aafd72892b08%40%3Cissues.flink.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r38f0d1aa3c923c22977fe7376508f030f22e22c1379fbb155bf29766@%3Cdev.syncope.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r38f0d1aa3c923c22977fe7376508f030f22e22c1379fbb155bf29766%40%3Cdev.syncope.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r2baacab6e0acb5a2092eb46ae04fd6c3e8277b4fd79b1ffb7f3254fa@%3Cissues.flink.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r2baacab6e0acb5a2092eb46ae04fd6c3e8277b4fd79b1ffb7f3254fa%40%3Cissues.flink.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r2041a75d3fc09dec55adfd95d598b38d22715303f65c997c054844c9@%3Cissues.flink.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r2041a75d3fc09dec55adfd95d598b38d22715303f65c997c054844c9%40%3Cissues.flink.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/f9bc3e55f4e28d1dcd1a69aae6d53e609a758e34d2869b4d798e13cc@%3Cissues.drill.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/f9bc3e55f4e28d1dcd1a69aae6d53e609a758e34d2869b4d798e13cc%40%3Cissues.drill.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/bcce5a9c532b386c68dab2f6b3ce8b0cc9b950ec551766e76391caa3@%3Ccommits.nifi.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/bcce5a9c532b386c68dab2f6b3ce8b0cc9b950ec551766e76391caa3%40%3Ccommits.nifi.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/ba79cf1658741e9f146e4c59b50aee56656ea95d841d358d006c18b6@%3Ccommits.roller.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/ba79cf1658741e9f146e4c59b50aee56656ea95d841d358d006c18b6%40%3Ccommits.roller.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/b736d0784cf02f5a30fbb4c5902762a15ad6d47e17e2c5a17b7d6205@%3Ccommits.airflow.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/b736d0784cf02f5a30fbb4c5902762a15ad6d47e17e2c5a17b7d6205%40%3Ccommits.airflow.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "http://lists.opensuse.org/opensuse-security-announce/2019-08/msg00006.html"
+      },
+      {
+        "type": "WEB",
+        "url": "http://lists.opensuse.org/opensuse-security-announce/2019-08/msg00025.html"
+      },
+      {
+        "type": "WEB",
+        "url": "http://packetstormsecurity.com/files/152787/dotCMS-5.1.1-Vulnerable-Dependencies.html"
+      },
+      {
+        "type": "WEB",
+        "url": "http://packetstormsecurity.com/files/153237/RetireJS-CORS-Issue-Script-Execution.html"
+      },
+      {
+        "type": "WEB",
+        "url": "http://packetstormsecurity.com/files/156743/OctoberCMS-Insecure-Dependencies.html"
+      },
+      {
+        "type": "WEB",
+        "url": "http://seclists.org/fulldisclosure/2019/May/10"
+      },
+      {
+        "type": "WEB",
+        "url": "http://seclists.org/fulldisclosure/2019/May/11"
+      },
+      {
+        "type": "WEB",
+        "url": "http://seclists.org/fulldisclosure/2019/May/13"
+      },
+      {
+        "type": "WEB",
+        "url": "http://www.openwall.com/lists/oss-security/2019/06/03/2"
+      },
+      {
+        "type": "WEB",
+        "url": "http://www.securityfocus.com/bid/108023"
       }
     ],
     "affected": [
       {
         "package": {
-          "name": "curl",
-          "ecosystem": "NuGet",
-          "purl": "pkg:nuget/curl"
+          "name": "jquery",
+          "ecosystem": "npm",
+          "purl": "pkg:npm/jquery"
+        },
+        "ranges": [
+          {
+            "type": "SEMVER",
+            "events": [
+              {
+                "introduced": "1.1.4"
+              },
+              {
+                "fixed": "3.4.0"
+              }
+            ]
+          }
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2019/04/GHSA-6c3j-c64m-qhgq/GHSA-6c3j-c64m-qhgq.json"
+        }
+      },
+      {
+        "package": {
+          "name": "jquery-rails",
+          "ecosystem": "RubyGems",
+          "purl": "pkg:gem/jquery-rails"
         },
         "ranges": [
           {
             "type": "ECOSYSTEM",
             "events": [
               {
-                "introduced": "7.12.3"
+                "introduced": "0"
+              },
+              {
+                "fixed": "4.3.4"
               }
             ]
           }
         ],
         "versions": [
-          "7.30.0.1",
-          "7.30.0.2"
+          "0.1.1",
+          "0.1.2",
+          "0.1.3",
+          "0.2",
+          "0.2.1",
+          "0.2.2",
+          "0.2.3",
+          "0.2.4",
+          "0.2.5",
+          "0.2.6",
+          "0.2.7",
+          "1.0",
+          "1.0.1",
+          "1.0.10",
+          "1.0.11",
+          "1.0.12",
+          "1.0.13",
+          "1.0.14",
+          "1.0.15",
+          "1.0.16",
+          "1.0.17",
+          "1.0.18",
+          "1.0.19",
+          "1.0.2",
+          "1.0.3",
+          "1.0.4",
+          "1.0.5",
+          "1.0.6",
+          "1.0.7",
+          "1.0.8",
+          "1.0.9",
+          "1.0.rc",
+          "2.0.1",
+          "2.0.2",
+          "2.0.3",
+          "2.1.0",
+          "2.1.1",
+          "2.1.2",
+          "2.1.3",
+          "2.1.4",
+          "2.2.0",
+          "2.2.1",
+          "2.2.2",
+          "2.3.0",
+          "3.0.0",
+          "3.0.1",
+          "3.0.2",
+          "3.0.3",
+          "3.0.4",
+          "3.1.0",
+          "3.1.1",
+          "3.1.2",
+          "3.1.3",
+          "3.1.4",
+          "3.1.5",
+          "4.0.0",
+          "4.0.0.beta1",
+          "4.0.0.beta2",
+          "4.0.1",
+          "4.0.2",
+          "4.0.3",
+          "4.0.4",
+          "4.0.5",
+          "4.1.0",
+          "4.1.1",
+          "4.2.0",
+          "4.2.1",
+          "4.2.2",
+          "4.3.0",
+          "4.3.1",
+          "4.3.2",
+          "4.3.3"
         ],
         "database_specific": {
-          "last_known_affected_version_range": "< 7.59.0",
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2022/05/GHSA-674j-7m97-j2p9/GHSA-674j-7m97-j2p9.json"
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2019/04/GHSA-6c3j-c64m-qhgq/GHSA-6c3j-c64m-qhgq.json"
+        }
+      },
+      {
+        "package": {
+          "name": "jQuery",
+          "ecosystem": "NuGet",
+          "purl": "pkg:nuget/jQuery"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "1.1.4"
+              },
+              {
+                "fixed": "3.4.0"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "1.10.0",
+          "1.10.0.1",
+          "1.10.1",
+          "1.10.2",
+          "1.11.0",
+          "1.11.1",
+          "1.11.2",
+          "1.11.3",
+          "1.12.0",
+          "1.12.1",
+          "1.12.2",
+          "1.12.3",
+          "1.12.4",
+          "1.4.1",
+          "1.4.2",
+          "1.4.3",
+          "1.4.4",
+          "1.5.0",
+          "1.5.1",
+          "1.5.2",
+          "1.6.0",
+          "1.6.1",
+          "1.6.2",
+          "1.6.3",
+          "1.6.4",
+          "1.7.0",
+          "1.7.1",
+          "1.7.1.1",
+          "1.7.2",
+          "1.8.0",
+          "1.8.1",
+          "1.8.2",
+          "1.8.3",
+          "1.9.0",
+          "1.9.1",
+          "2.0.0",
+          "2.0.1",
+          "2.0.1.1",
+          "2.0.2",
+          "2.0.3",
+          "2.1.0",
+          "2.1.1",
+          "2.1.2",
+          "2.1.3",
+          "2.1.4",
+          "2.2.0",
+          "2.2.1",
+          "2.2.2",
+          "2.2.3",
+          "2.2.4",
+          "3.0.0",
+          "3.0.0.1",
+          "3.1.0",
+          "3.1.1",
+          "3.2.1",
+          "3.3.1"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2019/04/GHSA-6c3j-c64m-qhgq/GHSA-6c3j-c64m-qhgq.json"
+        }
+      },
+      {
+        "package": {
+          "name": "django",
+          "ecosystem": "PyPI",
+          "purl": "pkg:pypi/django"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "2.0a1"
+              },
+              {
+                "fixed": "2.1.9"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "2.0",
+          "2.0.1",
+          "2.0.10",
+          "2.0.12",
+          "2.0.13",
+          "2.0.2",
+          "2.0.3",
+          "2.0.4",
+          "2.0.5",
+          "2.0.6",
+          "2.0.7",
+          "2.0.8",
+          "2.0.9",
+          "2.0a1",
+          "2.0b1",
+          "2.0rc1",
+          "2.1",
+          "2.1.1",
+          "2.1.2",
+          "2.1.3",
+          "2.1.4",
+          "2.1.5",
+          "2.1.7",
+          "2.1.8",
+          "2.1a1",
+          "2.1b1",
+          "2.1rc1"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2019/04/GHSA-6c3j-c64m-qhgq/GHSA-6c3j-c64m-qhgq.json"
+        }
+      },
+      {
+        "package": {
+          "name": "django",
+          "ecosystem": "PyPI",
+          "purl": "pkg:pypi/django"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "2.2a1"
+              },
+              {
+                "fixed": "2.2.2"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "2.2",
+          "2.2.1",
+          "2.2a1",
+          "2.2b1",
+          "2.2rc1"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2019/04/GHSA-6c3j-c64m-qhgq/GHSA-6c3j-c64m-qhgq.json"
+        }
+      },
+      {
+        "package": {
+          "name": "org.webjars.npm:jquery",
+          "ecosystem": "Maven",
+          "purl": "pkg:maven/org.webjars.npm/jquery"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "1.1.4"
+              },
+              {
+                "fixed": "3.4.0"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "1.11.0",
+          "1.11.1",
+          "1.11.3",
+          "1.12.1",
+          "1.12.2",
+          "1.12.3",
+          "1.12.4",
+          "1.7.2",
+          "1.7.3",
+          "1.8.2",
+          "1.8.3",
+          "1.9.1",
+          "2.1.0",
+          "2.1.1",
+          "2.1.1-rc1",
+          "2.1.1-rc2",
+          "2.1.3",
+          "2.1.4",
+          "2.2.0",
+          "2.2.1",
+          "2.2.2",
+          "2.2.3",
+          "2.2.4",
+          "3.0.0",
+          "3.0.0-alpha1",
+          "3.0.0-beta1",
+          "3.0.0-rc1",
+          "3.1.0",
+          "3.1.1",
+          "3.2.0",
+          "3.2.1",
+          "3.3.0",
+          "3.3.1"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2019/04/GHSA-6c3j-c64m-qhgq/GHSA-6c3j-c64m-qhgq.json"
+        }
+      },
+      {
+        "package": {
+          "name": "maximebf/debugbar",
+          "ecosystem": "Packagist",
+          "purl": "pkg:composer/maximebf/debugbar"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "0"
+              },
+              {
+                "fixed": "1.19.0"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "1.0",
+          "1.0.1",
+          "1.0.2",
+          "1.0.3",
+          "1.0.4",
+          "1.1",
+          "1.10.0",
+          "1.10.1",
+          "1.13.1",
+          "1.2",
+          "1.3",
+          "1.4",
+          "1.5",
+          "1.5.1",
+          "1.6",
+          "1.6.1",
+          "1.7",
+          "1.7.1",
+          "1.8",
+          "1.9",
+          "1.9.1",
+          "1.9.10",
+          "1.9.11",
+          "1.9.12",
+          "1.9.13",
+          "1.9.14",
+          "1.9.15",
+          "1.9.2",
+          "1.9.3",
+          "1.9.4",
+          "1.9.5",
+          "1.9.6",
+          "1.9.7",
+          "1.9.8",
+          "1.9.9",
+          "v1.10.2",
+          "v1.10.3",
+          "v1.10.4",
+          "v1.10.5",
+          "v1.11.0",
+          "v1.11.1",
+          "v1.12.0",
+          "v1.13.0",
+          "v1.14.0",
+          "v1.14.1",
+          "v1.15.0",
+          "v1.15.1",
+          "v1.16.0",
+          "v1.16.1",
+          "v1.16.2",
+          "v1.16.3",
+          "v1.16.4",
+          "v1.16.5",
+          "v1.17.0",
+          "v1.17.1",
+          "v1.17.2",
+          "v1.17.3",
+          "v1.18.0",
+          "v1.18.1",
+          "v1.18.2"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2019/04/GHSA-6c3j-c64m-qhgq/GHSA-6c3j-c64m-qhgq.json"
         }
       }
     ],
@@ -1657,7 +2761,7 @@
     "severity": [
       {
         "type": "CVSS_V3",
-        "score": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+        "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
       }
     ]
   },
@@ -3588,346 +4692,6 @@
       {
         "type": "CVSS_V3",
         "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H"
-      }
-    ]
-  },
-  {
-    "id": "GHSA-93h6-wx7r-mgfp",
-    "summary": "Cross Site Scripting (XSS) in Serenity",
-    "details": "An XSS issue was discovered in Serenity Serene (and StartSharp) before 6.7.0. When users upload temporary files, some specific file endings are not allowed, but it is possible to upload .html or .htm files containing an XSS payload. The resulting link can be sent to an administrator user.",
-    "aliases": [
-      "CVE-2023-31285"
-    ],
-    "modified": "2024-02-16T08:23:42.961529Z",
-    "published": "2023-04-27T03:30:23Z",
-    "database_specific": {
-      "nvd_published_at": "2023-04-27T03:15:10Z",
-      "cwe_ids": [
-        "CWE-79"
-      ],
-      "severity": "MODERATE",
-      "github_reviewed": true,
-      "github_reviewed_at": "2023-04-27T17:07:49Z"
-    },
-    "references": [
-      {
-        "type": "ADVISORY",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-31285"
-      },
-      {
-        "type": "WEB",
-        "url": "https://github.com/serenity-is/Serenity/commit/11b9d267f840513d04b4f4d4876de7823a6e48d2"
-      },
-      {
-        "type": "WEB",
-        "url": "https://github.com/serenity-is/Serenity/commit/f54e9bfcf8ceb7f26f81a7362349bc1f63251d92"
-      },
-      {
-        "type": "WEB",
-        "url": "https://github.com/serenity-is/serene/commit/6dce8162f4382badd429a9f0f1470acb64e8c4fd"
-      },
-      {
-        "type": "PACKAGE",
-        "url": "https://github.com/serenity-is/Serenity"
-      },
-      {
-        "type": "WEB",
-        "url": "http://packetstormsecurity.com/files/172648/Serenity-StartSharp-Software-File-Upload-XSS-User-Enumeration-Reusable-Tokens.html"
-      },
-      {
-        "type": "WEB",
-        "url": "http://seclists.org/fulldisclosure/2023/May/14"
-      }
-    ],
-    "affected": [
-      {
-        "package": {
-          "name": "Serenity.Net.Core",
-          "ecosystem": "NuGet",
-          "purl": "pkg:nuget/Serenity.Net.Core"
-        },
-        "ranges": [
-          {
-            "type": "ECOSYSTEM",
-            "events": [
-              {
-                "introduced": "0"
-              },
-              {
-                "fixed": "6.7.0"
-              }
-            ]
-          }
-        ],
-        "versions": [
-          "5.0.0",
-          "5.0.1",
-          "5.0.10",
-          "5.0.11",
-          "5.0.12",
-          "5.0.13",
-          "5.0.17",
-          "5.0.18",
-          "5.0.19",
-          "5.0.2",
-          "5.0.20",
-          "5.0.21",
-          "5.0.22",
-          "5.0.23",
-          "5.0.24",
-          "5.0.25",
-          "5.0.26",
-          "5.0.27",
-          "5.0.28",
-          "5.0.29",
-          "5.0.3",
-          "5.0.30",
-          "5.0.31",
-          "5.0.32",
-          "5.0.33",
-          "5.0.34",
-          "5.0.35",
-          "5.0.36",
-          "5.0.37",
-          "5.0.38",
-          "5.0.39",
-          "5.0.4",
-          "5.0.40",
-          "5.0.41",
-          "5.0.42",
-          "5.0.43",
-          "5.0.44",
-          "5.0.45",
-          "5.0.46",
-          "5.0.47",
-          "5.0.48",
-          "5.0.49",
-          "5.0.5",
-          "5.0.50",
-          "5.0.51",
-          "5.0.6",
-          "5.0.7",
-          "5.0.8",
-          "5.0.9",
-          "5.1.0",
-          "5.1.1",
-          "5.1.2",
-          "5.1.3",
-          "5.2.0",
-          "5.2.1",
-          "5.2.2",
-          "5.2.3",
-          "5.2.4",
-          "6.0.0",
-          "6.0.1",
-          "6.0.2",
-          "6.0.3",
-          "6.0.4",
-          "6.0.5",
-          "6.0.6",
-          "6.0.7",
-          "6.0.8",
-          "6.1.0",
-          "6.1.1",
-          "6.1.2",
-          "6.1.3",
-          "6.1.4",
-          "6.1.5",
-          "6.1.6",
-          "6.1.7",
-          "6.1.8",
-          "6.1.9",
-          "6.2.0",
-          "6.2.1",
-          "6.2.2",
-          "6.2.3",
-          "6.2.4",
-          "6.2.5",
-          "6.2.6",
-          "6.2.7",
-          "6.2.8",
-          "6.2.9",
-          "6.3.0",
-          "6.3.1",
-          "6.3.2",
-          "6.3.3",
-          "6.3.4",
-          "6.3.5",
-          "6.3.6",
-          "6.4.0",
-          "6.4.1",
-          "6.4.10",
-          "6.4.2",
-          "6.4.3",
-          "6.4.4",
-          "6.4.6",
-          "6.4.7",
-          "6.4.8",
-          "6.4.9",
-          "6.5.0",
-          "6.5.1",
-          "6.5.2",
-          "6.5.3",
-          "6.5.4",
-          "6.6.0",
-          "6.6.1",
-          "6.6.2",
-          "6.6.3",
-          "6.6.4",
-          "6.6.5",
-          "6.6.6"
-        ],
-        "database_specific": {
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2023/04/GHSA-93h6-wx7r-mgfp/GHSA-93h6-wx7r-mgfp.json"
-        }
-      },
-      {
-        "package": {
-          "name": "Serenity.Net.Services",
-          "ecosystem": "NuGet",
-          "purl": "pkg:nuget/Serenity.Net.Services"
-        },
-        "ranges": [
-          {
-            "type": "ECOSYSTEM",
-            "events": [
-              {
-                "introduced": "0"
-              },
-              {
-                "fixed": "6.7.0"
-              }
-            ]
-          }
-        ],
-        "versions": [
-          "5.0.0",
-          "5.0.1",
-          "5.0.10",
-          "5.0.11",
-          "5.0.12",
-          "5.0.13",
-          "5.0.17",
-          "5.0.18",
-          "5.0.19",
-          "5.0.2",
-          "5.0.20",
-          "5.0.21",
-          "5.0.22",
-          "5.0.23",
-          "5.0.24",
-          "5.0.25",
-          "5.0.26",
-          "5.0.27",
-          "5.0.28",
-          "5.0.29",
-          "5.0.3",
-          "5.0.30",
-          "5.0.31",
-          "5.0.32",
-          "5.0.33",
-          "5.0.34",
-          "5.0.35",
-          "5.0.36",
-          "5.0.37",
-          "5.0.38",
-          "5.0.39",
-          "5.0.4",
-          "5.0.40",
-          "5.0.41",
-          "5.0.42",
-          "5.0.43",
-          "5.0.44",
-          "5.0.45",
-          "5.0.46",
-          "5.0.47",
-          "5.0.48",
-          "5.0.49",
-          "5.0.5",
-          "5.0.50",
-          "5.0.51",
-          "5.0.6",
-          "5.0.7",
-          "5.0.8",
-          "5.0.9",
-          "5.1.0",
-          "5.1.1",
-          "5.1.2",
-          "5.1.3",
-          "5.2.0",
-          "5.2.1",
-          "5.2.2",
-          "5.2.3",
-          "5.2.4",
-          "6.0.0",
-          "6.0.1",
-          "6.0.2",
-          "6.0.3",
-          "6.0.4",
-          "6.0.5",
-          "6.0.6",
-          "6.0.7",
-          "6.0.8",
-          "6.1.0",
-          "6.1.1",
-          "6.1.2",
-          "6.1.3",
-          "6.1.4",
-          "6.1.5",
-          "6.1.6",
-          "6.1.7",
-          "6.1.8",
-          "6.1.9",
-          "6.2.0",
-          "6.2.1",
-          "6.2.2",
-          "6.2.3",
-          "6.2.4",
-          "6.2.5",
-          "6.2.6",
-          "6.2.7",
-          "6.2.8",
-          "6.2.9",
-          "6.3.0",
-          "6.3.1",
-          "6.3.2",
-          "6.3.3",
-          "6.3.4",
-          "6.3.5",
-          "6.3.6",
-          "6.4.0",
-          "6.4.1",
-          "6.4.10",
-          "6.4.2",
-          "6.4.3",
-          "6.4.4",
-          "6.4.6",
-          "6.4.7",
-          "6.4.8",
-          "6.4.9",
-          "6.5.0",
-          "6.5.1",
-          "6.5.2",
-          "6.5.3",
-          "6.5.4",
-          "6.6.0",
-          "6.6.1",
-          "6.6.2",
-          "6.6.3",
-          "6.6.4",
-          "6.6.5",
-          "6.6.6"
-        ],
-        "database_specific": {
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2023/04/GHSA-93h6-wx7r-mgfp/GHSA-93h6-wx7r-mgfp.json"
-        }
-      }
-    ],
-    "schema_version": "1.6.0",
-    "severity": [
-      {
-        "type": "CVSS_V3",
-        "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
       }
     ]
   },
@@ -7076,145 +7840,6 @@
     ]
   },
   {
-    "id": "GHSA-g85r-6x2q-45w7",
-    "summary": "SixLabors.ImageSharp vulnerable to Memory Allocation with Excessive Size Value",
-    "details": "### Impact\n\nA vulnerability discovered in the ImageSharp library, where the processing of specially crafted files can lead to excessive memory usage in image decoders. The vulnerability is triggered when ImageSharp attempts to process image files that are designed to exploit this flaw. \n\nThis flaw can be exploited to cause a denial of service (DoS) by depleting process memory, thereby affecting applications and services that rely on ImageSharp for image processing tasks. Users and administrators are advised to update to the latest version of ImageSharp that addresses this vulnerability to mitigate the risk of exploitation.\n\n### Patches\n\nThe problem has been patched. All users are advised to upgrade to v3.1.4 or v2.1.8.\n\n### Workarounds\n\nBefore calling `Image.Decode(Async)`, use `Image.Identify` to determine the image dimensions in order to enforce a limit.\n\n### References\n\n- ImageSharp: [Security Considerations](https://docs.sixlabors.com/articles/imagesharp/security.html)\n- ImageSharp.Web: [Securing Processing Commands](https://docs.sixlabors.com/articles/imagesharp.web/processingcommands.html#securing-processing-commands)",
-    "aliases": [
-      "CVE-2024-32035"
-    ],
-    "modified": "2024-04-15T21:46:40.459647Z",
-    "published": "2024-04-15T20:22:54Z",
-    "database_specific": {
-      "nvd_published_at": "2024-04-15T20:15:11Z",
-      "cwe_ids": [
-        "CWE-789"
-      ],
-      "severity": "MODERATE",
-      "github_reviewed": true,
-      "github_reviewed_at": "2024-04-15T20:22:54Z"
-    },
-    "references": [
-      {
-        "type": "WEB",
-        "url": "https://github.com/SixLabors/ImageSharp/security/advisories/GHSA-g85r-6x2q-45w7"
-      },
-      {
-        "type": "ADVISORY",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-32035"
-      },
-      {
-        "type": "WEB",
-        "url": "https://github.com/SixLabors/ImageSharp/commit/b6b08ac3e7cea8da5ac1e90f7c0b67dd254535c3"
-      },
-      {
-        "type": "WEB",
-        "url": "https://github.com/SixLabors/ImageSharp/commit/f21d64188e59ae9464ff462056a5e29d8e618b27"
-      },
-      {
-        "type": "WEB",
-        "url": "https://docs.sixlabors.com/articles/imagesharp.web/processingcommands.html#securing-processing-commands"
-      },
-      {
-        "type": "WEB",
-        "url": "https://docs.sixlabors.com/articles/imagesharp/security.html"
-      },
-      {
-        "type": "PACKAGE",
-        "url": "https://github.com/SixLabors/ImageSharp"
-      }
-    ],
-    "affected": [
-      {
-        "package": {
-          "name": "SixLabors.ImageSharp",
-          "ecosystem": "NuGet",
-          "purl": "pkg:nuget/SixLabors.ImageSharp"
-        },
-        "ranges": [
-          {
-            "type": "ECOSYSTEM",
-            "events": [
-              {
-                "introduced": "0"
-              },
-              {
-                "fixed": "2.1.8"
-              }
-            ]
-          }
-        ],
-        "versions": [
-          "1.0.0",
-          "1.0.0-beta0001",
-          "1.0.0-beta0002",
-          "1.0.0-beta0003",
-          "1.0.0-beta0004",
-          "1.0.0-beta0005",
-          "1.0.0-beta0006",
-          "1.0.0-beta0007",
-          "1.0.0-rc0001",
-          "1.0.0-rc0002",
-          "1.0.0-rc0003",
-          "1.0.1",
-          "1.0.2",
-          "1.0.3",
-          "1.0.4",
-          "2.0.0",
-          "2.1.0",
-          "2.1.1",
-          "2.1.2",
-          "2.1.3",
-          "2.1.4",
-          "2.1.5",
-          "2.1.6",
-          "2.1.7"
-        ],
-        "database_specific": {
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2024/04/GHSA-g85r-6x2q-45w7/GHSA-g85r-6x2q-45w7.json"
-        }
-      },
-      {
-        "package": {
-          "name": "SixLabors.ImageSharp",
-          "ecosystem": "NuGet",
-          "purl": "pkg:nuget/SixLabors.ImageSharp"
-        },
-        "ranges": [
-          {
-            "type": "ECOSYSTEM",
-            "events": [
-              {
-                "introduced": "3.0.0"
-              },
-              {
-                "fixed": "3.1.4"
-              }
-            ]
-          }
-        ],
-        "versions": [
-          "3.0.0",
-          "3.0.1",
-          "3.0.2",
-          "3.1.0",
-          "3.1.1",
-          "3.1.2",
-          "3.1.3"
-        ],
-        "database_specific": {
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2024/04/GHSA-g85r-6x2q-45w7/GHSA-g85r-6x2q-45w7.json"
-        }
-      }
-    ],
-    "schema_version": "1.6.0",
-    "severity": [
-      {
-        "type": "CVSS_V3",
-        "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
-      }
-    ]
-  },
-  {
     "id": "GHSA-g8q2-24jh-5hpc",
     "summary": "High severity vulnerability that affects jquery-ui",
     "details": "Withdrawn, accidental duplicate publish.\n\nCross-site scripting (XSS) vulnerability in jQuery UI before 1.12.0 might allow remote attackers to inject arbitrary web script or HTML via the closeText parameter of the dialog function.",
@@ -7408,6 +8033,77 @@
       }
     ],
     "schema_version": "1.6.0"
+  },
+  {
+    "id": "GHSA-gcx5-3p5f-f8vp",
+    "summary": "Prototype Pollution in jquery.cookie",
+    "details": "jQuery Cookie 1.4.1 is affected by prototype pollution, which can lead to DOM cross-site scripting (XSS).",
+    "aliases": [
+      "CVE-2022-23395"
+    ],
+    "modified": "2024-02-19T05:33:52.194680Z",
+    "published": "2022-03-03T00:00:51Z",
+    "database_specific": {
+      "nvd_published_at": "2022-03-02T12:15:00Z",
+      "cwe_ids": [
+        "CWE-1321"
+      ],
+      "severity": "MODERATE",
+      "github_reviewed": true,
+      "github_reviewed_at": "2022-03-03T19:16:20Z"
+    },
+    "references": [
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-23395"
+      },
+      {
+        "type": "WEB",
+        "url": "https://security.netapp.com/advisory/ntap-20220325-0008"
+      },
+      {
+        "type": "WEB",
+        "url": "https://snyk.io/test/npm/jquery.cookie/1.4.1?tab=issues"
+      }
+    ],
+    "affected": [
+      {
+        "package": {
+          "name": "jquery.cookie",
+          "ecosystem": "NuGet",
+          "purl": "pkg:nuget/jquery.cookie"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "0"
+              },
+              {
+                "last_affected": "1.4.1"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "1.0.0",
+          "1.3.1",
+          "1.4.0",
+          "1.4.1"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2022/03/GHSA-gcx5-3p5f-f8vp/GHSA-gcx5-3p5f-f8vp.json"
+        }
+      }
+    ],
+    "schema_version": "1.6.0",
+    "severity": [
+      {
+        "type": "CVSS_V3",
+        "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+      }
+    ]
   },
   {
     "id": "GHSA-gg8r-xjwq-4w92",
@@ -8273,417 +8969,6 @@
         "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:H/A:N"
       }
     ]
-  },
-  {
-    "id": "GHSA-gvqv-779r-4jgp",
-    "summary": "Use after free in CefSharp",
-    "details": "CVE-2020-16017: Use after free in site isolation\n\n- https://chromereleases.googleblog.com/2020/11/stable-channel-update-for-desktop_11.html\n- https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-16017\n\nGoogle is aware of reports that exploits for CVE-2020-16013 and CVE-2020-16017 exist in the wild.\n\nThere is currently little to no public information on the issue other than it has been flagged as `High` severity.",
-    "aliases": [
-      "CVE-2020-16017"
-    ],
-    "modified": "2024-12-02T05:26:24.514041Z",
-    "published": "2020-11-27T20:13:05Z",
-    "database_specific": {
-      "nvd_published_at": "2021-01-08T19:15:00Z",
-      "cwe_ids": [
-        "CWE-416"
-      ],
-      "severity": "HIGH",
-      "github_reviewed": true,
-      "github_reviewed_at": "2020-11-27T20:06:27Z"
-    },
-    "references": [
-      {
-        "type": "WEB",
-        "url": "https://github.com/cefsharp/CefSharp/security/advisories/GHSA-gvqv-779r-4jgp"
-      },
-      {
-        "type": "ADVISORY",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-16017"
-      },
-      {
-        "type": "WEB",
-        "url": "https://chromereleases.googleblog.com/2020/11/stable-channel-update-for-desktop_11.html"
-      },
-      {
-        "type": "WEB",
-        "url": "https://crbug.com/1146709"
-      }
-    ],
-    "affected": [
-      {
-        "package": {
-          "name": "CefSharp.Common",
-          "ecosystem": "NuGet",
-          "purl": "pkg:nuget/CefSharp.Common"
-        },
-        "ranges": [
-          {
-            "type": "ECOSYSTEM",
-            "events": [
-              {
-                "introduced": "0"
-              },
-              {
-                "fixed": "86.0.241"
-              }
-            ]
-          }
-        ],
-        "versions": [
-          "31.0.0-pre1",
-          "33.0.0",
-          "33.0.2",
-          "33.1.0-pre01",
-          "37.0.0",
-          "37.0.0-pre01",
-          "37.0.0-pre02",
-          "37.0.1",
-          "37.0.2",
-          "37.0.3",
-          "39.0.0",
-          "39.0.0-pre01",
-          "39.0.0-pre02",
-          "39.0.0-pre03",
-          "39.0.1",
-          "39.0.2",
-          "41.0.0",
-          "41.0.0-pre01",
-          "41.0.1",
-          "43.0.0",
-          "43.0.0-pre01",
-          "43.0.0-pre02",
-          "43.0.1",
-          "45.0.0",
-          "45.0.0-pre01",
-          "47.0.0",
-          "47.0.0-pre01",
-          "47.0.1",
-          "47.0.2",
-          "47.0.3",
-          "47.0.4",
-          "49.0.0",
-          "49.0.0-pre01",
-          "49.0.0-pre02",
-          "49.0.1",
-          "51.0.0",
-          "51.0.0-pre01",
-          "51.0.0-pre02",
-          "53.0.0",
-          "53.0.0-pre01",
-          "53.0.1",
-          "55.0.0",
-          "55.0.0-pre01",
-          "57.0.0",
-          "57.0.0-pre01",
-          "62.0.0-pre01",
-          "62.0.0-proprietary-codecs",
-          "62.0.0-proprietary-codecs2",
-          "63.0.0",
-          "63.0.0-pre01",
-          "63.0.0-pre02",
-          "63.0.0-pre03",
-          "63.0.1",
-          "63.0.2",
-          "63.0.3",
-          "65.0.0",
-          "65.0.0-pre01",
-          "65.0.0-pre02",
-          "65.0.1",
-          "67.0.0",
-          "67.0.0-pre01",
-          "69.0.0",
-          "69.0.0-pre01",
-          "71.0.0",
-          "71.0.0-pre01",
-          "71.0.1",
-          "71.0.2",
-          "73.1.120-pre01",
-          "73.1.130",
-          "75.1.140-pre01",
-          "75.1.141",
-          "75.1.142",
-          "75.1.143",
-          "79.1.310-pre",
-          "79.1.350",
-          "79.1.360",
-          "81.3.100",
-          "81.3.20-pre",
-          "83.3.120-pre",
-          "83.4.20",
-          "84.3.10-pre",
-          "84.4.10",
-          "85.3.120-pre",
-          "85.3.121",
-          "85.3.121-pre",
-          "85.3.130",
-          "86.0.240-pre"
-        ],
-        "database_specific": {
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2020/11/GHSA-gvqv-779r-4jgp/GHSA-gvqv-779r-4jgp.json"
-        }
-      },
-      {
-        "package": {
-          "name": "CefSharp.Wpf",
-          "ecosystem": "NuGet",
-          "purl": "pkg:nuget/CefSharp.Wpf"
-        },
-        "ranges": [
-          {
-            "type": "ECOSYSTEM",
-            "events": [
-              {
-                "introduced": "0"
-              },
-              {
-                "fixed": "86.0.241"
-              }
-            ]
-          }
-        ],
-        "versions": [
-          "1.25.2-perlun0",
-          "1.25.3",
-          "1.25.4",
-          "1.25.5",
-          "1.25.6",
-          "1.25.7",
-          "1.25.8",
-          "3.29.0-pre0",
-          "31.0.0-pre1",
-          "33.0.0",
-          "33.0.2",
-          "33.1.0-pre01",
-          "37.0.0",
-          "37.0.0-pre01",
-          "37.0.0-pre02",
-          "37.0.1",
-          "37.0.3",
-          "39.0.0",
-          "39.0.0-pre01",
-          "39.0.0-pre02",
-          "39.0.0-pre03",
-          "39.0.1",
-          "39.0.2",
-          "41.0.0",
-          "41.0.0-pre01",
-          "41.0.1",
-          "43.0.0",
-          "43.0.0-pre01",
-          "43.0.0-pre02",
-          "43.0.1",
-          "45.0.0",
-          "45.0.0-pre01",
-          "47.0.0",
-          "47.0.0-pre01",
-          "47.0.1",
-          "47.0.2",
-          "47.0.3",
-          "47.0.4",
-          "49.0.0",
-          "49.0.0-pre01",
-          "49.0.0-pre02",
-          "49.0.1",
-          "51.0.0",
-          "51.0.0-pre01",
-          "51.0.0-pre02",
-          "53.0.0",
-          "53.0.0-pre01",
-          "53.0.1",
-          "55.0.0",
-          "55.0.0-pre01",
-          "57.0.0",
-          "57.0.0-pre01",
-          "62.0.0-pre01",
-          "62.0.0-proprietary-codecs",
-          "62.0.0-proprietary-codecs2",
-          "63.0.0",
-          "63.0.0-pre01",
-          "63.0.0-pre02",
-          "63.0.0-pre03",
-          "63.0.1",
-          "63.0.2",
-          "63.0.3",
-          "65.0.0",
-          "65.0.0-pre01",
-          "65.0.0-pre02",
-          "65.0.1",
-          "67.0.0",
-          "67.0.0-pre01",
-          "69.0.0",
-          "69.0.0-pre01",
-          "71.0.0",
-          "71.0.0-pre01",
-          "71.0.1",
-          "71.0.2",
-          "73.1.120-pre01",
-          "73.1.130",
-          "75.1.140-pre01",
-          "75.1.141",
-          "75.1.142",
-          "75.1.143",
-          "79.1.310-pre",
-          "79.1.350",
-          "79.1.360",
-          "81.3.100",
-          "81.3.20-pre",
-          "83.3.120-pre",
-          "83.4.20",
-          "84.3.10-pre",
-          "84.4.10",
-          "85.3.120-pre",
-          "85.3.121",
-          "85.3.121-pre",
-          "85.3.130",
-          "86.0.240-pre"
-        ],
-        "database_specific": {
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2020/11/GHSA-gvqv-779r-4jgp/GHSA-gvqv-779r-4jgp.json"
-        }
-      },
-      {
-        "package": {
-          "name": "CefSharp.WinForms",
-          "ecosystem": "NuGet",
-          "purl": "pkg:nuget/CefSharp.WinForms"
-        },
-        "ranges": [
-          {
-            "type": "ECOSYSTEM",
-            "events": [
-              {
-                "introduced": "0"
-              },
-              {
-                "fixed": "86.0.241"
-              }
-            ]
-          }
-        ],
-        "versions": [
-          "1.25.3",
-          "33.0.0",
-          "33.0.2",
-          "33.1.0-pre01",
-          "37.0.0",
-          "37.0.0-pre01",
-          "37.0.0-pre02",
-          "37.0.1",
-          "37.0.3",
-          "39.0.0",
-          "39.0.0-pre01",
-          "39.0.0-pre02",
-          "39.0.0-pre03",
-          "39.0.1",
-          "39.0.2",
-          "41.0.0",
-          "41.0.0-pre01",
-          "41.0.1",
-          "43.0.0",
-          "43.0.0-pre01",
-          "43.0.0-pre02",
-          "43.0.1",
-          "45.0.0",
-          "45.0.0-pre01",
-          "47.0.0",
-          "47.0.0-pre01",
-          "47.0.1",
-          "47.0.2",
-          "47.0.3",
-          "47.0.4",
-          "49.0.0",
-          "49.0.0-pre01",
-          "49.0.0-pre02",
-          "49.0.1",
-          "51.0.0",
-          "51.0.0-pre01",
-          "51.0.0-pre02",
-          "53.0.0",
-          "53.0.0-pre01",
-          "53.0.1",
-          "55.0.0",
-          "55.0.0-pre01",
-          "57.0.0",
-          "57.0.0-pre01",
-          "62.0.0-pre01",
-          "62.0.0-proprietary-codecs",
-          "62.0.0-proprietary-codecs2",
-          "63.0.0",
-          "63.0.0-pre01",
-          "63.0.0-pre02",
-          "63.0.0-pre03",
-          "63.0.1",
-          "63.0.2",
-          "63.0.3",
-          "65.0.0",
-          "65.0.0-pre01",
-          "65.0.0-pre02",
-          "65.0.1",
-          "67.0.0",
-          "67.0.0-pre01",
-          "69.0.0",
-          "69.0.0-pre01",
-          "71.0.0",
-          "71.0.0-pre01",
-          "71.0.1",
-          "71.0.2",
-          "73.1.120-pre01",
-          "73.1.130",
-          "75.1.140-pre01",
-          "75.1.141",
-          "75.1.142",
-          "75.1.143",
-          "79.1.310-pre",
-          "79.1.350",
-          "79.1.360",
-          "81.3.100",
-          "81.3.20-pre",
-          "83.3.120-pre",
-          "83.4.20",
-          "84.3.10-pre",
-          "84.4.10",
-          "85.3.120-pre",
-          "85.3.121",
-          "85.3.121-pre",
-          "85.3.130",
-          "86.0.240-pre"
-        ],
-        "database_specific": {
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2020/11/GHSA-gvqv-779r-4jgp/GHSA-gvqv-779r-4jgp.json"
-        }
-      },
-      {
-        "package": {
-          "name": "CefSharp.Wpf.HwndHost",
-          "ecosystem": "NuGet",
-          "purl": "pkg:nuget/CefSharp.Wpf.HwndHost"
-        },
-        "ranges": [
-          {
-            "type": "ECOSYSTEM",
-            "events": [
-              {
-                "introduced": "0"
-              },
-              {
-                "fixed": "86.0.241"
-              }
-            ]
-          }
-        ],
-        "versions": [
-          "83.4.20-pre",
-          "84.4.10",
-          "85.3.121",
-          "85.3.130"
-        ],
-        "database_specific": {
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2020/11/GHSA-gvqv-779r-4jgp/GHSA-gvqv-779r-4jgp.json"
-        }
-      }
-    ],
-    "schema_version": "1.6.0"
   },
   {
     "id": "GHSA-gxr4-xjj5-5px2",
@@ -13946,6 +14231,148 @@
     ]
   },
   {
+    "id": "GHSA-jxwx-85vp-gvwm",
+    "summary": "Regular Expression Denial of Service in jquery-validation",
+    "details": "The GitHub Security Lab team has identified potential security vulnerabilities in jquery.validation.\n\nThe project contains one or more regular expressions that are vulnerable to ReDoS (Regular Expression Denial of Service)\n\nThis issue was discovered and reported by GitHub team member @erik-krogh (Erik Krogh Kristensen).",
+    "aliases": [
+      "CVE-2021-21252"
+    ],
+    "modified": "2024-02-21T05:42:14.225886Z",
+    "published": "2021-01-13T18:21:54Z",
+    "database_specific": {
+      "nvd_published_at": "2021-01-13T19:15:00Z",
+      "cwe_ids": [
+        "CWE-400"
+      ],
+      "severity": "HIGH",
+      "github_reviewed": true,
+      "github_reviewed_at": "2021-01-13T18:21:42Z"
+    },
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/jquery-validation/jquery-validation/security/advisories/GHSA-jxwx-85vp-gvwm"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-21252"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/jquery-validation/jquery-validation/pull/2371"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/jquery-validation/jquery-validation/commit/5d8f29eef363d043a8fec4eb86d42cadb5fa5f7d"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/jquery-validation/jquery-validation"
+      },
+      {
+        "type": "WEB",
+        "url": "https://jqueryvalidation.org/#installation-via-package-managers"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.debian.org/debian-lts-announce/2023/08/msg00040.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://security.netapp.com/advisory/ntap-20210219-0005"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://securitylab.github.com/advisories/GHSL-2020-294-redos-jquery-validation"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.npmjs.com/package/jquery-validation"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.nuget.org/packages/jquery.validation"
+      }
+    ],
+    "affected": [
+      {
+        "package": {
+          "name": "jquery-validation",
+          "ecosystem": "npm",
+          "purl": "pkg:npm/jquery-validation"
+        },
+        "ranges": [
+          {
+            "type": "SEMVER",
+            "events": [
+              {
+                "introduced": "0"
+              },
+              {
+                "fixed": "1.19.3"
+              }
+            ]
+          }
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2021/01/GHSA-jxwx-85vp-gvwm/GHSA-jxwx-85vp-gvwm.json"
+        }
+      },
+      {
+        "package": {
+          "name": "jQuery.Validation",
+          "ecosystem": "NuGet",
+          "purl": "pkg:nuget/jQuery.Validation"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "0"
+              },
+              {
+                "fixed": "1.19.3"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "1.10.0",
+          "1.11.0",
+          "1.11.1",
+          "1.12.0",
+          "1.13.0",
+          "1.13.1",
+          "1.14.0",
+          "1.15.0",
+          "1.15.1",
+          "1.16.0",
+          "1.17.0",
+          "1.19.1",
+          "1.19.2",
+          "1.6.0",
+          "1.7.0",
+          "1.8.0",
+          "1.8.0.1",
+          "1.8.1",
+          "1.9.0",
+          "1.9.0.1"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2021/01/GHSA-jxwx-85vp-gvwm/GHSA-jxwx-85vp-gvwm.json"
+        }
+      }
+    ],
+    "schema_version": "1.6.0",
+    "severity": [
+      {
+        "type": "CVSS_V3",
+        "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+      }
+    ]
+  },
+  {
     "id": "GHSA-m7mf-48hp-5qmr",
     "summary": "Inappropriate implementation in V8",
     "details": "CVE-2020-16009: Inappropriate implementation in V8\n\n- https://chromereleases.googleblog.com/2020/11/stable-channel-update-for-desktop.html\n- https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-16009\n\nGoogle is aware of reports that exploits for CVE-2020-16009 exist in the wild.\n\nAllowed a remote attacker to potentially exploit heap corruption via a crafted HTML page.\n\nThere is currently little to no public information on the issue other than it has been flagged as `High` severity.",
@@ -14391,6 +14818,177 @@
       {
         "type": "CVSS_V3",
         "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-mhpp-875w-9cpv",
+    "summary": "Denial of Service in jquery",
+    "details": "Affected versions of `jquery` use a lowercasing logic on attribute names. When given a boolean attribute with a name that contains uppercase characters, `jquery` enters into an infinite recursion loop, exceeding the call stack limit, and resulting in a denial of service condition.\n\n\n## Recommendation\n\nUpdate to version 3.0.0 or later.",
+    "aliases": [
+      "CVE-2016-10707"
+    ],
+    "modified": "2024-02-12T15:03:44Z",
+    "published": "2018-01-22T13:32:42Z",
+    "database_specific": {
+      "nvd_published_at": "2018-01-18T23:29:00Z",
+      "cwe_ids": [
+        "CWE-400",
+        "CWE-674"
+      ],
+      "severity": "HIGH",
+      "github_reviewed": true,
+      "github_reviewed_at": "2020-06-16T21:46:22Z"
+    },
+    "references": [
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2016-10707"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/jquery/jquery/issues/3133"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/jquery/jquery/issues/3133#issuecomment-358978489"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/jquery/jquery/pull/3134"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://github.com/advisories/GHSA-mhpp-875w-9cpv"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/jquery/jquery"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/jquery-rails/CVE-2016-10707.yml"
+      },
+      {
+        "type": "WEB",
+        "url": "https://snyk.io/vuln/npm:jquery:20160529"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.npmjs.com/advisories/330"
+      }
+    ],
+    "affected": [
+      {
+        "package": {
+          "name": "jquery",
+          "ecosystem": "npm",
+          "purl": "pkg:npm/jquery"
+        },
+        "ranges": [
+          {
+            "type": "SEMVER",
+            "events": [
+              {
+                "introduced": "3.0.0-rc.1"
+              },
+              {
+                "fixed": "3.0.0"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "3.0.0-rc.1"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2018/01/GHSA-mhpp-875w-9cpv/GHSA-mhpp-875w-9cpv.json"
+        }
+      },
+      {
+        "package": {
+          "name": "jQuery",
+          "ecosystem": "NuGet",
+          "purl": "pkg:nuget/jQuery"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "3.0.0-rc.1"
+              },
+              {
+                "fixed": "3.0.0"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "3.0.0-rc.1"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2018/01/GHSA-mhpp-875w-9cpv/GHSA-mhpp-875w-9cpv.json"
+        }
+      },
+      {
+        "package": {
+          "name": "org.webjars.npm:jquery",
+          "ecosystem": "Maven",
+          "purl": "pkg:maven/org.webjars.npm/jquery"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "3.0.0-rc.1"
+              },
+              {
+                "fixed": "3.0.0"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "3.0.0-rc.1"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2018/01/GHSA-mhpp-875w-9cpv/GHSA-mhpp-875w-9cpv.json"
+        }
+      },
+      {
+        "package": {
+          "name": "jquery-rails",
+          "ecosystem": "RubyGems",
+          "purl": "pkg:gem/jquery-rails"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "3.0.0-rc.1"
+              },
+              {
+                "fixed": "3.0.0"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "3.0.0-rc.1"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2018/01/GHSA-mhpp-875w-9cpv/GHSA-mhpp-875w-9cpv.json"
+        }
+      }
+    ],
+    "schema_version": "1.6.0",
+    "severity": [
+      {
+        "type": "CVSS_V3",
+        "score": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
       }
     ]
   },
@@ -15044,6 +15642,534 @@
       }
     ],
     "schema_version": "1.6.0"
+  },
+  {
+    "id": "GHSA-rmxg-73gg-4p98",
+    "summary": "Cross-Site Scripting (XSS) in jquery",
+    "details": "Affected versions of `jquery` interpret `text/javascript` responses from cross-origin ajax requests, and automatically execute the contents in `jQuery.globalEval`, even when the ajax request doesn't contain the `dataType` option.\n\n\n## Recommendation\n\nUpdate to version 3.0.0 or later.",
+    "aliases": [
+      "CVE-2015-9251"
+    ],
+    "modified": "2024-03-10T05:18:22.438189Z",
+    "published": "2018-01-22T13:32:06Z",
+    "database_specific": {
+      "nvd_published_at": "2018-01-18T23:29:00Z",
+      "cwe_ids": [
+        "CWE-79"
+      ],
+      "severity": "MODERATE",
+      "github_reviewed": true,
+      "github_reviewed_at": "2020-06-16T21:55:10Z"
+    },
+    "references": [
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2015-9251"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/jquery/jquery/issues/2432"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/jquery/jquery/issues/2432#issuecomment-403761229"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/jquery/jquery/pull/2588"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/jquery/jquery/pull/2588/commits/c254d308a7d3f1eac4d0b42837804cfffcba4bb2"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/jquery/jquery/commit/b078a62013782c7424a4a61a240c23c4c0b42614"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/jquery/jquery/commit/f60729f3903d17917dc351f3ac87794de379b0cc"
+      },
+      {
+        "type": "WEB",
+        "url": "https://access.redhat.com/errata/RHSA-2020:0481"
+      },
+      {
+        "type": "WEB",
+        "url": "https://seclists.org/bugtraq/2019/May/18"
+      },
+      {
+        "type": "WEB",
+        "url": "https://security.netapp.com/advisory/ntap-20210108-0004"
+      },
+      {
+        "type": "WEB",
+        "url": "https://security.snyk.io/vuln/SNYK-DOTNET-JQUERY-450227"
+      },
+      {
+        "type": "WEB",
+        "url": "https://snyk.io/vuln/npm:jquery:20150627"
+      },
+      {
+        "type": "WEB",
+        "url": "https://sw.aveva.com/hubfs/assets-2018/pdf/security-bulletin/SecurityBulletin_LFSec126.pdf"
+      },
+      {
+        "type": "WEB",
+        "url": "https://web.archive.org/web/20200227030101/http://www.securityfocus.com/bid/105658"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.oracle.com/security-alerts/cpuapr2020.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.oracle.com/security-alerts/cpujan2020.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.oracle.com/security-alerts/cpujul2020.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.oracle.com/security-alerts/cpuoct2020.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.oracle.com/technetwork/security-advisory/cpuapr2019-5072813.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.oracle.com/technetwork/security-advisory/cpujan2019-5072801.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.oracle.com/technetwork/security-advisory/cpujul2019-5072835.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.oracle.com/technetwork/security-advisory/cpuoct2019-5072832.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.tenable.com/security/tns-2019-08"
+      },
+      {
+        "type": "WEB",
+        "url": "https://access.redhat.com/errata/RHSA-2020:0729"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/jquery/jquery"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/rails/jquery-rails/blob/master/CHANGELOG.md#420"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/rails/jquery-rails/blob/v4.2.0/vendor/assets/javascripts/jquery3.js#L9377"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/rails/jquery-rails/releases/tag/v4.2.0"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/jquery-rails/CVE-2015-9251.yml"
+      },
+      {
+        "type": "WEB",
+        "url": "https://ics-cert.us-cert.gov/advisories/ICSA-18-212-04"
+      },
+      {
+        "type": "WEB",
+        "url": "https://kb.pulsesecure.net/articles/Pulse_Security_Advisories/SA44601"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/10f0f3aefd51444d1198c65f44ffdf2d78ca3359423dbc1c168c9731@%3Cdev.flink.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/17ff53f7999e74fbe3cc0ceb4e1c3b00b180b7c5afec8e978837bc49@%3Cuser.flink.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/519eb0fd45642dcecd9ff74cb3e71c20a4753f7d82e2f07864b5108f@%3Cdev.drill.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/52bafac05ad174000ea465fe275fd3cc7bd5c25535a7631c0bc9bfb2@%3Cuser.flink.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/54df3aeb4239b64b50b356f0ca6f986e3c4ca5b84c515dce077c7854@%3Cuser.flink.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/b0656d359c7d40ec9f39c8cc61bca66802ef9a2a12ee199f5b0c1442@%3Cdev.drill.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/ba79cf1658741e9f146e4c59b50aee56656ea95d841d358d006c18b6@%3Ccommits.roller.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/f9bc3e55f4e28d1dcd1a69aae6d53e609a758e34d2869b4d798e13cc@%3Cissues.drill.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "http://lists.opensuse.org/opensuse-security-announce/2020-03/msg00041.html"
+      },
+      {
+        "type": "WEB",
+        "url": "http://packetstormsecurity.com/files/152787/dotCMS-5.1.1-Vulnerable-Dependencies.html"
+      },
+      {
+        "type": "WEB",
+        "url": "http://packetstormsecurity.com/files/153237/RetireJS-CORS-Issue-Script-Execution.html"
+      },
+      {
+        "type": "WEB",
+        "url": "http://packetstormsecurity.com/files/156743/OctoberCMS-Insecure-Dependencies.html"
+      },
+      {
+        "type": "WEB",
+        "url": "http://seclists.org/fulldisclosure/2019/May/10"
+      },
+      {
+        "type": "WEB",
+        "url": "http://seclists.org/fulldisclosure/2019/May/11"
+      },
+      {
+        "type": "WEB",
+        "url": "http://seclists.org/fulldisclosure/2019/May/13"
+      },
+      {
+        "type": "WEB",
+        "url": "http://www.oracle.com/technetwork/security-advisory/cpuoct2018-4428296.html"
+      }
+    ],
+    "affected": [
+      {
+        "package": {
+          "name": "jquery",
+          "ecosystem": "npm",
+          "purl": "pkg:npm/jquery"
+        },
+        "ranges": [
+          {
+            "type": "SEMVER",
+            "events": [
+              {
+                "introduced": "0"
+              },
+              {
+                "fixed": "1.12.2"
+              }
+            ]
+          }
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2018/01/GHSA-rmxg-73gg-4p98/GHSA-rmxg-73gg-4p98.json"
+        }
+      },
+      {
+        "package": {
+          "name": "jQuery",
+          "ecosystem": "NuGet",
+          "purl": "pkg:nuget/jQuery"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "0"
+              },
+              {
+                "fixed": "1.12.2"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "1.10.0",
+          "1.10.0.1",
+          "1.10.1",
+          "1.10.2",
+          "1.11.0",
+          "1.11.1",
+          "1.11.2",
+          "1.11.3",
+          "1.12.0",
+          "1.12.1",
+          "1.4.1",
+          "1.4.2",
+          "1.4.3",
+          "1.4.4",
+          "1.5.0",
+          "1.5.1",
+          "1.5.2",
+          "1.6.0",
+          "1.6.1",
+          "1.6.2",
+          "1.6.3",
+          "1.6.4",
+          "1.7.0",
+          "1.7.1",
+          "1.7.1.1",
+          "1.7.2",
+          "1.8.0",
+          "1.8.1",
+          "1.8.2",
+          "1.8.3",
+          "1.9.0",
+          "1.9.1"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2018/01/GHSA-rmxg-73gg-4p98/GHSA-rmxg-73gg-4p98.json"
+        }
+      },
+      {
+        "package": {
+          "name": "jQuery",
+          "ecosystem": "NuGet",
+          "purl": "pkg:nuget/jQuery"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "1.12.3"
+              },
+              {
+                "fixed": "3.0.0"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "1.12.3",
+          "1.12.4",
+          "2.0.0",
+          "2.0.1",
+          "2.0.1.1",
+          "2.0.2",
+          "2.0.3",
+          "2.1.0",
+          "2.1.1",
+          "2.1.2",
+          "2.1.3",
+          "2.1.4",
+          "2.2.0",
+          "2.2.1",
+          "2.2.2",
+          "2.2.3",
+          "2.2.4"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2018/01/GHSA-rmxg-73gg-4p98/GHSA-rmxg-73gg-4p98.json"
+        }
+      },
+      {
+        "package": {
+          "name": "jquery",
+          "ecosystem": "npm",
+          "purl": "pkg:npm/jquery"
+        },
+        "ranges": [
+          {
+            "type": "SEMVER",
+            "events": [
+              {
+                "introduced": "1.12.3"
+              },
+              {
+                "fixed": "3.0.0"
+              }
+            ]
+          }
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2018/01/GHSA-rmxg-73gg-4p98/GHSA-rmxg-73gg-4p98.json"
+        }
+      },
+      {
+        "package": {
+          "name": "jquery-rails",
+          "ecosystem": "RubyGems",
+          "purl": "pkg:gem/jquery-rails"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "0"
+              },
+              {
+                "fixed": "4.2.0"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "0.1.1",
+          "0.1.2",
+          "0.1.3",
+          "0.2",
+          "0.2.1",
+          "0.2.2",
+          "0.2.3",
+          "0.2.4",
+          "0.2.5",
+          "0.2.6",
+          "0.2.7",
+          "1.0",
+          "1.0.1",
+          "1.0.10",
+          "1.0.11",
+          "1.0.12",
+          "1.0.13",
+          "1.0.14",
+          "1.0.15",
+          "1.0.16",
+          "1.0.17",
+          "1.0.18",
+          "1.0.19",
+          "1.0.2",
+          "1.0.3",
+          "1.0.4",
+          "1.0.5",
+          "1.0.6",
+          "1.0.7",
+          "1.0.8",
+          "1.0.9",
+          "1.0.rc",
+          "2.0.1",
+          "2.0.2",
+          "2.0.3",
+          "2.1.0",
+          "2.1.1",
+          "2.1.2",
+          "2.1.3",
+          "2.1.4",
+          "2.2.0",
+          "2.2.1",
+          "2.2.2",
+          "2.3.0",
+          "3.0.0",
+          "3.0.1",
+          "3.0.2",
+          "3.0.3",
+          "3.0.4",
+          "3.1.0",
+          "3.1.1",
+          "3.1.2",
+          "3.1.3",
+          "3.1.4",
+          "3.1.5",
+          "4.0.0",
+          "4.0.0.beta1",
+          "4.0.0.beta2",
+          "4.0.1",
+          "4.0.2",
+          "4.0.3",
+          "4.0.4",
+          "4.0.5",
+          "4.1.0",
+          "4.1.1"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2018/01/GHSA-rmxg-73gg-4p98/GHSA-rmxg-73gg-4p98.json"
+        }
+      },
+      {
+        "package": {
+          "name": "org.webjars.npm:jquery",
+          "ecosystem": "Maven",
+          "purl": "pkg:maven/org.webjars.npm/jquery"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "0"
+              },
+              {
+                "fixed": "1.12.2"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "1.11.0",
+          "1.11.1",
+          "1.11.3",
+          "1.12.1",
+          "1.7.2",
+          "1.7.3",
+          "1.8.2",
+          "1.8.3",
+          "1.9.1"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2018/01/GHSA-rmxg-73gg-4p98/GHSA-rmxg-73gg-4p98.json"
+        }
+      },
+      {
+        "package": {
+          "name": "org.webjars.npm:jquery",
+          "ecosystem": "Maven",
+          "purl": "pkg:maven/org.webjars.npm/jquery"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "1.12.3"
+              },
+              {
+                "fixed": "3.0.0"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "1.12.3",
+          "1.12.4",
+          "2.1.0",
+          "2.1.1",
+          "2.1.1-rc1",
+          "2.1.1-rc2",
+          "2.1.3",
+          "2.1.4",
+          "2.2.0",
+          "2.2.1",
+          "2.2.2",
+          "2.2.3",
+          "2.2.4",
+          "3.0.0-alpha1",
+          "3.0.0-beta1",
+          "3.0.0-rc1"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2018/01/GHSA-rmxg-73gg-4p98/GHSA-rmxg-73gg-4p98.json"
+        }
+      }
+    ],
+    "schema_version": "1.6.0",
+    "severity": [
+      {
+        "type": "CVSS_V3",
+        "score": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+      }
+    ]
   },
   {
     "id": "GHSA-rvrj-j7cc-236p",
@@ -16496,1390 +17622,6 @@
     ]
   },
   {
-    "id": "GHSA-vv6j-ww6x-54gx",
-    "summary": "Use after free in Animation",
-    "details": "CVE-2022-0609: Use after free in Animation\n\n- https://chromereleases.googleblog.com/2022/02/stable-channel-update-for-desktop_14.html\n- https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-0609\n\nGoogle is aware of reports that exploits for CVE-2022-0609 exist in the wild.\n\nThe exploitation is known to be easy. The attack may be initiated remotely. No form of authentication is needed for a successful exploitation. It demands that the victim is doing some kind of user interaction. Technical details are unknown but an exploit is available.\n\nThere is currently little other public information on the issue other than it has been flagged as `High` severity.",
-    "aliases": [
-      "CVE-2022-0609"
-    ],
-    "modified": "2023-11-08T04:07:36.901162Z",
-    "published": "2022-02-22T21:51:19Z",
-    "database_specific": {
-      "nvd_published_at": "2022-04-05T00:15:00Z",
-      "github_reviewed_at": "2022-02-22T21:51:19Z",
-      "severity": "HIGH",
-      "github_reviewed": true,
-      "cwe_ids": [
-        "CWE-416"
-      ]
-    },
-    "references": [
-      {
-        "type": "WEB",
-        "url": "https://github.com/cefsharp/CefSharp/security/advisories/GHSA-vv6j-ww6x-54gx"
-      },
-      {
-        "type": "ADVISORY",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-0609"
-      },
-      {
-        "type": "WEB",
-        "url": "https://chromereleases.googleblog.com/2022/02/stable-channel-update-for-desktop_14.html"
-      },
-      {
-        "type": "WEB",
-        "url": "https://crbug.com/1296150"
-      },
-      {
-        "type": "PACKAGE",
-        "url": "https://github.com/cefsharp/CefSharp"
-      }
-    ],
-    "affected": [
-      {
-        "package": {
-          "name": "CefSharp.Common",
-          "ecosystem": "NuGet",
-          "purl": "pkg:nuget/CefSharp.Common"
-        },
-        "ranges": [
-          {
-            "type": "ECOSYSTEM",
-            "events": [
-              {
-                "introduced": "0"
-              },
-              {
-                "fixed": "98.1.210"
-              }
-            ]
-          }
-        ],
-        "versions": [
-          "31.0.0-pre1",
-          "33.0.0",
-          "33.0.2",
-          "33.1.0-pre01",
-          "37.0.0",
-          "37.0.0-pre01",
-          "37.0.0-pre02",
-          "37.0.1",
-          "37.0.2",
-          "37.0.3",
-          "39.0.0",
-          "39.0.0-pre01",
-          "39.0.0-pre02",
-          "39.0.0-pre03",
-          "39.0.1",
-          "39.0.2",
-          "41.0.0",
-          "41.0.0-pre01",
-          "41.0.1",
-          "43.0.0",
-          "43.0.0-pre01",
-          "43.0.0-pre02",
-          "43.0.1",
-          "45.0.0",
-          "45.0.0-pre01",
-          "47.0.0",
-          "47.0.0-pre01",
-          "47.0.1",
-          "47.0.2",
-          "47.0.3",
-          "47.0.4",
-          "49.0.0",
-          "49.0.0-pre01",
-          "49.0.0-pre02",
-          "49.0.1",
-          "51.0.0",
-          "51.0.0-pre01",
-          "51.0.0-pre02",
-          "53.0.0",
-          "53.0.0-pre01",
-          "53.0.1",
-          "55.0.0",
-          "55.0.0-pre01",
-          "57.0.0",
-          "57.0.0-pre01",
-          "62.0.0-pre01",
-          "62.0.0-proprietary-codecs",
-          "62.0.0-proprietary-codecs2",
-          "63.0.0",
-          "63.0.0-pre01",
-          "63.0.0-pre02",
-          "63.0.0-pre03",
-          "63.0.1",
-          "63.0.2",
-          "63.0.3",
-          "65.0.0",
-          "65.0.0-pre01",
-          "65.0.0-pre02",
-          "65.0.1",
-          "67.0.0",
-          "67.0.0-pre01",
-          "69.0.0",
-          "69.0.0-pre01",
-          "71.0.0",
-          "71.0.0-pre01",
-          "71.0.1",
-          "71.0.2",
-          "73.1.120-pre01",
-          "73.1.130",
-          "75.1.140-pre01",
-          "75.1.141",
-          "75.1.142",
-          "75.1.143",
-          "79.1.310-pre",
-          "79.1.350",
-          "79.1.360",
-          "81.3.100",
-          "81.3.20-pre",
-          "83.3.120-pre",
-          "83.4.20",
-          "84.3.10-pre",
-          "84.4.10",
-          "85.3.120-pre",
-          "85.3.121",
-          "85.3.121-pre",
-          "85.3.130",
-          "86.0.240-pre",
-          "86.0.241",
-          "87.1.130-pre",
-          "87.1.131-pre",
-          "87.1.132",
-          "88.2.40-pre",
-          "88.2.90",
-          "89.0.140-pre",
-          "89.0.170",
-          "90.5.70-pre",
-          "90.6.50",
-          "90.6.70",
-          "91.1.160",
-          "91.1.210",
-          "91.1.211",
-          "91.1.230",
-          "91.1.60-pre",
-          "92.0.250-pre",
-          "92.0.251",
-          "92.0.260",
-          "93.1.110-pre",
-          "93.1.111",
-          "93.1.140",
-          "94.3.0-pre",
-          "94.4.110",
-          "94.4.20",
-          "94.4.50",
-          "95.7.140-pre",
-          "95.7.141",
-          "96.0.140-pre",
-          "96.0.141",
-          "96.0.142",
-          "96.0.170",
-          "96.0.180",
-          "97.1.10-pre",
-          "97.1.11",
-          "97.1.12",
-          "97.1.60",
-          "97.1.61",
-          "98.1.190"
-        ],
-        "database_specific": {
-          "last_known_affected_version_range": "<= 98.1.190",
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2022/02/GHSA-vv6j-ww6x-54gx/GHSA-vv6j-ww6x-54gx.json"
-        }
-      },
-      {
-        "package": {
-          "name": "CefSharp.OffScreen",
-          "ecosystem": "NuGet",
-          "purl": "pkg:nuget/CefSharp.OffScreen"
-        },
-        "ranges": [
-          {
-            "type": "ECOSYSTEM",
-            "events": [
-              {
-                "introduced": "0"
-              },
-              {
-                "fixed": "98.1.210"
-              }
-            ]
-          }
-        ],
-        "versions": [
-          "37.0.0",
-          "37.0.0-pre01",
-          "37.0.0-pre02",
-          "37.0.1",
-          "39.0.0",
-          "39.0.0-pre01",
-          "39.0.0-pre02",
-          "39.0.0-pre03",
-          "39.0.1",
-          "39.0.2",
-          "41.0.0",
-          "41.0.0-pre01",
-          "41.0.1",
-          "43.0.0",
-          "43.0.0-pre01",
-          "43.0.0-pre02",
-          "43.0.1",
-          "45.0.0",
-          "45.0.0-pre01",
-          "47.0.0",
-          "47.0.0-pre01",
-          "47.0.1",
-          "47.0.2",
-          "47.0.3",
-          "47.0.4",
-          "49.0.0",
-          "49.0.0-pre01",
-          "49.0.0-pre02",
-          "49.0.1",
-          "51.0.0",
-          "51.0.0-pre01",
-          "51.0.0-pre02",
-          "53.0.0",
-          "53.0.0-pre01",
-          "53.0.1",
-          "55.0.0",
-          "55.0.0-pre01",
-          "57.0.0",
-          "57.0.0-pre01",
-          "62.0.0-pre01",
-          "62.0.0-proprietary-codecs",
-          "62.0.0-proprietary-codecs2",
-          "63.0.0",
-          "63.0.0-pre01",
-          "63.0.0-pre02",
-          "63.0.0-pre03",
-          "63.0.1",
-          "63.0.2",
-          "63.0.3",
-          "65.0.0",
-          "65.0.0-pre01",
-          "65.0.0-pre02",
-          "65.0.1",
-          "67.0.0",
-          "67.0.0-pre01",
-          "69.0.0",
-          "69.0.0-pre01",
-          "71.0.0",
-          "71.0.0-pre01",
-          "71.0.1",
-          "71.0.2",
-          "73.1.120-pre01",
-          "73.1.130",
-          "75.1.140-pre01",
-          "75.1.141",
-          "75.1.142",
-          "75.1.143",
-          "79.1.310-pre",
-          "79.1.350",
-          "79.1.360",
-          "81.3.100",
-          "81.3.20-pre",
-          "83.3.120-pre",
-          "83.4.20",
-          "84.3.10-pre",
-          "84.4.10",
-          "85.3.120-pre",
-          "85.3.121",
-          "85.3.121-pre",
-          "85.3.130",
-          "86.0.240-pre",
-          "86.0.241",
-          "87.1.130-pre",
-          "87.1.131-pre",
-          "87.1.132",
-          "88.2.40-pre",
-          "88.2.90",
-          "89.0.140-pre",
-          "89.0.170",
-          "90.5.70-pre",
-          "90.6.50",
-          "90.6.70",
-          "91.1.160",
-          "91.1.210",
-          "91.1.211",
-          "91.1.230",
-          "91.1.60-pre",
-          "92.0.250-pre",
-          "92.0.251",
-          "92.0.260",
-          "93.1.110-pre",
-          "93.1.111",
-          "93.1.140",
-          "94.3.0-pre",
-          "94.4.110",
-          "94.4.20",
-          "94.4.50",
-          "95.7.140-pre",
-          "95.7.141",
-          "96.0.140-pre",
-          "96.0.141",
-          "96.0.142",
-          "96.0.170",
-          "96.0.180",
-          "97.1.10-pre",
-          "97.1.11",
-          "97.1.12",
-          "97.1.60",
-          "97.1.61",
-          "98.1.190"
-        ],
-        "database_specific": {
-          "last_known_affected_version_range": "<= 98.1.190",
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2022/02/GHSA-vv6j-ww6x-54gx/GHSA-vv6j-ww6x-54gx.json"
-        }
-      },
-      {
-        "package": {
-          "name": "CefSharp.WinForms",
-          "ecosystem": "NuGet",
-          "purl": "pkg:nuget/CefSharp.WinForms"
-        },
-        "ranges": [
-          {
-            "type": "ECOSYSTEM",
-            "events": [
-              {
-                "introduced": "0"
-              },
-              {
-                "fixed": "98.1.210"
-              }
-            ]
-          }
-        ],
-        "versions": [
-          "1.25.3",
-          "33.0.0",
-          "33.0.2",
-          "33.1.0-pre01",
-          "37.0.0",
-          "37.0.0-pre01",
-          "37.0.0-pre02",
-          "37.0.1",
-          "37.0.3",
-          "39.0.0",
-          "39.0.0-pre01",
-          "39.0.0-pre02",
-          "39.0.0-pre03",
-          "39.0.1",
-          "39.0.2",
-          "41.0.0",
-          "41.0.0-pre01",
-          "41.0.1",
-          "43.0.0",
-          "43.0.0-pre01",
-          "43.0.0-pre02",
-          "43.0.1",
-          "45.0.0",
-          "45.0.0-pre01",
-          "47.0.0",
-          "47.0.0-pre01",
-          "47.0.1",
-          "47.0.2",
-          "47.0.3",
-          "47.0.4",
-          "49.0.0",
-          "49.0.0-pre01",
-          "49.0.0-pre02",
-          "49.0.1",
-          "51.0.0",
-          "51.0.0-pre01",
-          "51.0.0-pre02",
-          "53.0.0",
-          "53.0.0-pre01",
-          "53.0.1",
-          "55.0.0",
-          "55.0.0-pre01",
-          "57.0.0",
-          "57.0.0-pre01",
-          "62.0.0-pre01",
-          "62.0.0-proprietary-codecs",
-          "62.0.0-proprietary-codecs2",
-          "63.0.0",
-          "63.0.0-pre01",
-          "63.0.0-pre02",
-          "63.0.0-pre03",
-          "63.0.1",
-          "63.0.2",
-          "63.0.3",
-          "65.0.0",
-          "65.0.0-pre01",
-          "65.0.0-pre02",
-          "65.0.1",
-          "67.0.0",
-          "67.0.0-pre01",
-          "69.0.0",
-          "69.0.0-pre01",
-          "71.0.0",
-          "71.0.0-pre01",
-          "71.0.1",
-          "71.0.2",
-          "73.1.120-pre01",
-          "73.1.130",
-          "75.1.140-pre01",
-          "75.1.141",
-          "75.1.142",
-          "75.1.143",
-          "79.1.310-pre",
-          "79.1.350",
-          "79.1.360",
-          "81.3.100",
-          "81.3.20-pre",
-          "83.3.120-pre",
-          "83.4.20",
-          "84.3.10-pre",
-          "84.4.10",
-          "85.3.120-pre",
-          "85.3.121",
-          "85.3.121-pre",
-          "85.3.130",
-          "86.0.240-pre",
-          "86.0.241",
-          "87.1.130-pre",
-          "87.1.131-pre",
-          "87.1.132",
-          "88.2.40-pre",
-          "88.2.90",
-          "89.0.140-pre",
-          "89.0.170",
-          "90.5.70-pre",
-          "90.6.50",
-          "90.6.70",
-          "91.1.160",
-          "91.1.210",
-          "91.1.211",
-          "91.1.230",
-          "91.1.60-pre",
-          "92.0.250-pre",
-          "92.0.251",
-          "92.0.260",
-          "93.1.110-pre",
-          "93.1.111",
-          "93.1.140",
-          "94.3.0-pre",
-          "94.4.110",
-          "94.4.20",
-          "94.4.50",
-          "95.7.140-pre",
-          "95.7.141",
-          "96.0.140-pre",
-          "96.0.141",
-          "96.0.142",
-          "96.0.170",
-          "96.0.180",
-          "97.1.10-pre",
-          "97.1.11",
-          "97.1.12",
-          "97.1.60",
-          "97.1.61",
-          "98.1.190"
-        ],
-        "database_specific": {
-          "last_known_affected_version_range": "<= 98.1.190",
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2022/02/GHSA-vv6j-ww6x-54gx/GHSA-vv6j-ww6x-54gx.json"
-        }
-      },
-      {
-        "package": {
-          "name": "CefSharp.Wpf",
-          "ecosystem": "NuGet",
-          "purl": "pkg:nuget/CefSharp.Wpf"
-        },
-        "ranges": [
-          {
-            "type": "ECOSYSTEM",
-            "events": [
-              {
-                "introduced": "0"
-              },
-              {
-                "fixed": "98.1.210"
-              }
-            ]
-          }
-        ],
-        "versions": [
-          "1.25.2-perlun0",
-          "1.25.3",
-          "1.25.4",
-          "1.25.5",
-          "1.25.6",
-          "1.25.7",
-          "1.25.8",
-          "3.29.0-pre0",
-          "31.0.0-pre1",
-          "33.0.0",
-          "33.0.2",
-          "33.1.0-pre01",
-          "37.0.0",
-          "37.0.0-pre01",
-          "37.0.0-pre02",
-          "37.0.1",
-          "37.0.3",
-          "39.0.0",
-          "39.0.0-pre01",
-          "39.0.0-pre02",
-          "39.0.0-pre03",
-          "39.0.1",
-          "39.0.2",
-          "41.0.0",
-          "41.0.0-pre01",
-          "41.0.1",
-          "43.0.0",
-          "43.0.0-pre01",
-          "43.0.0-pre02",
-          "43.0.1",
-          "45.0.0",
-          "45.0.0-pre01",
-          "47.0.0",
-          "47.0.0-pre01",
-          "47.0.1",
-          "47.0.2",
-          "47.0.3",
-          "47.0.4",
-          "49.0.0",
-          "49.0.0-pre01",
-          "49.0.0-pre02",
-          "49.0.1",
-          "51.0.0",
-          "51.0.0-pre01",
-          "51.0.0-pre02",
-          "53.0.0",
-          "53.0.0-pre01",
-          "53.0.1",
-          "55.0.0",
-          "55.0.0-pre01",
-          "57.0.0",
-          "57.0.0-pre01",
-          "62.0.0-pre01",
-          "62.0.0-proprietary-codecs",
-          "62.0.0-proprietary-codecs2",
-          "63.0.0",
-          "63.0.0-pre01",
-          "63.0.0-pre02",
-          "63.0.0-pre03",
-          "63.0.1",
-          "63.0.2",
-          "63.0.3",
-          "65.0.0",
-          "65.0.0-pre01",
-          "65.0.0-pre02",
-          "65.0.1",
-          "67.0.0",
-          "67.0.0-pre01",
-          "69.0.0",
-          "69.0.0-pre01",
-          "71.0.0",
-          "71.0.0-pre01",
-          "71.0.1",
-          "71.0.2",
-          "73.1.120-pre01",
-          "73.1.130",
-          "75.1.140-pre01",
-          "75.1.141",
-          "75.1.142",
-          "75.1.143",
-          "79.1.310-pre",
-          "79.1.350",
-          "79.1.360",
-          "81.3.100",
-          "81.3.20-pre",
-          "83.3.120-pre",
-          "83.4.20",
-          "84.3.10-pre",
-          "84.4.10",
-          "85.3.120-pre",
-          "85.3.121",
-          "85.3.121-pre",
-          "85.3.130",
-          "86.0.240-pre",
-          "86.0.241",
-          "87.1.130-pre",
-          "87.1.131-pre",
-          "87.1.132",
-          "88.2.40-pre",
-          "88.2.90",
-          "89.0.140-pre",
-          "89.0.170",
-          "90.5.70-pre",
-          "90.6.50",
-          "90.6.70",
-          "91.1.160",
-          "91.1.210",
-          "91.1.211",
-          "91.1.230",
-          "91.1.60-pre",
-          "92.0.250-pre",
-          "92.0.251",
-          "92.0.260",
-          "93.1.110-pre",
-          "93.1.111",
-          "93.1.140",
-          "94.3.0-pre",
-          "94.4.110",
-          "94.4.20",
-          "94.4.50",
-          "95.7.140-pre",
-          "95.7.141",
-          "96.0.140-pre",
-          "96.0.141",
-          "96.0.142",
-          "96.0.170",
-          "96.0.180",
-          "97.1.10-pre",
-          "97.1.11",
-          "97.1.12",
-          "97.1.60",
-          "97.1.61",
-          "98.1.190"
-        ],
-        "database_specific": {
-          "last_known_affected_version_range": "<= 98.1.190",
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2022/02/GHSA-vv6j-ww6x-54gx/GHSA-vv6j-ww6x-54gx.json"
-        }
-      },
-      {
-        "package": {
-          "name": "CefSharp.Wpf.HwndHost",
-          "ecosystem": "NuGet",
-          "purl": "pkg:nuget/CefSharp.Wpf.HwndHost"
-        },
-        "ranges": [
-          {
-            "type": "ECOSYSTEM",
-            "events": [
-              {
-                "introduced": "0"
-              },
-              {
-                "fixed": "98.1.210"
-              }
-            ]
-          }
-        ],
-        "versions": [
-          "83.4.20-pre",
-          "84.4.10",
-          "85.3.121",
-          "85.3.130",
-          "86.0.241",
-          "88.2.90",
-          "89.0.170",
-          "90.6.50",
-          "90.6.70",
-          "91.1.160",
-          "91.1.210",
-          "91.1.211",
-          "91.1.230",
-          "92.0.260",
-          "93.1.140",
-          "94.4.110",
-          "94.4.50",
-          "95.7.141",
-          "96.0.170",
-          "96.0.180",
-          "97.1.11",
-          "97.1.61"
-        ],
-        "database_specific": {
-          "last_known_affected_version_range": "<= 98.1.190",
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2022/02/GHSA-vv6j-ww6x-54gx/GHSA-vv6j-ww6x-54gx.json"
-        }
-      },
-      {
-        "package": {
-          "name": "CefSharp.Common.NETCore",
-          "ecosystem": "NuGet",
-          "purl": "pkg:nuget/CefSharp.Common.NETCore"
-        },
-        "ranges": [
-          {
-            "type": "ECOSYSTEM",
-            "events": [
-              {
-                "introduced": "0"
-              },
-              {
-                "fixed": "98.1.210"
-              }
-            ]
-          }
-        ],
-        "versions": [
-          "87.1.130-pre",
-          "87.1.131-pre",
-          "87.1.132",
-          "88.2.40-pre",
-          "88.2.90",
-          "89.0.140-pre",
-          "89.0.170",
-          "90.5.70-pre",
-          "90.6.50",
-          "90.6.70",
-          "91.1.160",
-          "91.1.210",
-          "91.1.211",
-          "91.1.230",
-          "91.1.60-pre",
-          "92.0.250-pre",
-          "92.0.251",
-          "92.0.260",
-          "93.1.110-pre",
-          "93.1.111",
-          "93.1.140",
-          "94.3.0-pre",
-          "94.4.110",
-          "94.4.20",
-          "94.4.50",
-          "95.7.140-pre",
-          "95.7.141",
-          "96.0.140-pre",
-          "96.0.141",
-          "96.0.142",
-          "96.0.170",
-          "96.0.180",
-          "97.1.10-pre",
-          "97.1.11",
-          "97.1.12",
-          "97.1.60",
-          "97.1.61",
-          "98.1.190"
-        ],
-        "database_specific": {
-          "last_known_affected_version_range": "<= 98.1.190",
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2022/02/GHSA-vv6j-ww6x-54gx/GHSA-vv6j-ww6x-54gx.json"
-        }
-      },
-      {
-        "package": {
-          "name": "CefSharp.OffScreen.NETCore",
-          "ecosystem": "NuGet",
-          "purl": "pkg:nuget/CefSharp.OffScreen.NETCore"
-        },
-        "ranges": [
-          {
-            "type": "ECOSYSTEM",
-            "events": [
-              {
-                "introduced": "0"
-              },
-              {
-                "fixed": "98.1.210"
-              }
-            ]
-          }
-        ],
-        "versions": [
-          "87.1.130-pre",
-          "87.1.131-pre",
-          "87.1.132",
-          "88.2.40-pre",
-          "88.2.90",
-          "89.0.140-pre",
-          "89.0.170",
-          "90.5.70-pre",
-          "90.6.50",
-          "90.6.70",
-          "91.1.160",
-          "91.1.210",
-          "91.1.211",
-          "91.1.230",
-          "91.1.60-pre",
-          "92.0.250-pre",
-          "92.0.251",
-          "92.0.260",
-          "93.1.110-pre",
-          "93.1.111",
-          "93.1.140",
-          "94.3.0-pre",
-          "94.4.110",
-          "94.4.20",
-          "94.4.50",
-          "95.7.140-pre",
-          "95.7.141",
-          "96.0.140-pre",
-          "96.0.141",
-          "96.0.142",
-          "96.0.170",
-          "96.0.180",
-          "97.1.10-pre",
-          "97.1.11",
-          "97.1.12",
-          "97.1.60",
-          "97.1.61",
-          "98.1.190"
-        ],
-        "database_specific": {
-          "last_known_affected_version_range": "<= 98.1.190",
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2022/02/GHSA-vv6j-ww6x-54gx/GHSA-vv6j-ww6x-54gx.json"
-        }
-      },
-      {
-        "package": {
-          "name": "CefSharp.WinForms.NETCore",
-          "ecosystem": "NuGet",
-          "purl": "pkg:nuget/CefSharp.WinForms.NETCore"
-        },
-        "ranges": [
-          {
-            "type": "ECOSYSTEM",
-            "events": [
-              {
-                "introduced": "0"
-              },
-              {
-                "fixed": "98.1.210"
-              }
-            ]
-          }
-        ],
-        "versions": [
-          "87.1.130-pre",
-          "87.1.131-pre",
-          "87.1.132",
-          "88.2.40-pre",
-          "88.2.90",
-          "89.0.140-pre",
-          "89.0.170",
-          "90.5.70-pre",
-          "90.6.50",
-          "90.6.70",
-          "91.1.160",
-          "91.1.210",
-          "91.1.211",
-          "91.1.230",
-          "91.1.60-pre",
-          "92.0.250-pre",
-          "92.0.251",
-          "92.0.260",
-          "93.1.110-pre",
-          "93.1.111",
-          "93.1.140",
-          "94.3.0-pre",
-          "94.4.110",
-          "94.4.20",
-          "94.4.50",
-          "95.7.140-pre",
-          "95.7.141",
-          "96.0.140-pre",
-          "96.0.141",
-          "96.0.142",
-          "96.0.170",
-          "96.0.180",
-          "97.1.10-pre",
-          "97.1.11",
-          "97.1.12",
-          "97.1.60",
-          "97.1.61",
-          "98.1.190"
-        ],
-        "database_specific": {
-          "last_known_affected_version_range": "<= 98.1.190",
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2022/02/GHSA-vv6j-ww6x-54gx/GHSA-vv6j-ww6x-54gx.json"
-        }
-      },
-      {
-        "package": {
-          "name": "CefSharp.Wpf.NETCore",
-          "ecosystem": "NuGet",
-          "purl": "pkg:nuget/CefSharp.Wpf.NETCore"
-        },
-        "ranges": [
-          {
-            "type": "ECOSYSTEM",
-            "events": [
-              {
-                "introduced": "0"
-              },
-              {
-                "fixed": "98.1.210"
-              }
-            ]
-          }
-        ],
-        "versions": [
-          "87.1.130-pre",
-          "87.1.131-pre",
-          "87.1.132",
-          "88.2.40-pre",
-          "88.2.90",
-          "89.0.140-pre",
-          "89.0.170",
-          "90.5.70-pre",
-          "90.6.50",
-          "90.6.70",
-          "91.1.160",
-          "91.1.210",
-          "91.1.211",
-          "91.1.230",
-          "91.1.60-pre",
-          "92.0.250-pre",
-          "92.0.251",
-          "92.0.260",
-          "93.1.110-pre",
-          "93.1.111",
-          "93.1.140",
-          "94.3.0-pre",
-          "94.4.110",
-          "94.4.20",
-          "94.4.50",
-          "95.7.140-pre",
-          "95.7.141",
-          "96.0.140-pre",
-          "96.0.141",
-          "96.0.142",
-          "96.0.170",
-          "96.0.180",
-          "97.1.10-pre",
-          "97.1.11",
-          "97.1.12",
-          "97.1.60",
-          "97.1.61",
-          "98.1.190"
-        ],
-        "database_specific": {
-          "last_known_affected_version_range": "<= 98.1.190",
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2022/02/GHSA-vv6j-ww6x-54gx/GHSA-vv6j-ww6x-54gx.json"
-        }
-      }
-    ],
-    "schema_version": "1.6.0",
-    "severity": [
-      {
-        "type": "CVSS_V3",
-        "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H"
-      }
-    ]
-  },
-  {
-    "id": "GHSA-w7jx-j77m-wp65",
-    "summary": "Cross-site scripting vulnerability in TinyMCE",
-    "details": "### Impact\nA cross-site scripting (XSS) vulnerability was discovered in the URL sanitization logic of the core parser. The vulnerability allowed arbitrary JavaScript execution when inserting a specially crafted piece of content into the editor using the clipboard or APIs. This impacts all users who are using TinyMCE 5.5.1 or lower.\n\n### Patches\nThis vulnerability has been patched in TinyMCE 5.6.0 by improved URL sanitization logic.\n\n### Workarounds\nTo work around this vulnerability, either:\n- Upgrade to TinyMCE 5.6.0 or higher\n- Manually sanitize `iframe`, `object` and `embed` URL attributes using a [TinyMCE node filter](https://www.tiny.cloud/docs/api/tinymce.html/tinymce.html.domparser/#addnodefilter).\n- Disable `iframe`, `object`, and `embed` elements in your content using the [invalid_elements](https://www.tiny.cloud/docs/configure/content-filtering/#invalid_elements) setting.\n\n#### Example: Sanitizing using a node filter\n```js\neditor.parser.addNodeFilter('iframe,object,embed', function(nodes) {\n  nodes.forEach(function(node) {\n    if (node.attributes) {\n      node.attributes.forEach(function(attr) {\n        var name = attr.name;\n        var value = attr.value;\n        // Sanitize the attribute value here or remove it entirely\n        var sanitizedValue = ...;\n        node.attr(name, santizedValue);\n      });\n    }\n  });\n});\n```\n\n#### Example: Using invalid_elements\n```js\ninvalid_elements: 'iframe,object,embed'\n```\n\n### Acknowledgements\nTiny Technologies would like to thank Aaron Bishop at SecurityMetrics for discovering this vulnerability.\n\n### References\nhttps://www.tiny.cloud/docs/release-notes/release-notes56/#securityfixes\n\n### For more information\nIf you have any questions or comments about this advisory:\n* Open an issue in the [TinyMCE repo](https://github.com/tinymce/tinymce/issues)\n* Email us at [infosec@tiny.cloud](mailto:infosec@tiny.cloud)",
-    "aliases": [
-      "CVE-2024-21911"
-    ],
-    "modified": "2024-12-03T06:09:21.304425Z",
-    "published": "2021-01-06T19:27:54Z",
-    "database_specific": {
-      "nvd_published_at": null,
-      "cwe_ids": [
-        "CWE-79"
-      ],
-      "severity": "MODERATE",
-      "github_reviewed": true,
-      "github_reviewed_at": "2021-01-06T19:27:46Z"
-    },
-    "references": [
-      {
-        "type": "WEB",
-        "url": "https://github.com/tinymce/tinymce/security/advisories/GHSA-w7jx-j77m-wp65"
-      },
-      {
-        "type": "WEB",
-        "url": "https://www.npmjs.com/package/tinymce"
-      },
-      {
-        "type": "WEB",
-        "url": "https://www.tiny.cloud/docs/release-notes/release-notes56/#securityfixes"
-      }
-    ],
-    "affected": [
-      {
-        "package": {
-          "name": "tinymce",
-          "ecosystem": "npm",
-          "purl": "pkg:npm/tinymce"
-        },
-        "ranges": [
-          {
-            "type": "SEMVER",
-            "events": [
-              {
-                "introduced": "0"
-              },
-              {
-                "fixed": "5.6.0"
-              }
-            ]
-          }
-        ],
-        "database_specific": {
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2021/01/GHSA-w7jx-j77m-wp65/GHSA-w7jx-j77m-wp65.json"
-        }
-      },
-      {
-        "package": {
-          "name": "TinyMCE",
-          "ecosystem": "NuGet",
-          "purl": "pkg:nuget/TinyMCE"
-        },
-        "ranges": [
-          {
-            "type": "ECOSYSTEM",
-            "events": [
-              {
-                "introduced": "0"
-              },
-              {
-                "fixed": "5.6.0"
-              }
-            ]
-          }
-        ],
-        "versions": [
-          "3.4.3.2",
-          "3.4.4",
-          "3.4.5",
-          "3.4.7",
-          "3.5.0",
-          "3.5.0.1",
-          "3.5.1",
-          "3.5.1.1",
-          "3.5.2",
-          "3.5.3",
-          "3.5.4",
-          "3.5.4.1",
-          "3.5.5",
-          "3.5.6",
-          "3.5.7",
-          "3.5.8",
-          "4.0.0",
-          "4.0.1",
-          "4.0.10",
-          "4.0.11",
-          "4.0.13",
-          "4.0.14",
-          "4.0.15",
-          "4.0.16",
-          "4.0.17",
-          "4.0.18",
-          "4.0.19",
-          "4.0.2",
-          "4.0.20",
-          "4.0.21",
-          "4.0.22",
-          "4.0.23",
-          "4.0.24",
-          "4.0.25",
-          "4.0.26",
-          "4.0.27",
-          "4.0.28",
-          "4.0.4",
-          "4.0.5",
-          "4.0.6",
-          "4.0.8",
-          "4.0.9",
-          "4.1.0",
-          "4.1.1",
-          "4.1.10",
-          "4.1.2",
-          "4.1.3",
-          "4.1.4",
-          "4.1.5",
-          "4.1.6",
-          "4.1.7",
-          "4.1.8",
-          "4.1.9",
-          "4.2.0",
-          "4.2.1",
-          "4.2.2",
-          "4.2.3",
-          "4.2.4",
-          "4.2.5",
-          "4.2.6",
-          "4.2.7",
-          "4.2.8",
-          "4.3.0",
-          "4.3.1",
-          "4.3.10",
-          "4.3.11",
-          "4.3.12",
-          "4.3.13",
-          "4.3.2",
-          "4.3.3",
-          "4.3.4",
-          "4.3.6",
-          "4.3.7",
-          "4.3.8",
-          "4.3.9",
-          "4.4.0",
-          "4.4.1",
-          "4.4.2",
-          "4.4.3",
-          "4.5.0",
-          "4.5.1",
-          "4.5.2",
-          "4.5.3",
-          "4.5.4",
-          "4.5.5",
-          "4.5.6",
-          "4.5.7",
-          "4.5.8",
-          "4.6.0",
-          "4.6.1",
-          "4.6.2",
-          "4.6.3",
-          "4.6.4",
-          "4.6.5",
-          "4.6.6",
-          "4.6.7",
-          "4.7.0",
-          "4.7.10",
-          "4.7.11",
-          "4.7.12",
-          "4.7.13",
-          "4.7.3",
-          "4.7.4",
-          "4.7.5",
-          "4.7.6",
-          "4.7.7",
-          "4.7.8",
-          "4.7.9",
-          "4.8.0",
-          "4.8.1",
-          "4.8.2",
-          "4.8.3",
-          "4.8.4",
-          "4.8.5",
-          "4.9.0",
-          "4.9.1",
-          "4.9.10",
-          "4.9.11",
-          "4.9.2",
-          "4.9.3",
-          "4.9.4",
-          "4.9.5",
-          "4.9.6",
-          "4.9.7",
-          "4.9.8",
-          "4.9.9",
-          "5.0.0",
-          "5.0.1",
-          "5.0.10",
-          "5.0.11",
-          "5.0.12",
-          "5.0.13",
-          "5.0.14",
-          "5.0.15",
-          "5.0.16",
-          "5.0.2",
-          "5.0.3",
-          "5.0.4",
-          "5.0.5",
-          "5.0.6",
-          "5.0.7",
-          "5.0.8",
-          "5.0.9",
-          "5.1.0",
-          "5.1.1",
-          "5.1.2",
-          "5.1.3",
-          "5.1.4",
-          "5.1.5",
-          "5.1.6",
-          "5.2.0",
-          "5.2.1",
-          "5.2.2",
-          "5.3.0",
-          "5.3.1",
-          "5.3.2",
-          "5.4.0",
-          "5.4.1",
-          "5.4.2",
-          "5.5.0",
-          "5.5.1"
-        ],
-        "database_specific": {
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2021/01/GHSA-w7jx-j77m-wp65/GHSA-w7jx-j77m-wp65.json"
-        }
-      },
-      {
-        "package": {
-          "name": "tinymce/tinymce",
-          "ecosystem": "Packagist",
-          "purl": "pkg:composer/tinymce/tinymce"
-        },
-        "ranges": [
-          {
-            "type": "ECOSYSTEM",
-            "events": [
-              {
-                "introduced": "0"
-              },
-              {
-                "fixed": "5.6.0"
-              }
-            ]
-          }
-        ],
-        "versions": [
-          "4.0.0",
-          "4.0.1",
-          "4.0.10",
-          "4.0.11",
-          "4.0.12",
-          "4.0.13",
-          "4.0.14",
-          "4.0.15",
-          "4.0.16",
-          "4.0.17",
-          "4.0.18",
-          "4.0.19",
-          "4.0.2",
-          "4.0.20",
-          "4.0.21",
-          "4.0.22",
-          "4.0.23",
-          "4.0.24",
-          "4.0.25",
-          "4.0.26",
-          "4.0.27",
-          "4.0.28",
-          "4.0.3",
-          "4.0.4",
-          "4.0.5",
-          "4.0.6",
-          "4.0.7",
-          "4.0.8",
-          "4.0.9",
-          "4.1.0",
-          "4.1.1",
-          "4.1.10",
-          "4.1.2",
-          "4.1.3",
-          "4.1.4",
-          "4.1.5",
-          "4.1.6",
-          "4.1.7",
-          "4.1.8",
-          "4.1.9",
-          "4.2.0",
-          "4.2.1",
-          "4.2.2",
-          "4.2.3",
-          "4.2.4",
-          "4.2.5",
-          "4.2.6",
-          "4.2.7",
-          "4.2.8",
-          "4.3.0",
-          "4.3.1",
-          "4.3.10",
-          "4.3.11",
-          "4.3.12",
-          "4.3.13",
-          "4.3.2",
-          "4.3.3",
-          "4.3.4",
-          "4.3.6",
-          "4.3.7",
-          "4.3.8",
-          "4.3.9",
-          "4.4.0",
-          "4.4.1",
-          "4.4.2",
-          "4.4.3",
-          "4.5.0",
-          "4.5.1",
-          "4.5.12",
-          "4.5.2",
-          "4.5.3",
-          "4.5.4",
-          "4.5.5",
-          "4.5.6",
-          "4.5.7",
-          "4.5.8",
-          "4.5.9",
-          "4.6.0",
-          "4.6.1",
-          "4.6.2",
-          "4.6.3",
-          "4.6.4",
-          "4.6.5",
-          "4.6.6",
-          "4.6.7",
-          "4.7.0",
-          "4.7.1",
-          "4.7.10",
-          "4.7.11",
-          "4.7.12",
-          "4.7.13",
-          "4.7.2",
-          "4.7.3",
-          "4.7.4",
-          "4.7.5",
-          "4.7.6",
-          "4.7.7",
-          "4.7.8",
-          "4.7.9",
-          "4.8.0",
-          "4.8.1",
-          "4.8.2",
-          "4.8.3",
-          "4.8.4",
-          "4.8.5",
-          "4.9.0",
-          "4.9.1",
-          "4.9.10",
-          "4.9.11",
-          "4.9.2",
-          "4.9.3",
-          "4.9.4",
-          "4.9.5",
-          "4.9.6",
-          "4.9.7",
-          "4.9.8",
-          "4.9.9",
-          "5.0.0",
-          "5.0.1",
-          "5.0.10",
-          "5.0.11",
-          "5.0.12",
-          "5.0.13",
-          "5.0.14",
-          "5.0.15",
-          "5.0.16",
-          "5.0.2",
-          "5.0.3",
-          "5.0.4",
-          "5.0.5",
-          "5.0.6",
-          "5.0.7",
-          "5.0.8",
-          "5.0.9",
-          "5.1.0",
-          "5.1.1",
-          "5.1.2",
-          "5.1.3",
-          "5.1.4",
-          "5.1.5",
-          "5.1.6",
-          "5.2.0",
-          "5.2.1",
-          "5.2.2",
-          "5.3.0",
-          "5.3.1",
-          "5.3.2",
-          "5.4.0",
-          "5.4.1",
-          "5.4.2",
-          "5.5.0",
-          "5.5.1"
-        ],
-        "database_specific": {
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2021/01/GHSA-w7jx-j77m-wp65/GHSA-w7jx-j77m-wp65.json"
-        }
-      }
-    ],
-    "schema_version": "1.6.0"
-  },
-  {
     "id": "GHSA-wcm2-9c89-wmfm",
     "summary": "Cross-site Scripting in jquery-ui",
     "details": "Cross-site scripting (XSS) vulnerability in jquery.ui.dialog.js in the Dialog widget in jQuery UI before 1.10.0 allows remote attackers to inject arbitrary web script or HTML via the title option.",
@@ -18257,6 +17999,288 @@
     ]
   },
   {
+    "id": "GHSA-wv67-q8rr-grjp",
+    "summary": "Duplicate Advisory: Prototype Pollution in jquery",
+    "details": "## Duplicate Advisory\nThis advisory is a duplicate of [GHSA-6c3j-c64m-qhgq](https://github.com/advisories/GHSA-6c3j-c64m-qhgq). This link is maintained to preserve external references.\n\n## Original Description\nVersions of `jquery`  prior to 3.4.0 are vulnerable to Prototype Pollution. The extend() method allows an attacker to modify the prototype for `Object` causing changes in properties that will exist on all objects.\n\n## Recommendation\nUpgrade to version 3.4.0 or later.",
+    "modified": "2024-12-07T05:57:41.314362Z",
+    "published": "2019-04-23T15:59:10Z",
+    "withdrawn": "2019-04-26T14:50:56Z",
+    "database_specific": {
+      "nvd_published_at": null,
+      "cwe_ids": [],
+      "severity": "MODERATE",
+      "github_reviewed": true,
+      "github_reviewed_at": "2019-04-23T15:57:18Z"
+    },
+    "references": [
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-5428"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/jquery/jquery/pull/4333"
+      },
+      {
+        "type": "WEB",
+        "url": "https://hackerone.com/reports/454365"
+      },
+      {
+        "type": "WEB",
+        "url": "https://blog.jquery.com/2019/04/10/jquery-3-4-0-released"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.npmjs.com/advisories/796"
+      }
+    ],
+    "affected": [
+      {
+        "package": {
+          "name": "jquery",
+          "ecosystem": "npm",
+          "purl": "pkg:npm/jquery"
+        },
+        "ranges": [
+          {
+            "type": "SEMVER",
+            "events": [
+              {
+                "introduced": "0"
+              },
+              {
+                "fixed": "3.4.0"
+              }
+            ]
+          }
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2019/04/GHSA-wv67-q8rr-grjp/GHSA-wv67-q8rr-grjp.json"
+        }
+      },
+      {
+        "package": {
+          "name": "jquery",
+          "ecosystem": "NuGet",
+          "purl": "pkg:nuget/jquery"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "0"
+              },
+              {
+                "fixed": "3.4.0"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "1.10.0",
+          "1.10.0.1",
+          "1.10.1",
+          "1.10.2",
+          "1.11.0",
+          "1.11.1",
+          "1.11.2",
+          "1.11.3",
+          "1.12.0",
+          "1.12.1",
+          "1.12.2",
+          "1.12.3",
+          "1.12.4",
+          "1.4.1",
+          "1.4.2",
+          "1.4.3",
+          "1.4.4",
+          "1.5.0",
+          "1.5.1",
+          "1.5.2",
+          "1.6.0",
+          "1.6.1",
+          "1.6.2",
+          "1.6.3",
+          "1.6.4",
+          "1.7.0",
+          "1.7.1",
+          "1.7.1.1",
+          "1.7.2",
+          "1.8.0",
+          "1.8.1",
+          "1.8.2",
+          "1.8.3",
+          "1.9.0",
+          "1.9.1",
+          "2.0.0",
+          "2.0.1",
+          "2.0.1.1",
+          "2.0.2",
+          "2.0.3",
+          "2.1.0",
+          "2.1.1",
+          "2.1.2",
+          "2.1.3",
+          "2.1.4",
+          "2.2.0",
+          "2.2.1",
+          "2.2.2",
+          "2.2.3",
+          "2.2.4",
+          "3.0.0",
+          "3.0.0.1",
+          "3.1.0",
+          "3.1.1",
+          "3.2.1",
+          "3.3.1"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2019/04/GHSA-wv67-q8rr-grjp/GHSA-wv67-q8rr-grjp.json"
+        }
+      },
+      {
+        "package": {
+          "name": "org.webjars.npm:jquery",
+          "ecosystem": "Maven",
+          "purl": "pkg:maven/org.webjars.npm/jquery"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "0"
+              },
+              {
+                "fixed": "3.4.0"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "1.11.0",
+          "1.11.1",
+          "1.11.3",
+          "1.12.1",
+          "1.12.2",
+          "1.12.3",
+          "1.12.4",
+          "1.7.2",
+          "1.7.3",
+          "1.8.2",
+          "1.8.3",
+          "1.9.1",
+          "2.1.0",
+          "2.1.1",
+          "2.1.1-rc1",
+          "2.1.1-rc2",
+          "2.1.3",
+          "2.1.4",
+          "2.2.0",
+          "2.2.1",
+          "2.2.2",
+          "2.2.3",
+          "2.2.4",
+          "3.0.0",
+          "3.0.0-alpha1",
+          "3.0.0-beta1",
+          "3.0.0-rc1",
+          "3.1.0",
+          "3.1.1",
+          "3.2.0",
+          "3.2.1",
+          "3.3.0",
+          "3.3.1"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2019/04/GHSA-wv67-q8rr-grjp/GHSA-wv67-q8rr-grjp.json"
+        }
+      },
+      {
+        "package": {
+          "name": "jquery-rails",
+          "ecosystem": "RubyGems",
+          "purl": "pkg:gem/jquery-rails"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "0"
+              },
+              {
+                "fixed": "3.4.0"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "0.1.1",
+          "0.1.2",
+          "0.1.3",
+          "0.2",
+          "0.2.1",
+          "0.2.2",
+          "0.2.3",
+          "0.2.4",
+          "0.2.5",
+          "0.2.6",
+          "0.2.7",
+          "1.0",
+          "1.0.1",
+          "1.0.10",
+          "1.0.11",
+          "1.0.12",
+          "1.0.13",
+          "1.0.14",
+          "1.0.15",
+          "1.0.16",
+          "1.0.17",
+          "1.0.18",
+          "1.0.19",
+          "1.0.2",
+          "1.0.3",
+          "1.0.4",
+          "1.0.5",
+          "1.0.6",
+          "1.0.7",
+          "1.0.8",
+          "1.0.9",
+          "1.0.rc",
+          "2.0.1",
+          "2.0.2",
+          "2.0.3",
+          "2.1.0",
+          "2.1.1",
+          "2.1.2",
+          "2.1.3",
+          "2.1.4",
+          "2.2.0",
+          "2.2.1",
+          "2.2.2",
+          "2.3.0",
+          "3.0.0",
+          "3.0.1",
+          "3.0.2",
+          "3.0.3",
+          "3.0.4",
+          "3.1.0",
+          "3.1.1",
+          "3.1.2",
+          "3.1.3",
+          "3.1.4",
+          "3.1.5"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2019/04/GHSA-wv67-q8rr-grjp/GHSA-wv67-q8rr-grjp.json"
+        }
+      }
+    ],
+    "schema_version": "1.6.0"
+  },
+  {
     "id": "GHSA-x674-v45j-fwxw",
     "summary": "MSAL.NET applications targeting Xamarin Android and .NET Android (MAUI) susceptible to local denial of service",
     "details": ">[!IMPORTANT]\n>**ONLY** applications targeting Xamarin Android and .NET Android (MAUI) are impacted. All others can safely dismiss this CVE.\n\n### Impact\n\n[MSAL.NET](https://www.nuget.org/packages/Microsoft.Identity.Client/) applications targeting Xamarin Android and .NET Android (e.g., MAUI) using the library from versions `4.48.0` to `4.60.3` (inclusive, except `4.59.1` and `4.60.3`) are impacted by a low severity vulnerability.   \n\nA malicious application running on a customer Android device can (1) inject HTML/JavaScript in an embedded web view exported by affected applications, or (2) cause local denial of service against applications that were built using MSAL.NET for authentication on the same device (i.e., prevent the user of the legitimate application from logging in) due to incorrect activity export configuration.\n\n### Patches\n\nMSAL.NET version 4.60.3 includes the fix. We recommend all users of MSAL.NET that are building public client applications for Android update to the latest version.\n\n### Workarounds\n\nWe recommend developers update to the latest version of MSAL.NET. If that is not possible, a developer may explicitly mark the MSAL.NET activity non-exported:\n\n```xml\n<activity android:name=\"microsoft.identity.client.AuthenticationAgentActivity\" android:configChanges=\"orientation|screenSize\" android:exported=\"false\">\n<intent-filter>\n<action android:name=\"android.intent.action.VIEW\" />\n<category android:name=\"android.intent.category.DEFAULT\" />\n<category android:name=\"android.intent.category.BROWSABLE\" />\n<data android:scheme=\"msalYOUR_CLIENT_ID\" android:host=\"auth\" />\n</intent-filter>\n</activity>\n```\n\n### References\n\nRefer to [MSAL.NET documentation](https://learn.microsoft.com/entra/msal/dotnet/) for latest guidance and best practices on configuring client applications using the library.\n",
@@ -18380,418 +18404,6 @@
         "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:U/C:N/I:L/A:L"
       }
     ]
-  },
-  {
-    "id": "GHSA-x7fx-mcc9-27j7",
-    "summary": "Inappropriate implementation in V8 in CefSharp",
-    "details": "High CVE-2020-16013: Inappropriate implementation in V8. \n\n- https://chromereleases.googleblog.com/2020/11/stable-channel-update-for-desktop_11.html\n- https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-16013\n\nGoogle is aware of reports that exploits for CVE-2020-16013 and CVE-2020-16017 exist in the wild.\n\nThere is currently little to no public information on the issue other than it has been flagged as `High` severity.",
-    "aliases": [
-      "CVE-2020-16013"
-    ],
-    "modified": "2024-12-02T05:44:20.932119Z",
-    "published": "2020-11-27T20:12:55Z",
-    "database_specific": {
-      "nvd_published_at": "2021-01-08T19:15:00Z",
-      "cwe_ids": [
-        "CWE-119",
-        "CWE-787"
-      ],
-      "severity": "HIGH",
-      "github_reviewed": true,
-      "github_reviewed_at": "2020-11-27T20:12:35Z"
-    },
-    "references": [
-      {
-        "type": "WEB",
-        "url": "https://github.com/cefsharp/CefSharp/security/advisories/GHSA-x7fx-mcc9-27j7"
-      },
-      {
-        "type": "ADVISORY",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-16013"
-      },
-      {
-        "type": "WEB",
-        "url": "https://chromereleases.googleblog.com/2020/11/stable-channel-update-for-desktop_11.html"
-      },
-      {
-        "type": "WEB",
-        "url": "https://crbug.com/1147206"
-      }
-    ],
-    "affected": [
-      {
-        "package": {
-          "name": "CefSharp.Common",
-          "ecosystem": "NuGet",
-          "purl": "pkg:nuget/CefSharp.Common"
-        },
-        "ranges": [
-          {
-            "type": "ECOSYSTEM",
-            "events": [
-              {
-                "introduced": "0"
-              },
-              {
-                "fixed": "86.0.241"
-              }
-            ]
-          }
-        ],
-        "versions": [
-          "31.0.0-pre1",
-          "33.0.0",
-          "33.0.2",
-          "33.1.0-pre01",
-          "37.0.0",
-          "37.0.0-pre01",
-          "37.0.0-pre02",
-          "37.0.1",
-          "37.0.2",
-          "37.0.3",
-          "39.0.0",
-          "39.0.0-pre01",
-          "39.0.0-pre02",
-          "39.0.0-pre03",
-          "39.0.1",
-          "39.0.2",
-          "41.0.0",
-          "41.0.0-pre01",
-          "41.0.1",
-          "43.0.0",
-          "43.0.0-pre01",
-          "43.0.0-pre02",
-          "43.0.1",
-          "45.0.0",
-          "45.0.0-pre01",
-          "47.0.0",
-          "47.0.0-pre01",
-          "47.0.1",
-          "47.0.2",
-          "47.0.3",
-          "47.0.4",
-          "49.0.0",
-          "49.0.0-pre01",
-          "49.0.0-pre02",
-          "49.0.1",
-          "51.0.0",
-          "51.0.0-pre01",
-          "51.0.0-pre02",
-          "53.0.0",
-          "53.0.0-pre01",
-          "53.0.1",
-          "55.0.0",
-          "55.0.0-pre01",
-          "57.0.0",
-          "57.0.0-pre01",
-          "62.0.0-pre01",
-          "62.0.0-proprietary-codecs",
-          "62.0.0-proprietary-codecs2",
-          "63.0.0",
-          "63.0.0-pre01",
-          "63.0.0-pre02",
-          "63.0.0-pre03",
-          "63.0.1",
-          "63.0.2",
-          "63.0.3",
-          "65.0.0",
-          "65.0.0-pre01",
-          "65.0.0-pre02",
-          "65.0.1",
-          "67.0.0",
-          "67.0.0-pre01",
-          "69.0.0",
-          "69.0.0-pre01",
-          "71.0.0",
-          "71.0.0-pre01",
-          "71.0.1",
-          "71.0.2",
-          "73.1.120-pre01",
-          "73.1.130",
-          "75.1.140-pre01",
-          "75.1.141",
-          "75.1.142",
-          "75.1.143",
-          "79.1.310-pre",
-          "79.1.350",
-          "79.1.360",
-          "81.3.100",
-          "81.3.20-pre",
-          "83.3.120-pre",
-          "83.4.20",
-          "84.3.10-pre",
-          "84.4.10",
-          "85.3.120-pre",
-          "85.3.121",
-          "85.3.121-pre",
-          "85.3.130",
-          "86.0.240-pre"
-        ],
-        "database_specific": {
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2020/11/GHSA-x7fx-mcc9-27j7/GHSA-x7fx-mcc9-27j7.json"
-        }
-      },
-      {
-        "package": {
-          "name": "CefSharp.Wpf",
-          "ecosystem": "NuGet",
-          "purl": "pkg:nuget/CefSharp.Wpf"
-        },
-        "ranges": [
-          {
-            "type": "ECOSYSTEM",
-            "events": [
-              {
-                "introduced": "0"
-              },
-              {
-                "fixed": "86.0.241"
-              }
-            ]
-          }
-        ],
-        "versions": [
-          "1.25.2-perlun0",
-          "1.25.3",
-          "1.25.4",
-          "1.25.5",
-          "1.25.6",
-          "1.25.7",
-          "1.25.8",
-          "3.29.0-pre0",
-          "31.0.0-pre1",
-          "33.0.0",
-          "33.0.2",
-          "33.1.0-pre01",
-          "37.0.0",
-          "37.0.0-pre01",
-          "37.0.0-pre02",
-          "37.0.1",
-          "37.0.3",
-          "39.0.0",
-          "39.0.0-pre01",
-          "39.0.0-pre02",
-          "39.0.0-pre03",
-          "39.0.1",
-          "39.0.2",
-          "41.0.0",
-          "41.0.0-pre01",
-          "41.0.1",
-          "43.0.0",
-          "43.0.0-pre01",
-          "43.0.0-pre02",
-          "43.0.1",
-          "45.0.0",
-          "45.0.0-pre01",
-          "47.0.0",
-          "47.0.0-pre01",
-          "47.0.1",
-          "47.0.2",
-          "47.0.3",
-          "47.0.4",
-          "49.0.0",
-          "49.0.0-pre01",
-          "49.0.0-pre02",
-          "49.0.1",
-          "51.0.0",
-          "51.0.0-pre01",
-          "51.0.0-pre02",
-          "53.0.0",
-          "53.0.0-pre01",
-          "53.0.1",
-          "55.0.0",
-          "55.0.0-pre01",
-          "57.0.0",
-          "57.0.0-pre01",
-          "62.0.0-pre01",
-          "62.0.0-proprietary-codecs",
-          "62.0.0-proprietary-codecs2",
-          "63.0.0",
-          "63.0.0-pre01",
-          "63.0.0-pre02",
-          "63.0.0-pre03",
-          "63.0.1",
-          "63.0.2",
-          "63.0.3",
-          "65.0.0",
-          "65.0.0-pre01",
-          "65.0.0-pre02",
-          "65.0.1",
-          "67.0.0",
-          "67.0.0-pre01",
-          "69.0.0",
-          "69.0.0-pre01",
-          "71.0.0",
-          "71.0.0-pre01",
-          "71.0.1",
-          "71.0.2",
-          "73.1.120-pre01",
-          "73.1.130",
-          "75.1.140-pre01",
-          "75.1.141",
-          "75.1.142",
-          "75.1.143",
-          "79.1.310-pre",
-          "79.1.350",
-          "79.1.360",
-          "81.3.100",
-          "81.3.20-pre",
-          "83.3.120-pre",
-          "83.4.20",
-          "84.3.10-pre",
-          "84.4.10",
-          "85.3.120-pre",
-          "85.3.121",
-          "85.3.121-pre",
-          "85.3.130",
-          "86.0.240-pre"
-        ],
-        "database_specific": {
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2020/11/GHSA-x7fx-mcc9-27j7/GHSA-x7fx-mcc9-27j7.json"
-        }
-      },
-      {
-        "package": {
-          "name": "CefSharp.WinForms",
-          "ecosystem": "NuGet",
-          "purl": "pkg:nuget/CefSharp.WinForms"
-        },
-        "ranges": [
-          {
-            "type": "ECOSYSTEM",
-            "events": [
-              {
-                "introduced": "0"
-              },
-              {
-                "fixed": "86.0.241"
-              }
-            ]
-          }
-        ],
-        "versions": [
-          "1.25.3",
-          "33.0.0",
-          "33.0.2",
-          "33.1.0-pre01",
-          "37.0.0",
-          "37.0.0-pre01",
-          "37.0.0-pre02",
-          "37.0.1",
-          "37.0.3",
-          "39.0.0",
-          "39.0.0-pre01",
-          "39.0.0-pre02",
-          "39.0.0-pre03",
-          "39.0.1",
-          "39.0.2",
-          "41.0.0",
-          "41.0.0-pre01",
-          "41.0.1",
-          "43.0.0",
-          "43.0.0-pre01",
-          "43.0.0-pre02",
-          "43.0.1",
-          "45.0.0",
-          "45.0.0-pre01",
-          "47.0.0",
-          "47.0.0-pre01",
-          "47.0.1",
-          "47.0.2",
-          "47.0.3",
-          "47.0.4",
-          "49.0.0",
-          "49.0.0-pre01",
-          "49.0.0-pre02",
-          "49.0.1",
-          "51.0.0",
-          "51.0.0-pre01",
-          "51.0.0-pre02",
-          "53.0.0",
-          "53.0.0-pre01",
-          "53.0.1",
-          "55.0.0",
-          "55.0.0-pre01",
-          "57.0.0",
-          "57.0.0-pre01",
-          "62.0.0-pre01",
-          "62.0.0-proprietary-codecs",
-          "62.0.0-proprietary-codecs2",
-          "63.0.0",
-          "63.0.0-pre01",
-          "63.0.0-pre02",
-          "63.0.0-pre03",
-          "63.0.1",
-          "63.0.2",
-          "63.0.3",
-          "65.0.0",
-          "65.0.0-pre01",
-          "65.0.0-pre02",
-          "65.0.1",
-          "67.0.0",
-          "67.0.0-pre01",
-          "69.0.0",
-          "69.0.0-pre01",
-          "71.0.0",
-          "71.0.0-pre01",
-          "71.0.1",
-          "71.0.2",
-          "73.1.120-pre01",
-          "73.1.130",
-          "75.1.140-pre01",
-          "75.1.141",
-          "75.1.142",
-          "75.1.143",
-          "79.1.310-pre",
-          "79.1.350",
-          "79.1.360",
-          "81.3.100",
-          "81.3.20-pre",
-          "83.3.120-pre",
-          "83.4.20",
-          "84.3.10-pre",
-          "84.4.10",
-          "85.3.120-pre",
-          "85.3.121",
-          "85.3.121-pre",
-          "85.3.130",
-          "86.0.240-pre"
-        ],
-        "database_specific": {
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2020/11/GHSA-x7fx-mcc9-27j7/GHSA-x7fx-mcc9-27j7.json"
-        }
-      },
-      {
-        "package": {
-          "name": "CefSharp.Wpf.HwndHost",
-          "ecosystem": "NuGet",
-          "purl": "pkg:nuget/CefSharp.Wpf.HwndHost"
-        },
-        "ranges": [
-          {
-            "type": "ECOSYSTEM",
-            "events": [
-              {
-                "introduced": "0"
-              },
-              {
-                "fixed": "86.0.241"
-              }
-            ]
-          }
-        ],
-        "versions": [
-          "83.4.20-pre",
-          "84.4.10",
-          "85.3.121",
-          "85.3.130"
-        ],
-        "database_specific": {
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2020/11/GHSA-x7fx-mcc9-27j7/GHSA-x7fx-mcc9-27j7.json"
-        }
-      }
-    ],
-    "schema_version": "1.6.0"
   },
   {
     "id": "GHSA-xj94-rgf9-cq37",

@@ -454,6 +454,352 @@
     ]
   },
   {
+    "id": "GHSA-257q-pv89-v3xv",
+    "summary": "Duplicate Advisory: jQuery Cross Site Scripting vulnerability",
+    "details": "## Duplicate Advisory\nThis advisory has been withdrawn because it is a duplicate of [GHSA-jpcq-cgw6-v4j6](https://github.com/advisories/GHSA-jpcq-cgw6-v4j6). This link is maintained to preserve external references.\n\n## Original Description\n\nCross Site Scripting vulnerability in jQuery v.2.2.0 until v.3.5.0 allows a remote attacker to execute arbitrary code via the `<options>` element.",
+    "modified": "2024-05-15T20:16:00.933954Z",
+    "published": "2023-06-26T21:30:58Z",
+    "withdrawn": "2024-05-15T20:10:38Z",
+    "database_specific": {
+      "nvd_published_at": "2023-06-26T19:15:09Z",
+      "cwe_ids": [
+        "CWE-79"
+      ],
+      "severity": "MODERATE",
+      "github_reviewed": true,
+      "github_reviewed_at": "2023-07-07T15:07:56Z"
+    },
+    "references": [
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-23064"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/jquery/jquery/commit/1d61fd9407e6fbe82fe55cb0b938307aa0791f77"
+      },
+      {
+        "type": "WEB",
+        "url": "https://blog.jquery.com/2020/04/10/jquery-3-5-0-released"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://github.com/advisories/GHSA-jpcq-cgw6-v4j6"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/jquery/jquery"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/rails/jquery-rails/blob/master/CHANGELOG.md#410"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/rails/jquery-rails/blob/master/CHANGELOG.md#440"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/rails/jquery-rails/blob/v4.3.5/vendor/assets/javascripts/jquery3.js#L5979"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/rails/jquery-rails/blob/v4.4.0/vendor/assets/javascripts/jquery3.js#L6162"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/jquery-rails/CVE-2020-23064.yml"
+      },
+      {
+        "type": "WEB",
+        "url": "https://security.netapp.com/advisory/ntap-20230725-0003"
+      },
+      {
+        "type": "WEB",
+        "url": "https://snyk.io/vuln/SNYK-JS-JQUERY-565129"
+      }
+    ],
+    "affected": [
+      {
+        "package": {
+          "name": "jquery",
+          "ecosystem": "npm",
+          "purl": "pkg:npm/jquery"
+        },
+        "ranges": [
+          {
+            "type": "SEMVER",
+            "events": [
+              {
+                "introduced": "1.0.3"
+              },
+              {
+                "fixed": "3.5.0"
+              }
+            ]
+          }
+        ],
+        "ecosystem_specific": {
+          "affected_functions": [
+            "(jquery).htmlPrefilter"
+          ]
+        },
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2023/06/GHSA-257q-pv89-v3xv/GHSA-257q-pv89-v3xv.json"
+        }
+      },
+      {
+        "package": {
+          "name": "jQuery",
+          "ecosystem": "NuGet",
+          "purl": "pkg:nuget/jQuery"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "1.0.3"
+              },
+              {
+                "fixed": "3.5.0"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "1.10.0",
+          "1.10.0.1",
+          "1.10.1",
+          "1.10.2",
+          "1.11.0",
+          "1.11.1",
+          "1.11.2",
+          "1.11.3",
+          "1.12.0",
+          "1.12.1",
+          "1.12.2",
+          "1.12.3",
+          "1.12.4",
+          "1.4.1",
+          "1.4.2",
+          "1.4.3",
+          "1.4.4",
+          "1.5.0",
+          "1.5.1",
+          "1.5.2",
+          "1.6.0",
+          "1.6.1",
+          "1.6.2",
+          "1.6.3",
+          "1.6.4",
+          "1.7.0",
+          "1.7.1",
+          "1.7.1.1",
+          "1.7.2",
+          "1.8.0",
+          "1.8.1",
+          "1.8.2",
+          "1.8.3",
+          "1.9.0",
+          "1.9.1",
+          "2.0.0",
+          "2.0.1",
+          "2.0.1.1",
+          "2.0.2",
+          "2.0.3",
+          "2.1.0",
+          "2.1.1",
+          "2.1.2",
+          "2.1.3",
+          "2.1.4",
+          "2.2.0",
+          "2.2.1",
+          "2.2.2",
+          "2.2.3",
+          "2.2.4",
+          "3.0.0",
+          "3.0.0.1",
+          "3.1.0",
+          "3.1.1",
+          "3.2.1",
+          "3.3.1",
+          "3.4.0",
+          "3.4.1"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2023/06/GHSA-257q-pv89-v3xv/GHSA-257q-pv89-v3xv.json"
+        }
+      },
+      {
+        "package": {
+          "name": "jquery-rails",
+          "ecosystem": "RubyGems",
+          "purl": "pkg:gem/jquery-rails"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "0"
+              },
+              {
+                "fixed": "4.4.0"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "0.1.1",
+          "0.1.2",
+          "0.1.3",
+          "0.2",
+          "0.2.1",
+          "0.2.2",
+          "0.2.3",
+          "0.2.4",
+          "0.2.5",
+          "0.2.6",
+          "0.2.7",
+          "1.0",
+          "1.0.1",
+          "1.0.10",
+          "1.0.11",
+          "1.0.12",
+          "1.0.13",
+          "1.0.14",
+          "1.0.15",
+          "1.0.16",
+          "1.0.17",
+          "1.0.18",
+          "1.0.19",
+          "1.0.2",
+          "1.0.3",
+          "1.0.4",
+          "1.0.5",
+          "1.0.6",
+          "1.0.7",
+          "1.0.8",
+          "1.0.9",
+          "1.0.rc",
+          "2.0.1",
+          "2.0.2",
+          "2.0.3",
+          "2.1.0",
+          "2.1.1",
+          "2.1.2",
+          "2.1.3",
+          "2.1.4",
+          "2.2.0",
+          "2.2.1",
+          "2.2.2",
+          "2.3.0",
+          "3.0.0",
+          "3.0.1",
+          "3.0.2",
+          "3.0.3",
+          "3.0.4",
+          "3.1.0",
+          "3.1.1",
+          "3.1.2",
+          "3.1.3",
+          "3.1.4",
+          "3.1.5",
+          "4.0.0",
+          "4.0.0.beta1",
+          "4.0.0.beta2",
+          "4.0.1",
+          "4.0.2",
+          "4.0.3",
+          "4.0.4",
+          "4.0.5",
+          "4.1.0",
+          "4.1.1",
+          "4.2.0",
+          "4.2.1",
+          "4.2.2",
+          "4.3.0",
+          "4.3.1",
+          "4.3.2",
+          "4.3.3",
+          "4.3.4",
+          "4.3.5"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2023/06/GHSA-257q-pv89-v3xv/GHSA-257q-pv89-v3xv.json"
+        }
+      },
+      {
+        "package": {
+          "name": "org.webjars.npm:jquery",
+          "ecosystem": "Maven",
+          "purl": "pkg:maven/org.webjars.npm/jquery"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "1.0.3"
+              },
+              {
+                "fixed": "3.5.0"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "1.11.0",
+          "1.11.1",
+          "1.11.3",
+          "1.12.1",
+          "1.12.2",
+          "1.12.3",
+          "1.12.4",
+          "1.7.2",
+          "1.7.3",
+          "1.8.2",
+          "1.8.3",
+          "1.9.1",
+          "2.1.0",
+          "2.1.1",
+          "2.1.1-rc1",
+          "2.1.1-rc2",
+          "2.1.3",
+          "2.1.4",
+          "2.2.0",
+          "2.2.1",
+          "2.2.2",
+          "2.2.3",
+          "2.2.4",
+          "3.0.0",
+          "3.0.0-alpha1",
+          "3.0.0-beta1",
+          "3.0.0-rc1",
+          "3.1.0",
+          "3.1.1",
+          "3.2.0",
+          "3.2.1",
+          "3.3.0",
+          "3.3.1",
+          "3.4.0",
+          "3.4.1"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2023/06/GHSA-257q-pv89-v3xv/GHSA-257q-pv89-v3xv.json"
+        }
+      }
+    ],
+    "schema_version": "1.6.0",
+    "severity": [
+      {
+        "type": "CVSS_V3",
+        "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+      }
+    ]
+  },
+  {
     "id": "GHSA-2pqj-h3vj-pqgw",
     "summary": "Cross-Site Scripting in jquery",
     "details": "Affected versions of `jquery` are vulnerable to cross-site scripting. This occurs because the main `jquery` function uses a regular expression to differentiate between HTML and selectors, but does not properly anchor the regular expression. The result is that `jquery` may interpret HTML as selectors when given certain inputs, allowing for client side code execution.\n\n## Proof of Concept\n```\n$(\"#log\").html(\n    $(\"element[attribute='<img src=\\\"x\\\" onerror=\\\"alert(1)\\\" />']\").html()\n);\n```\n\n\n\n\n## Recommendation\n\nUpdate to version 1.9.0 or later.",
@@ -1937,6 +2283,212 @@
         ],
         "database_specific": {
           "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2018/08/GHSA-4q53-fqhc-cr46/GHSA-4q53-fqhc-cr46.json"
+        },
+        "versions": []
+      }
+    ],
+    "schema_version": "1.6.0"
+  },
+  {
+    "id": "GHSA-4whc-pp4x-9pf3",
+    "summary": "jquery-rails and jquery-ujs subject to Exposure of Sensitive Information",
+    "details": "jquery_ujs.js in jquery-rails before 3.1.3 and 4.x before 4.0.4 and rails.js in jquery-ujs before 1.0.4, as used with Ruby on Rails 3.x and 4.x, allow remote attackers to bypass the Same Origin Policy, and trigger transmission of a CSRF token to a different-domain web server, via a leading space character in a URL within an attribute value.",
+    "aliases": [
+      "CVE-2015-1840"
+    ],
+    "modified": "2024-11-29T05:36:44.438033Z",
+    "published": "2017-10-24T18:33:36Z",
+    "database_specific": {
+      "nvd_published_at": null,
+      "cwe_ids": [
+        "CWE-200"
+      ],
+      "severity": "MODERATE",
+      "github_reviewed": true,
+      "github_reviewed_at": "2020-06-16T20:59:28Z"
+    },
+    "references": [
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2015-1840"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://github.com/advisories/GHSA-4whc-pp4x-9pf3"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/rails/jquery-rails"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/rails/jquery-rails/blob/master/CHANGELOG.md"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/rails/jquery-ujs/blob/master/CHANGELOG.md"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/jquery-ujs/CVE-2015-1840.yml"
+      },
+      {
+        "type": "WEB",
+        "url": "https://groups.google.com/forum/#!topic/ruby-security-ann/XIZPbobuwaY"
+      },
+      {
+        "type": "WEB",
+        "url": "https://groups.google.com/forum/message/raw?msg=rubyonrails-security/XIZPbobuwaY/fqnzzpuOlA4J"
+      },
+      {
+        "type": "WEB",
+        "url": "https://web.archive.org/web/20200228084945/http://www.securityfocus.com/bid/75239"
+      },
+      {
+        "type": "WEB",
+        "url": "http://lists.fedoraproject.org/pipermail/package-announce/2015-June/160906.html"
+      },
+      {
+        "type": "WEB",
+        "url": "http://lists.fedoraproject.org/pipermail/package-announce/2015-June/161043.html"
+      },
+      {
+        "type": "WEB",
+        "url": "http://lists.opensuse.org/opensuse-updates/2015-07/msg00041.html"
+      },
+      {
+        "type": "WEB",
+        "url": "http://openwall.com/lists/oss-security/2015/06/16/15"
+      }
+    ],
+    "affected": [
+      {
+        "package": {
+          "name": "jquery-rails",
+          "ecosystem": "RubyGems",
+          "purl": "pkg:gem/jquery-rails"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "0"
+              },
+              {
+                "fixed": "3.1.3"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "0.1.1",
+          "0.1.2",
+          "0.1.3",
+          "0.2",
+          "0.2.1",
+          "0.2.2",
+          "0.2.3",
+          "0.2.4",
+          "0.2.5",
+          "0.2.6",
+          "0.2.7",
+          "1.0",
+          "1.0.1",
+          "1.0.10",
+          "1.0.11",
+          "1.0.12",
+          "1.0.13",
+          "1.0.14",
+          "1.0.15",
+          "1.0.16",
+          "1.0.17",
+          "1.0.18",
+          "1.0.19",
+          "1.0.2",
+          "1.0.3",
+          "1.0.4",
+          "1.0.5",
+          "1.0.6",
+          "1.0.7",
+          "1.0.8",
+          "1.0.9",
+          "1.0.rc",
+          "2.0.1",
+          "2.0.2",
+          "2.0.3",
+          "2.1.0",
+          "2.1.1",
+          "2.1.2",
+          "2.1.3",
+          "2.1.4",
+          "2.2.0",
+          "2.2.1",
+          "2.2.2",
+          "2.3.0",
+          "3.0.0",
+          "3.0.1",
+          "3.0.2",
+          "3.0.3",
+          "3.0.4",
+          "3.1.0",
+          "3.1.1",
+          "3.1.2"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2017/10/GHSA-4whc-pp4x-9pf3/GHSA-4whc-pp4x-9pf3.json"
+        }
+      },
+      {
+        "package": {
+          "name": "jquery-rails",
+          "ecosystem": "RubyGems",
+          "purl": "pkg:gem/jquery-rails"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "4.0.0"
+              },
+              {
+                "fixed": "4.0.4"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "4.0.0",
+          "4.0.1",
+          "4.0.2",
+          "4.0.3"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2017/10/GHSA-4whc-pp4x-9pf3/GHSA-4whc-pp4x-9pf3.json"
+        }
+      },
+      {
+        "package": {
+          "name": "jquery-ujs",
+          "ecosystem": "RubyGems",
+          "purl": "pkg:gem/jquery-ujs"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "0"
+              },
+              {
+                "fixed": "1.0.4"
+              }
+            ]
+          }
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2017/10/GHSA-4whc-pp4x-9pf3/GHSA-4whc-pp4x-9pf3.json"
         },
         "versions": []
       }
@@ -3787,6 +4339,904 @@
     "schema_version": "1.6.0"
   },
   {
+    "id": "GHSA-6c3j-c64m-qhgq",
+    "summary": "XSS in jQuery as used in Drupal, Backdrop CMS, and other products",
+    "details": "jQuery from 1.1.4 until 3.4.0, as used in Drupal, Backdrop CMS, and other products, mishandles `jQuery.extend(true, {}, ...)` because of `Object.prototype` pollution. If an unsanitized source object contained an enumerable `__proto__` property, it could extend the native `Object.prototype`.",
+    "aliases": [
+      "CVE-2019-11358",
+      "SNYK-JS-JQUERY-174006"
+    ],
+    "modified": "2024-11-05T20:22:31.903343Z",
+    "published": "2019-04-26T16:29:11Z",
+    "database_specific": {
+      "nvd_published_at": "2019-04-20T00:29:00Z",
+      "cwe_ids": [
+        "CWE-1321",
+        "CWE-79"
+      ],
+      "severity": "MODERATE",
+      "github_reviewed": true,
+      "github_reviewed_at": "2019-04-26T16:28:41Z"
+    },
+    "references": [
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-11358"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/maximebf/php-debugbar/issues/447"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/jquery/jquery/pull/4333"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/maximebf/php-debugbar/commit/847216e60544258c881f2733d699bbcfeefac0fc"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/django/django/commit/34ec52269ade54af31a021b12969913129571a3f"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/django/django/commit/95649bc08547a878cebfa1d019edec8cb1b80829"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/django/django/commit/baaf187a4e354bf3976c51e2c83a0d2f8ee6e6ad"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/jquery/jquery/commit/753d591aea698e57d6db58c9f722cd0808619b1b"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/WZW27UCJ5CYFL4KFFFMYMIBNMIU2ALG5"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/4UOAZIFCSZ3ENEFOR5IXX6NFAD3HV7FA"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/5IABSKTYZ5JUGL735UKGXL5YPRYOPUYI"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/KYH3OAGR2RTCHRA5NOKX2TES7SNQMWGO"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/QV3PKZC3PQCO3273HAT76PAQZFBEO4KP"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/RLXRX23725JL366CNZGJZ7AQQB7LHQ6F"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/WZW27UCJ5CYFL4KFFFMYMIBNMIU2ALG5"
+      },
+      {
+        "type": "WEB",
+        "url": "https://seclists.org/bugtraq/2019/Apr/32"
+      },
+      {
+        "type": "WEB",
+        "url": "https://seclists.org/bugtraq/2019/Jun/12"
+      },
+      {
+        "type": "WEB",
+        "url": "https://seclists.org/bugtraq/2019/May/18"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.tenable.com/security/tns-2020-02"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/RLXRX23725JL366CNZGJZ7AQQB7LHQ6F"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/QV3PKZC3PQCO3273HAT76PAQZFBEO4KP"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/KYH3OAGR2RTCHRA5NOKX2TES7SNQMWGO"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/5IABSKTYZ5JUGL735UKGXL5YPRYOPUYI"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/4UOAZIFCSZ3ENEFOR5IXX6NFAD3HV7FA"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.debian.org/debian-lts-announce/2023/08/msg00040.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.debian.org/debian-lts-announce/2020/02/msg00024.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.debian.org/debian-lts-announce/2019/05/msg00029.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.debian.org/debian-lts-announce/2019/05/msg00006.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/rca37935d661f4689cb4119f1b3b224413b22be161b678e6e6ce0c69b@%3Ccommits.nifi.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/rca37935d661f4689cb4119f1b3b224413b22be161b678e6e6ce0c69b%40%3Ccommits.nifi.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/rac25da84ecdcd36f6de5ad0d255f4e967209bbbebddb285e231da37d@%3Cissues.flink.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.tenable.com/security/tns-2019-08"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.synology.com/security/advisory/Synology_SA_19_19"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.privacy-wise.com/mitigating-cve-2019-11358-in-old-versions-of-jquery"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.oracle.com/technetwork/security-advisory/cpuoct2019-5072832.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.oracle.com/technetwork/security-advisory/cpujul2019-5072835.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.oracle.com/security-alerts/cpuoct2021.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.oracle.com/security-alerts/cpuoct2020.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.oracle.com/security-alerts/cpujul2020.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.oracle.com/security-alerts/cpujan2022.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.oracle.com/security-alerts/cpujan2021.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.oracle.com/security-alerts/cpujan2020.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.oracle.com/security-alerts/cpuapr2020.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.oracle.com/security-alerts/cpuApr2021.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.oracle.com//security-alerts/cpujul2021.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.drupal.org/sa-core-2019-006"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.djangoproject.com/weblog/2019/jun/03/security-releases"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.debian.org/security/2019/dsa-4460"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.debian.org/security/2019/dsa-4434"
+      },
+      {
+        "type": "WEB",
+        "url": "https://web.archive.org/web/20190824065237/http://www.securityfocus.com/bid/108023"
+      },
+      {
+        "type": "WEB",
+        "url": "https://supportportal.juniper.net/s/article/2021-07-Security-Bulletin-Junos-OS-Multiple-J-Web-vulnerabilities-resolved-in-Junos-OS-21-2R1"
+      },
+      {
+        "type": "WEB",
+        "url": "https://snyk.io/vuln/SNYK-JS-JQUERY-174006"
+      },
+      {
+        "type": "WEB",
+        "url": "https://security.snyk.io/vuln/SNYK-DOTNET-JQUERY-450226"
+      },
+      {
+        "type": "WEB",
+        "url": "https://security.netapp.com/advisory/ntap-20190919-0001"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/b0656d359c7d40ec9f39c8cc61bca66802ef9a2a12ee199f5b0c1442@%3Cdev.drill.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/b0656d359c7d40ec9f39c8cc61bca66802ef9a2a12ee199f5b0c1442%40%3Cdev.drill.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/88fb0362fd40e5b605ea8149f63241537b8b6fb5bfa315391fc5cbb7@%3Ccommits.airflow.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/88fb0362fd40e5b605ea8149f63241537b8b6fb5bfa315391fc5cbb7%40%3Ccommits.airflow.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/6097cdbd6f0a337bedd9bb5cc441b2d525ff002a96531de367e4259f@%3Ccommits.airflow.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/6097cdbd6f0a337bedd9bb5cc441b2d525ff002a96531de367e4259f%40%3Ccommits.airflow.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/5928aa293e39d248266472210c50f176cac1535220f2486e6a7fa844@%3Ccommits.airflow.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/5928aa293e39d248266472210c50f176cac1535220f2486e6a7fa844%40%3Ccommits.airflow.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/519eb0fd45642dcecd9ff74cb3e71c20a4753f7d82e2f07864b5108f@%3Cdev.drill.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/519eb0fd45642dcecd9ff74cb3e71c20a4753f7d82e2f07864b5108f%40%3Cdev.drill.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/08720ef215ee7ab3386c05a1a90a7d1c852bf0706f176a7816bf65fc@%3Ccommits.airflow.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/08720ef215ee7ab3386c05a1a90a7d1c852bf0706f176a7816bf65fc%40%3Ccommits.airflow.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://kb.pulsesecure.net/articles/Pulse_Security_Advisories/SA44601"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/jquery-rails/CVE-2019-11358.yml"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/rails/jquery-rails/blob/master/CHANGELOG.md#434"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/jquery/jquery"
+      },
+      {
+        "type": "WEB",
+        "url": "https://blog.jquery.com/2019/04/10/jquery-3-4-0-released"
+      },
+      {
+        "type": "WEB",
+        "url": "https://backdropcms.org/security/backdrop-sa-core-2019-009"
+      },
+      {
+        "type": "WEB",
+        "url": "https://access.redhat.com/errata/RHSA-2019:3024"
+      },
+      {
+        "type": "WEB",
+        "url": "https://access.redhat.com/errata/RHSA-2019:3023"
+      },
+      {
+        "type": "WEB",
+        "url": "https://access.redhat.com/errata/RHSA-2019:2587"
+      },
+      {
+        "type": "WEB",
+        "url": "https://access.redhat.com/errata/RHSA-2019:1456"
+      },
+      {
+        "type": "WEB",
+        "url": "https://access.redhat.com/errata/RHBA-2019:1570"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/rac25da84ecdcd36f6de5ad0d255f4e967209bbbebddb285e231da37d%40%3Cissues.flink.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r7e8ebccb7c022e41295f6fdb7b971209b83702339f872ddd8cf8bf73@%3Cissues.flink.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r7e8ebccb7c022e41295f6fdb7b971209b83702339f872ddd8cf8bf73%40%3Cissues.flink.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r7d64895cc4dff84d0becfc572b20c0e4bf9bfa7b10c6f5f73e783734@%3Cdev.storm.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r7d64895cc4dff84d0becfc572b20c0e4bf9bfa7b10c6f5f73e783734%40%3Cdev.storm.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r7aac081cbddb6baa24b75e74abf0929bf309b176755a53e3ed810355@%3Cdev.flink.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r7aac081cbddb6baa24b75e74abf0929bf309b176755a53e3ed810355%40%3Cdev.flink.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r41b5bfe009c845f67d4f68948cc9419ac2d62e287804aafd72892b08@%3Cissues.flink.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r41b5bfe009c845f67d4f68948cc9419ac2d62e287804aafd72892b08%40%3Cissues.flink.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r38f0d1aa3c923c22977fe7376508f030f22e22c1379fbb155bf29766@%3Cdev.syncope.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r38f0d1aa3c923c22977fe7376508f030f22e22c1379fbb155bf29766%40%3Cdev.syncope.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r2baacab6e0acb5a2092eb46ae04fd6c3e8277b4fd79b1ffb7f3254fa@%3Cissues.flink.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r2baacab6e0acb5a2092eb46ae04fd6c3e8277b4fd79b1ffb7f3254fa%40%3Cissues.flink.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r2041a75d3fc09dec55adfd95d598b38d22715303f65c997c054844c9@%3Cissues.flink.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r2041a75d3fc09dec55adfd95d598b38d22715303f65c997c054844c9%40%3Cissues.flink.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/f9bc3e55f4e28d1dcd1a69aae6d53e609a758e34d2869b4d798e13cc@%3Cissues.drill.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/f9bc3e55f4e28d1dcd1a69aae6d53e609a758e34d2869b4d798e13cc%40%3Cissues.drill.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/bcce5a9c532b386c68dab2f6b3ce8b0cc9b950ec551766e76391caa3@%3Ccommits.nifi.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/bcce5a9c532b386c68dab2f6b3ce8b0cc9b950ec551766e76391caa3%40%3Ccommits.nifi.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/ba79cf1658741e9f146e4c59b50aee56656ea95d841d358d006c18b6@%3Ccommits.roller.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/ba79cf1658741e9f146e4c59b50aee56656ea95d841d358d006c18b6%40%3Ccommits.roller.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/b736d0784cf02f5a30fbb4c5902762a15ad6d47e17e2c5a17b7d6205@%3Ccommits.airflow.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/b736d0784cf02f5a30fbb4c5902762a15ad6d47e17e2c5a17b7d6205%40%3Ccommits.airflow.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "http://lists.opensuse.org/opensuse-security-announce/2019-08/msg00006.html"
+      },
+      {
+        "type": "WEB",
+        "url": "http://lists.opensuse.org/opensuse-security-announce/2019-08/msg00025.html"
+      },
+      {
+        "type": "WEB",
+        "url": "http://packetstormsecurity.com/files/152787/dotCMS-5.1.1-Vulnerable-Dependencies.html"
+      },
+      {
+        "type": "WEB",
+        "url": "http://packetstormsecurity.com/files/153237/RetireJS-CORS-Issue-Script-Execution.html"
+      },
+      {
+        "type": "WEB",
+        "url": "http://packetstormsecurity.com/files/156743/OctoberCMS-Insecure-Dependencies.html"
+      },
+      {
+        "type": "WEB",
+        "url": "http://seclists.org/fulldisclosure/2019/May/10"
+      },
+      {
+        "type": "WEB",
+        "url": "http://seclists.org/fulldisclosure/2019/May/11"
+      },
+      {
+        "type": "WEB",
+        "url": "http://seclists.org/fulldisclosure/2019/May/13"
+      },
+      {
+        "type": "WEB",
+        "url": "http://www.openwall.com/lists/oss-security/2019/06/03/2"
+      },
+      {
+        "type": "WEB",
+        "url": "http://www.securityfocus.com/bid/108023"
+      }
+    ],
+    "affected": [
+      {
+        "package": {
+          "name": "jquery",
+          "ecosystem": "npm",
+          "purl": "pkg:npm/jquery"
+        },
+        "ranges": [
+          {
+            "type": "SEMVER",
+            "events": [
+              {
+                "introduced": "1.1.4"
+              },
+              {
+                "fixed": "3.4.0"
+              }
+            ]
+          }
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2019/04/GHSA-6c3j-c64m-qhgq/GHSA-6c3j-c64m-qhgq.json"
+        }
+      },
+      {
+        "package": {
+          "name": "jquery-rails",
+          "ecosystem": "RubyGems",
+          "purl": "pkg:gem/jquery-rails"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "0"
+              },
+              {
+                "fixed": "4.3.4"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "0.1.1",
+          "0.1.2",
+          "0.1.3",
+          "0.2",
+          "0.2.1",
+          "0.2.2",
+          "0.2.3",
+          "0.2.4",
+          "0.2.5",
+          "0.2.6",
+          "0.2.7",
+          "1.0",
+          "1.0.1",
+          "1.0.10",
+          "1.0.11",
+          "1.0.12",
+          "1.0.13",
+          "1.0.14",
+          "1.0.15",
+          "1.0.16",
+          "1.0.17",
+          "1.0.18",
+          "1.0.19",
+          "1.0.2",
+          "1.0.3",
+          "1.0.4",
+          "1.0.5",
+          "1.0.6",
+          "1.0.7",
+          "1.0.8",
+          "1.0.9",
+          "1.0.rc",
+          "2.0.1",
+          "2.0.2",
+          "2.0.3",
+          "2.1.0",
+          "2.1.1",
+          "2.1.2",
+          "2.1.3",
+          "2.1.4",
+          "2.2.0",
+          "2.2.1",
+          "2.2.2",
+          "2.3.0",
+          "3.0.0",
+          "3.0.1",
+          "3.0.2",
+          "3.0.3",
+          "3.0.4",
+          "3.1.0",
+          "3.1.1",
+          "3.1.2",
+          "3.1.3",
+          "3.1.4",
+          "3.1.5",
+          "4.0.0",
+          "4.0.0.beta1",
+          "4.0.0.beta2",
+          "4.0.1",
+          "4.0.2",
+          "4.0.3",
+          "4.0.4",
+          "4.0.5",
+          "4.1.0",
+          "4.1.1",
+          "4.2.0",
+          "4.2.1",
+          "4.2.2",
+          "4.3.0",
+          "4.3.1",
+          "4.3.2",
+          "4.3.3"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2019/04/GHSA-6c3j-c64m-qhgq/GHSA-6c3j-c64m-qhgq.json"
+        }
+      },
+      {
+        "package": {
+          "name": "jQuery",
+          "ecosystem": "NuGet",
+          "purl": "pkg:nuget/jQuery"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "1.1.4"
+              },
+              {
+                "fixed": "3.4.0"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "1.10.0",
+          "1.10.0.1",
+          "1.10.1",
+          "1.10.2",
+          "1.11.0",
+          "1.11.1",
+          "1.11.2",
+          "1.11.3",
+          "1.12.0",
+          "1.12.1",
+          "1.12.2",
+          "1.12.3",
+          "1.12.4",
+          "1.4.1",
+          "1.4.2",
+          "1.4.3",
+          "1.4.4",
+          "1.5.0",
+          "1.5.1",
+          "1.5.2",
+          "1.6.0",
+          "1.6.1",
+          "1.6.2",
+          "1.6.3",
+          "1.6.4",
+          "1.7.0",
+          "1.7.1",
+          "1.7.1.1",
+          "1.7.2",
+          "1.8.0",
+          "1.8.1",
+          "1.8.2",
+          "1.8.3",
+          "1.9.0",
+          "1.9.1",
+          "2.0.0",
+          "2.0.1",
+          "2.0.1.1",
+          "2.0.2",
+          "2.0.3",
+          "2.1.0",
+          "2.1.1",
+          "2.1.2",
+          "2.1.3",
+          "2.1.4",
+          "2.2.0",
+          "2.2.1",
+          "2.2.2",
+          "2.2.3",
+          "2.2.4",
+          "3.0.0",
+          "3.0.0.1",
+          "3.1.0",
+          "3.1.1",
+          "3.2.1",
+          "3.3.1"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2019/04/GHSA-6c3j-c64m-qhgq/GHSA-6c3j-c64m-qhgq.json"
+        }
+      },
+      {
+        "package": {
+          "name": "django",
+          "ecosystem": "PyPI",
+          "purl": "pkg:pypi/django"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "2.0a1"
+              },
+              {
+                "fixed": "2.1.9"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "2.0",
+          "2.0.1",
+          "2.0.10",
+          "2.0.12",
+          "2.0.13",
+          "2.0.2",
+          "2.0.3",
+          "2.0.4",
+          "2.0.5",
+          "2.0.6",
+          "2.0.7",
+          "2.0.8",
+          "2.0.9",
+          "2.0a1",
+          "2.0b1",
+          "2.0rc1",
+          "2.1",
+          "2.1.1",
+          "2.1.2",
+          "2.1.3",
+          "2.1.4",
+          "2.1.5",
+          "2.1.7",
+          "2.1.8",
+          "2.1a1",
+          "2.1b1",
+          "2.1rc1"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2019/04/GHSA-6c3j-c64m-qhgq/GHSA-6c3j-c64m-qhgq.json"
+        }
+      },
+      {
+        "package": {
+          "name": "django",
+          "ecosystem": "PyPI",
+          "purl": "pkg:pypi/django"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "2.2a1"
+              },
+              {
+                "fixed": "2.2.2"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "2.2",
+          "2.2.1",
+          "2.2a1",
+          "2.2b1",
+          "2.2rc1"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2019/04/GHSA-6c3j-c64m-qhgq/GHSA-6c3j-c64m-qhgq.json"
+        }
+      },
+      {
+        "package": {
+          "name": "org.webjars.npm:jquery",
+          "ecosystem": "Maven",
+          "purl": "pkg:maven/org.webjars.npm/jquery"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "1.1.4"
+              },
+              {
+                "fixed": "3.4.0"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "1.11.0",
+          "1.11.1",
+          "1.11.3",
+          "1.12.1",
+          "1.12.2",
+          "1.12.3",
+          "1.12.4",
+          "1.7.2",
+          "1.7.3",
+          "1.8.2",
+          "1.8.3",
+          "1.9.1",
+          "2.1.0",
+          "2.1.1",
+          "2.1.1-rc1",
+          "2.1.1-rc2",
+          "2.1.3",
+          "2.1.4",
+          "2.2.0",
+          "2.2.1",
+          "2.2.2",
+          "2.2.3",
+          "2.2.4",
+          "3.0.0",
+          "3.0.0-alpha1",
+          "3.0.0-beta1",
+          "3.0.0-rc1",
+          "3.1.0",
+          "3.1.1",
+          "3.2.0",
+          "3.2.1",
+          "3.3.0",
+          "3.3.1"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2019/04/GHSA-6c3j-c64m-qhgq/GHSA-6c3j-c64m-qhgq.json"
+        }
+      },
+      {
+        "package": {
+          "name": "maximebf/debugbar",
+          "ecosystem": "Packagist",
+          "purl": "pkg:composer/maximebf/debugbar"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "0"
+              },
+              {
+                "fixed": "1.19.0"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "1.0",
+          "1.0.1",
+          "1.0.2",
+          "1.0.3",
+          "1.0.4",
+          "1.1",
+          "1.10.0",
+          "1.10.1",
+          "1.13.1",
+          "1.2",
+          "1.3",
+          "1.4",
+          "1.5",
+          "1.5.1",
+          "1.6",
+          "1.6.1",
+          "1.7",
+          "1.7.1",
+          "1.8",
+          "1.9",
+          "1.9.1",
+          "1.9.10",
+          "1.9.11",
+          "1.9.12",
+          "1.9.13",
+          "1.9.14",
+          "1.9.15",
+          "1.9.2",
+          "1.9.3",
+          "1.9.4",
+          "1.9.5",
+          "1.9.6",
+          "1.9.7",
+          "1.9.8",
+          "1.9.9",
+          "v1.10.2",
+          "v1.10.3",
+          "v1.10.4",
+          "v1.10.5",
+          "v1.11.0",
+          "v1.11.1",
+          "v1.12.0",
+          "v1.13.0",
+          "v1.14.0",
+          "v1.14.1",
+          "v1.15.0",
+          "v1.15.1",
+          "v1.16.0",
+          "v1.16.1",
+          "v1.16.2",
+          "v1.16.3",
+          "v1.16.4",
+          "v1.16.5",
+          "v1.17.0",
+          "v1.17.1",
+          "v1.17.2",
+          "v1.17.3",
+          "v1.18.0",
+          "v1.18.1",
+          "v1.18.2"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2019/04/GHSA-6c3j-c64m-qhgq/GHSA-6c3j-c64m-qhgq.json"
+        }
+      }
+    ],
+    "schema_version": "1.6.0",
+    "severity": [
+      {
+        "type": "CVSS_V3",
+        "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+      }
+    ]
+  },
+  {
     "id": "GHSA-6h5q-96hp-9jgm",
     "summary": "actionpack vulnerable to Cross-site Scripting",
     "details": "Cross-site scripting (XSS) vulnerability in the `number_to_currency` helper in `actionpack/lib/action_view/helpers/number_helper.rb` in Ruby on Rails before 3.2.16 and 4.x before 4.0.2 allows remote attackers to inject arbitrary web script or HTML via the unit parameter.",
@@ -5335,191 +6785,6 @@
     ]
   },
   {
-    "id": "GHSA-8mq4-9jjh-9xrc",
-    "summary": "YARD's default template vulnerable to Cross-site Scripting in generated frames.html",
-    "details": "### Summary\nThe \"frames.html\" file within the Yard Doc's generated documentation is vulnerable to Cross-Site Scripting (XSS) attacks due to inadequate sanitization of user input within the JavaScript segment of the \"frames.erb\" template file.\n\n### Details\nThe vulnerability stems from mishandling user-controlled data retrieved from the URL hash in the embedded JavaScript code within the \"frames.erb\" template file. Specifically, the script lacks proper sanitization of the hash data before utilizing it to establish the top-level window's location. This oversight permits an attacker to inject malicious JavaScript payloads through carefully crafted URLs.\n\nSnippet from \"frames.erb\":\n(v0.9.34)\n```erb\n<script type=\"text/javascript\">\n  var match = unescape(window.location.hash).match(/^#!(.+)/);\n  var name = match ? match[1] : '<%= url_for_main %>';\n  name = name.replace(/^(\\w+):\\/\\//, '').replace(/^\\/\\//, '');\n  window.top.location = name;\n</script>\n```\n\n(v0.9.35)\n```erb\n<script type=\"text/javascript\">\n  var match = decodeURIComponent(window.location.hash).match(/^#!(.+)/);\n  var name = match ? match[1] : '<%= url_for_main %>';\n  name = name.replace(/^((\\w*):)?[\\/\\\\]*/gm, '').trim();\n  window.top.location.replace(name)\n</script>\n```\n\n### PoC (Proof of Concept)\nTo exploit this vulnerability:\n1. Gain access to the generated Yard Doc.\n2. Locate and access the \"frames.html\" file.\n3. Construct a URL containing the malicious payload in the hash segment, for instance: `#!javascript:xss` for v0.9.34, and `#:javascript:xss` for v0.9.35\n\n### Impact\nThis XSS vulnerability presents a substantial threat by enabling an attacker to execute arbitrary JavaScript code within the user's session context. Potential ramifications include session hijacking, theft of sensitive data, unauthorized access to user accounts, and defacement of websites. Any user visiting the compromised page is susceptible to exploitation. It is critical to promptly address this vulnerability to mitigate potential harm to users and preserve the application's integrity.",
-    "aliases": [
-      "CVE-2024-27285"
-    ],
-    "modified": "2024-06-25T17:20:03.698881Z",
-    "published": "2024-02-28T18:57:19Z",
-    "database_specific": {
-      "nvd_published_at": "2024-02-28T20:15:41Z",
-      "cwe_ids": [
-        "CWE-79"
-      ],
-      "severity": "MODERATE",
-      "github_reviewed": true,
-      "github_reviewed_at": "2024-02-28T18:57:19Z"
-    },
-    "references": [
-      {
-        "type": "WEB",
-        "url": "https://github.com/lsegal/yard/security/advisories/GHSA-8mq4-9jjh-9xrc"
-      },
-      {
-        "type": "ADVISORY",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-27285"
-      },
-      {
-        "type": "WEB",
-        "url": "https://github.com/lsegal/yard/pull/1538"
-      },
-      {
-        "type": "WEB",
-        "url": "https://github.com/lsegal/yard/commit/1fcb2d8b316caf8779cfdcf910715e9ab583f0aa"
-      },
-      {
-        "type": "WEB",
-        "url": "https://github.com/lsegal/yard/commit/2069e2bf08293bda2fcc78f7d0698af6354054be"
-      },
-      {
-        "type": "ADVISORY",
-        "url": "https://github.com/advisories/GHSA-8mq4-9jjh-9xrc"
-      },
-      {
-        "type": "PACKAGE",
-        "url": "https://github.com/lsegal/yard"
-      },
-      {
-        "type": "WEB",
-        "url": "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/yard/CVE-2024-27285.yml"
-      },
-      {
-        "type": "WEB",
-        "url": "https://lists.debian.org/debian-lts-announce/2024/03/msg00006.html"
-      },
-      {
-        "type": "WEB",
-        "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/MR3Z2E2UIZZ7YOR7R645EVSBGWMB2RGA"
-      }
-    ],
-    "affected": [
-      {
-        "package": {
-          "name": "yard",
-          "ecosystem": "RubyGems",
-          "purl": "pkg:gem/yard"
-        },
-        "ranges": [
-          {
-            "type": "ECOSYSTEM",
-            "events": [
-              {
-                "introduced": "0"
-              },
-              {
-                "fixed": "0.9.36"
-              }
-            ]
-          }
-        ],
-        "versions": [
-          "0.2.0",
-          "0.2.1",
-          "0.2.2",
-          "0.2.3",
-          "0.2.3.2",
-          "0.2.3.3",
-          "0.2.3.4",
-          "0.2.3.5",
-          "0.4.0",
-          "0.5.0",
-          "0.5.1",
-          "0.5.1p1",
-          "0.5.2",
-          "0.5.3",
-          "0.5.4",
-          "0.5.5",
-          "0.5.6",
-          "0.5.7",
-          "0.5.8",
-          "0.6.0",
-          "0.6.1",
-          "0.6.2",
-          "0.6.3",
-          "0.6.4",
-          "0.6.5",
-          "0.6.6",
-          "0.6.7",
-          "0.6.8",
-          "0.7.0",
-          "0.7.1",
-          "0.7.2",
-          "0.7.3",
-          "0.7.4",
-          "0.7.5",
-          "0.8.0",
-          "0.8.1",
-          "0.8.2",
-          "0.8.2.1",
-          "0.8.3",
-          "0.8.4",
-          "0.8.4.1",
-          "0.8.5",
-          "0.8.5.1",
-          "0.8.5.2",
-          "0.8.6",
-          "0.8.6.1",
-          "0.8.6.2",
-          "0.8.7",
-          "0.8.7.1",
-          "0.8.7.2",
-          "0.8.7.3",
-          "0.8.7.4",
-          "0.8.7.5",
-          "0.8.7.6",
-          "0.9.0",
-          "0.9.1",
-          "0.9.10",
-          "0.9.11",
-          "0.9.12",
-          "0.9.13",
-          "0.9.14",
-          "0.9.15",
-          "0.9.16",
-          "0.9.17",
-          "0.9.18",
-          "0.9.19",
-          "0.9.2",
-          "0.9.20",
-          "0.9.21",
-          "0.9.22",
-          "0.9.23",
-          "0.9.24",
-          "0.9.25",
-          "0.9.26",
-          "0.9.27",
-          "0.9.28",
-          "0.9.29",
-          "0.9.3",
-          "0.9.30",
-          "0.9.31",
-          "0.9.32",
-          "0.9.33",
-          "0.9.34",
-          "0.9.35",
-          "0.9.4",
-          "0.9.5",
-          "0.9.6",
-          "0.9.7",
-          "0.9.8",
-          "0.9.9"
-        ],
-        "database_specific": {
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2024/02/GHSA-8mq4-9jjh-9xrc/GHSA-8mq4-9jjh-9xrc.json"
-        }
-      }
-    ],
-    "schema_version": "1.6.0",
-    "severity": [
-      {
-        "type": "CVSS_V3",
-        "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:N"
-      }
-    ]
-  },
-  {
     "id": "GHSA-8qgm-g2vv-vwvc",
     "summary": "RailsAdmin Cross-site Scripting vulnerability in the list view",
     "details": "### Impact\nRailsAdmin list view has the XSS vulnerability, caused by improperly-escaped HTML title attribute.\nThe issue was originally reported in https://github.com/railsadminteam/rails_admin/issues/3686.\n\n### Patches\nUpgrade to [3.1.4](https://rubygems.org/gems/rails_admin/versions/3.1.4). The vulnerability itself was patched in 3.1.3 but it has a functionality issue.\nInitially the vulnerability was thought to exist in versions before 3.0, but it didn't. 2.x users can stay on 2.2.1.\n\n### Workarounds\n1. Copy the index view (located under the path `app/views/rails_admin/main/index.html.erb`) from the RailsAdmin version you use, and place it into your application by using the same path.\n2. Open the view file by an editor, and change the way to populate the td tag:\n\n```diff\n               <% properties.map{ |property| property.bind(:object, object) }.each do |property| %>\n                 <% value = property.pretty_value %>\n-                <td class=\"<%= [property.sticky? && 'sticky', property.css_class, property.type_css_class].select(&:present?).join(' ') %>\" title=\"<%= value %>\">\n+                <%= content_tag(:td, class: [property.sticky? && 'sticky', property.css_class, property.type_css_class].select(&:present?), title: strip_tags(value.to_s)) do %>\n                   <%= value %>\n-                </td>\n+                <% end %>\n               <% end %>\n```\n\n**Note:** The view file created by this needs to be removed after upgrading RailsAdmin afterwards, unless this old view continue to be used. Only do this if you can't upgrade RailsAdmin now for a reason.\n\n### References\nhttps://owasp.org/www-community/attacks/xss/\nhttps://api.rubyonrails.org/classes/ActionView/Helpers/SanitizeHelper.html#method-i-strip_tags",
@@ -6908,290 +8173,6 @@
     ]
   },
   {
-    "id": "GHSA-9hf4-67fc-4vf4",
-    "summary": "Puma's header normalization allows for client to clobber proxy set headers",
-    "details": "### Impact\n\nClients could clobber values set by intermediate proxies (such as X-Forwarded-For) by providing a underscore version of the same header (X-Forwarded_For). Any users trusting headers set by their proxy may be affected. Attackers may be able to downgrade connections to HTTP (non-SSL) or redirect responses, which could cause confidentiality leaks if combined with a separate MITM attack. \n\n### Patches\nv6.4.3/v5.6.9 now discards any headers using underscores if the non-underscore version also exists. Effectively, allowing the proxy defined headers to always win.\n\n### Workarounds\nNginx has a [underscores_in_headers](https://nginx.org/en/docs/http/ngx_http_core_module.html#underscores_in_headers) configuration variable to discard these headers at the proxy level.\n\nAny users that are implicitly trusting the proxy defined headers for security or availability should immediately cease doing so until upgraded to the fixed versions.",
-    "aliases": [
-      "CVE-2024-45614"
-    ],
-    "modified": "2024-09-20T22:22:56.696793Z",
-    "published": "2024-09-20T14:40:16Z",
-    "related": [
-      "CGA-2r2f-jcxj-hqjf",
-      "CGA-7qjr-6v4f-v99j"
-    ],
-    "database_specific": {
-      "nvd_published_at": "2024-09-19T23:15:11Z",
-      "cwe_ids": [
-        "CWE-444",
-        "CWE-639"
-      ],
-      "severity": "MODERATE",
-      "github_reviewed": true,
-      "github_reviewed_at": "2024-09-20T14:40:16Z"
-    },
-    "references": [
-      {
-        "type": "WEB",
-        "url": "https://github.com/puma/puma/security/advisories/GHSA-9hf4-67fc-4vf4"
-      },
-      {
-        "type": "ADVISORY",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-45614"
-      },
-      {
-        "type": "WEB",
-        "url": "https://github.com/puma/puma/commit/cac3fd18cf29ed43719ff5d52d9cfec215f0a043"
-      },
-      {
-        "type": "WEB",
-        "url": "https://github.com/puma/puma/commit/f196b23be24712fb8fb16051cc124798cc84f70e"
-      },
-      {
-        "type": "PACKAGE",
-        "url": "https://github.com/puma/puma"
-      },
-      {
-        "type": "WEB",
-        "url": "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/puma/CVE-2024-45614.yml"
-      },
-      {
-        "type": "WEB",
-        "url": "https://nginx.org/en/docs/http/ngx_http_core_module.html#underscores_in_headers"
-      }
-    ],
-    "affected": [
-      {
-        "package": {
-          "name": "puma",
-          "ecosystem": "RubyGems",
-          "purl": "pkg:gem/puma"
-        },
-        "ranges": [
-          {
-            "type": "ECOSYSTEM",
-            "events": [
-              {
-                "introduced": "0"
-              },
-              {
-                "fixed": "5.6.9"
-              }
-            ]
-          }
-        ],
-        "versions": [
-          "0.8.0",
-          "0.8.1",
-          "0.8.2",
-          "0.9.0",
-          "0.9.1",
-          "0.9.2",
-          "0.9.3",
-          "0.9.4",
-          "0.9.5",
-          "1.0.0",
-          "1.1.0",
-          "1.1.1",
-          "1.2.0",
-          "1.2.1",
-          "1.2.2",
-          "1.3.0",
-          "1.3.1",
-          "1.4.0",
-          "1.5.0",
-          "1.6.0",
-          "1.6.1",
-          "1.6.2",
-          "1.6.3",
-          "2.0.0",
-          "2.0.0.b1",
-          "2.0.0.b2",
-          "2.0.0.b3",
-          "2.0.0.b4",
-          "2.0.0.b5",
-          "2.0.0.b6",
-          "2.0.0.b7",
-          "2.0.1",
-          "2.1.0",
-          "2.1.1",
-          "2.10.0",
-          "2.10.1",
-          "2.10.2",
-          "2.11.0",
-          "2.11.1",
-          "2.11.2",
-          "2.11.3",
-          "2.12.0",
-          "2.12.1",
-          "2.12.2",
-          "2.12.3",
-          "2.13.0",
-          "2.13.1",
-          "2.13.2",
-          "2.13.3",
-          "2.13.4",
-          "2.14.0",
-          "2.15.0",
-          "2.15.1",
-          "2.15.2",
-          "2.15.3",
-          "2.16.0",
-          "2.2.0",
-          "2.2.1",
-          "2.2.2",
-          "2.3.0",
-          "2.3.1",
-          "2.3.2",
-          "2.4.0",
-          "2.4.1",
-          "2.5.0",
-          "2.5.1",
-          "2.6.0",
-          "2.7.0",
-          "2.7.1",
-          "2.8.0",
-          "2.8.1",
-          "2.8.2",
-          "2.9.0",
-          "2.9.1",
-          "2.9.2",
-          "3.0.0",
-          "3.0.0.rc1",
-          "3.0.1",
-          "3.0.2",
-          "3.1.0",
-          "3.1.1",
-          "3.10.0",
-          "3.11.0",
-          "3.11.1",
-          "3.11.2",
-          "3.11.3",
-          "3.11.4",
-          "3.12.0",
-          "3.12.1",
-          "3.12.2",
-          "3.12.4",
-          "3.12.5",
-          "3.12.6",
-          "3.2.0",
-          "3.3.0",
-          "3.4.0",
-          "3.5.0",
-          "3.5.1",
-          "3.5.2",
-          "3.6.0",
-          "3.6.1",
-          "3.6.2",
-          "3.7.0",
-          "3.7.1",
-          "3.8.0",
-          "3.8.1",
-          "3.8.2",
-          "3.9.0",
-          "3.9.1",
-          "4.0.0",
-          "4.0.1",
-          "4.1.0",
-          "4.1.1",
-          "4.2.0",
-          "4.2.1",
-          "4.3.0",
-          "4.3.1",
-          "4.3.10",
-          "4.3.11",
-          "4.3.12",
-          "4.3.3",
-          "4.3.4",
-          "4.3.5",
-          "4.3.6",
-          "4.3.7",
-          "4.3.8",
-          "4.3.9",
-          "5.0.0",
-          "5.0.0.beta1",
-          "5.0.0.beta2",
-          "5.0.1",
-          "5.0.2",
-          "5.0.3",
-          "5.0.4",
-          "5.1.0",
-          "5.1.1",
-          "5.2.0",
-          "5.2.1",
-          "5.2.2",
-          "5.3.0",
-          "5.3.1",
-          "5.3.2",
-          "5.4.0",
-          "5.5.0",
-          "5.5.1",
-          "5.5.2",
-          "5.6.0",
-          "5.6.1",
-          "5.6.2",
-          "5.6.4",
-          "5.6.5",
-          "5.6.6",
-          "5.6.7",
-          "5.6.8"
-        ],
-        "database_specific": {
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2024/09/GHSA-9hf4-67fc-4vf4/GHSA-9hf4-67fc-4vf4.json"
-        }
-      },
-      {
-        "package": {
-          "name": "puma",
-          "ecosystem": "RubyGems",
-          "purl": "pkg:gem/puma"
-        },
-        "ranges": [
-          {
-            "type": "ECOSYSTEM",
-            "events": [
-              {
-                "introduced": "6.0.0"
-              },
-              {
-                "fixed": "6.4.3"
-              }
-            ]
-          }
-        ],
-        "versions": [
-          "6.0.0",
-          "6.0.1",
-          "6.0.2",
-          "6.1.0",
-          "6.1.1",
-          "6.2.0",
-          "6.2.1",
-          "6.2.2",
-          "6.3.0",
-          "6.3.1",
-          "6.4.0",
-          "6.4.1",
-          "6.4.2"
-        ],
-        "database_specific": {
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2024/09/GHSA-9hf4-67fc-4vf4/GHSA-9hf4-67fc-4vf4.json"
-        }
-      }
-    ],
-    "schema_version": "1.6.0",
-    "severity": [
-      {
-        "type": "CVSS_V3",
-        "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:L/I:L/A:N"
-      },
-      {
-        "type": "CVSS_V4",
-        "score": "CVSS:4.0/AV:N/AC:H/AT:N/PR:N/UI:N/VC:N/VI:N/VA:N/SC:L/SI:L/SA:N"
-      }
-    ]
-  },
-  {
     "id": "GHSA-9hx9-w2j6-rw76",
     "summary": "Script Injection in Show In Browser gem",
     "details": "The Show In Browser (show_in_browser) gem 0.0.3 for Ruby allows local users to inject arbitrary web script or HTML via a symlink attack on `/tmp/browser.html`.",
@@ -8554,82 +9535,6 @@
     ]
   },
   {
-    "id": "GHSA-frp2-5qfc-7r8m",
-    "summary": "request_store has Incorrect Default Permissions",
-    "details": "### Impact\n\nThe files published as part of request_store 1.3.2 have 0666 permissions, meaning that they are world-writable, which allows local users to execute arbitrary code.\n\nThis version was published in 2017, and most production environments do not allow access for local users, so the chances of this being exploited are very low, given that the vast majority of users will have upgraded, and those that have not, if any, are not likely to be exposed.\n\n### Patches\n\nI am not aware of any other version of the gem with incorrect permissions, so simply upgrading should fix the issue.\n\n### Workarounds\n\nYou could chmod the files yourself, I guess.\n\n### References\n\nhttps://cwe.mitre.org/data/definitions/276.html",
-    "aliases": [
-      "CVE-2024-43791"
-    ],
-    "modified": "2024-08-26T14:12:40Z",
-    "published": "2024-08-23T18:54:26Z",
-    "database_specific": {
-      "nvd_published_at": "2024-08-23T15:15:16Z",
-      "cwe_ids": [
-        "CWE-276"
-      ],
-      "severity": "MODERATE",
-      "github_reviewed": true,
-      "github_reviewed_at": "2024-08-23T18:54:26Z"
-    },
-    "references": [
-      {
-        "type": "WEB",
-        "url": "https://github.com/steveklabnik/request_store/security/advisories/GHSA-frp2-5qfc-7r8m"
-      },
-      {
-        "type": "ADVISORY",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-43791"
-      },
-      {
-        "type": "WEB",
-        "url": "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/request_store/CVE-2024-43791.yml"
-      },
-      {
-        "type": "PACKAGE",
-        "url": "https://github.com/steveklabnik/request_store"
-      }
-    ],
-    "affected": [
-      {
-        "package": {
-          "name": "request_store",
-          "ecosystem": "RubyGems",
-          "purl": "pkg:gem/request_store"
-        },
-        "ranges": [
-          {
-            "type": "ECOSYSTEM",
-            "events": [
-              {
-                "introduced": "1.3.2"
-              },
-              {
-                "fixed": "1.4.0"
-              }
-            ]
-          }
-        ],
-        "versions": [
-          "1.3.2"
-        ],
-        "database_specific": {
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2024/08/GHSA-frp2-5qfc-7r8m/GHSA-frp2-5qfc-7r8m.json"
-        }
-      }
-    ],
-    "schema_version": "1.6.0",
-    "severity": [
-      {
-        "type": "CVSS_V3",
-        "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
-      },
-      {
-        "type": "CVSS_V4",
-        "score": "CVSS:4.0/AV:L/AC:L/AT:N/PR:L/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/E:U"
-      }
-    ]
-  },
-  {
     "id": "GHSA-fw3g-2h3j-qmm7",
     "summary": "Improper neutralization of `noscript` element content may allow XSS in Sanitize",
     "details": "### Impact\n\nUsing carefully crafted input, an attacker may be able to sneak arbitrary HTML through Sanitize `>= 5.0.0, < 6.0.1` when Sanitize is configured with a custom allowlist that allows `noscript` elements. This could result in XSS (cross-site scripting) or other undesired behavior when that HTML is rendered in a browser.\n\nSanitize's default configs don't allow `noscript` elements and are not vulnerable. This issue only affects users who are using a custom config that adds `noscript` to the element allowlist.\n\n### Patches\n\nSanitize `>= 6.0.1` always removes `noscript` elements and their contents, even when `noscript` is in the allowlist.\n\n### Workarounds\n\nUsers who are unable to upgrade can prevent this issue by using one of Sanitize's default configs or by ensuring that their custom config does not include `noscript` in the element allowlist.\n\n### Details\n\nThe root cause of this issue is that HTML parsing rules treat the contents of a `noscript` element differently depending on whether scripting is enabled in the user agent. Nokogiri (the HTML parser Sanitize uses) doesn't support scripting so it follows the \"scripting disabled\" rules, but a web browser with scripting enabled will follow the \"scripting enabled\" rules. This means that Sanitize can't reliably make the contents of a `noscript` element safe for scripting enabled browsers. The safest thing to do is to remove the element and its contents entirely, which is now what Sanitize does in version 6.0.1 and later.\n\n### References\n\n- [Release Notes](https://github.com/rgrove/sanitize/releases/tag/v6.0.1)\n\n### Credit\n\nThanks to David Klein from [TU Braunschweig](https://www.tu-braunschweig.de/en/ias) (@leeN) for reporting this issue.",
@@ -8708,177 +9613,6 @@
       {
         "type": "CVSS_V3",
         "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
-      }
-    ]
-  },
-  {
-    "id": "GHSA-fwcm-636p-68r5",
-    "summary": "Server-side request forgery in CarrierWave",
-    "details": "### Impact\n[CarrierWave download feature](https://github.com/carrierwaveuploader/carrierwave#uploading-files-from-a-remote-location) has an SSRF vulnerability, allowing attacks to provide DNS entries or IP addresses that are intended for internal use and gather information about the Intranet infrastructure of the platform.\n\n### Patches\nUpgrade to [2.1.1](https://rubygems.org/gems/carrierwave/versions/2.1.1) or [1.3.2](https://rubygems.org/gems/carrierwave/versions/1.3.2).\n\n### Workarounds\nUsing proper network segmentation and applying the principle of least privilege to outbound connections from application servers can reduce the severity of SSRF vulnerabilities. Ideally the vulnerable gem should run on an isolated server without access to any internal network resources or cloud metadata access.\n\n### References\n[Server-Side Request Forgery Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html)\n\n### For more information\nIf you have any questions or comments about this advisory:\n* Open an issue in [CarrierWave repo](https://github.com/carrierwaveuploader/carrierwave)\n* Email me at [mit.shibuya@gmail.com](mailto:mit.shibuya@gmail.com)",
-    "aliases": [
-      "CVE-2021-21288"
-    ],
-    "modified": "2024-02-20T05:33:40.794629Z",
-    "published": "2021-02-08T19:16:26Z",
-    "database_specific": {
-      "nvd_published_at": "2021-02-08T20:15:00Z",
-      "cwe_ids": [
-        "CWE-918"
-      ],
-      "severity": "MODERATE",
-      "github_reviewed": true,
-      "github_reviewed_at": "2021-02-08T18:51:29Z"
-    },
-    "references": [
-      {
-        "type": "WEB",
-        "url": "https://github.com/carrierwaveuploader/carrierwave/security/advisories/GHSA-fwcm-636p-68r5"
-      },
-      {
-        "type": "ADVISORY",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-21288"
-      },
-      {
-        "type": "WEB",
-        "url": "https://github.com/carrierwaveuploader/carrierwave/commit/012702eb3ba1663452aa025831caa304d1a665c0"
-      },
-      {
-        "type": "PACKAGE",
-        "url": "https://github.com/carrierwaveuploader/carrierwave"
-      },
-      {
-        "type": "WEB",
-        "url": "https://github.com/carrierwaveuploader/carrierwave/blob/master/CHANGELOG.md#132---2021-02-08"
-      },
-      {
-        "type": "WEB",
-        "url": "https://github.com/carrierwaveuploader/carrierwave/blob/master/CHANGELOG.md#211---2021-02-08"
-      },
-      {
-        "type": "WEB",
-        "url": "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/carrierwave/CVE-2021-21288.yml"
-      },
-      {
-        "type": "WEB",
-        "url": "https://rubygems.org/gems/carrierwave"
-      }
-    ],
-    "affected": [
-      {
-        "package": {
-          "name": "carrierwave",
-          "ecosystem": "RubyGems",
-          "purl": "pkg:gem/carrierwave"
-        },
-        "ranges": [
-          {
-            "type": "ECOSYSTEM",
-            "events": [
-              {
-                "introduced": "0"
-              },
-              {
-                "fixed": "1.3.2"
-              }
-            ]
-          }
-        ],
-        "versions": [
-          "0.1",
-          "0.10.0",
-          "0.11.0",
-          "0.11.1",
-          "0.11.2",
-          "0.2.0",
-          "0.2.1",
-          "0.2.3",
-          "0.2.4",
-          "0.3.0",
-          "0.3.1",
-          "0.3.2",
-          "0.3.3",
-          "0.3.4",
-          "0.3.5",
-          "0.3.5.1",
-          "0.3.5.2",
-          "0.4.0",
-          "0.4.1",
-          "0.4.10",
-          "0.4.2",
-          "0.4.3",
-          "0.4.4",
-          "0.4.5",
-          "0.4.6",
-          "0.4.7",
-          "0.4.8",
-          "0.4.9",
-          "0.5.0",
-          "0.5.0.beta2",
-          "0.5.1",
-          "0.5.2",
-          "0.5.3",
-          "0.5.4",
-          "0.5.5",
-          "0.5.6",
-          "0.5.7",
-          "0.5.8",
-          "0.6.0",
-          "0.6.1",
-          "0.6.2",
-          "0.7.0",
-          "0.7.1",
-          "0.8.0",
-          "0.9.0",
-          "1.0.0",
-          "1.0.0.beta",
-          "1.0.0.rc",
-          "1.1.0",
-          "1.2.0",
-          "1.2.1",
-          "1.2.2",
-          "1.2.3",
-          "1.3.0",
-          "1.3.1"
-        ],
-        "database_specific": {
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2021/02/GHSA-fwcm-636p-68r5/GHSA-fwcm-636p-68r5.json"
-        }
-      },
-      {
-        "package": {
-          "name": "carrierwave",
-          "ecosystem": "RubyGems",
-          "purl": "pkg:gem/carrierwave"
-        },
-        "ranges": [
-          {
-            "type": "ECOSYSTEM",
-            "events": [
-              {
-                "introduced": "2.0.0"
-              },
-              {
-                "fixed": "2.1.1"
-              }
-            ]
-          }
-        ],
-        "versions": [
-          "2.0.0",
-          "2.0.1",
-          "2.0.2",
-          "2.1.0"
-        ],
-        "database_specific": {
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2021/02/GHSA-fwcm-636p-68r5/GHSA-fwcm-636p-68r5.json"
-        }
-      }
-    ],
-    "schema_version": "1.6.0",
-    "severity": [
-      {
-        "type": "CVSS_V3",
-        "score": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
       }
     ]
   },
@@ -14394,349 +15128,6 @@
     ]
   },
   {
-    "id": "GHSA-m63j-wh5w-c252",
-    "summary": "Denial of Service Vulnerability in Action View",
-    "details": "# Denial of Service Vulnerability in Action View\n\nImpact \n------ \nSpecially crafted accept headers can cause the Action View template location code to consume 100% CPU, causing the server unable to process requests.  This impacts all Rails applications that render views. \n\nAll users running an affected release should either upgrade or use one of the workarounds immediately. \n\nReleases \n-------- \nThe 6.0.0.beta3, 5.2.2.1, 5.1.6.2, 5.0.7.2, and 4.2.11.1 releases are available at the normal locations. \n\nWorkarounds \n----------- \nThis vulnerability can be mitigated by wrapping `render` calls with `respond_to` blocks.  For example, the following example is vulnerable: \n\n``` ruby\nclass UserController < ApplicationController \n  def index \n    render \"index\" \n  end \nend \n``` \n\nBut the following code is not vulnerable: \n\n```ruby \nclass UserController < ApplicationController \n  def index \n    respond_to |format| \n      format.html { render \"index\" } \n    end \n  end \nend \n``` \n\nImplicit rendering is impacted, so this code is vulnerable: \n\n```ruby \nclass UserController < ApplicationController \n  def index \n  end \nend \n``` \n\nBut can be changed this this: \n\n```ruby \nclass UserController < ApplicationController \n  def index \n    respond_to |format| \n      format.html { render \"index\" } \n    end \n  end \nend \n``` \n\nAlternatively to specifying the format, the following monkey patch can be applied in an initializer: \n\n``` \n$ cat config/initializers/formats_filter.rb \n# frozen_string_literal: true \n\nActionDispatch::Request.prepend(Module.new do \n  def formats \n    super().select do |format| \n      format.symbol || format.ref == \"*/*\" \n    end \n  end \nend) \n``` \n\nPlease note that only the 5.2.x, 5.1.x, 5.0.x, and 4.2.x series are supported at present. Users of earlier unsupported releases are advised to upgrade as soon as possible as we cannot guarantee the continued availability of security fixes for unsupported releases. \n\nAlso note that the patches for this vulnerability are the same as CVE-2019-5418. \n\nCredits \n------- \nThanks to John Hawthorn <john@hawthorn.email> of GitHub ",
-    "aliases": [
-      "CVE-2019-5419"
-    ],
-    "modified": "2024-02-16T08:18:12.796915Z",
-    "published": "2019-03-13T17:25:55Z",
-    "database_specific": {
-      "nvd_published_at": "2019-03-27T14:29:01Z",
-      "cwe_ids": [
-        "CWE-400",
-        "CWE-770"
-      ],
-      "severity": "HIGH",
-      "github_reviewed": true,
-      "github_reviewed_at": "2020-06-16T21:45:03Z"
-    },
-    "references": [
-      {
-        "type": "ADVISORY",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-5419"
-      },
-      {
-        "type": "WEB",
-        "url": "https://github.com/rails/rails/pull/35708"
-      },
-      {
-        "type": "WEB",
-        "url": "https://github.com/rails/rails/commit/f4c70c2222180b8d9d924f00af0c7fd632e26715"
-      },
-      {
-        "type": "WEB",
-        "url": "https://access.redhat.com/errata/RHSA-2019:0796"
-      },
-      {
-        "type": "WEB",
-        "url": "https://access.redhat.com/errata/RHSA-2019:1147"
-      },
-      {
-        "type": "WEB",
-        "url": "https://access.redhat.com/errata/RHSA-2019:1149"
-      },
-      {
-        "type": "WEB",
-        "url": "https://access.redhat.com/errata/RHSA-2019:1289"
-      },
-      {
-        "type": "PACKAGE",
-        "url": "https://github.com/rails/rails"
-      },
-      {
-        "type": "WEB",
-        "url": "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/actionview/CVE-2019-5419.yml"
-      },
-      {
-        "type": "WEB",
-        "url": "https://groups.google.com/forum/#!topic/rubyonrails-security/GN7w9fFAQeI"
-      },
-      {
-        "type": "WEB",
-        "url": "https://lists.debian.org/debian-lts-announce/2019/03/msg00042.html"
-      },
-      {
-        "type": "WEB",
-        "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/Y43636TH4D6T46IC6N2RQVJTRFJAAYGA"
-      },
-      {
-        "type": "WEB",
-        "url": "https://weblog.rubyonrails.org/2019/3/13/Rails-4-2-5-1-5-1-6-2-have-been-released"
-      },
-      {
-        "type": "WEB",
-        "url": "http://lists.opensuse.org/opensuse-security-announce/2019-05/msg00011.html"
-      },
-      {
-        "type": "WEB",
-        "url": "http://lists.opensuse.org/opensuse-security-announce/2019-06/msg00025.html"
-      },
-      {
-        "type": "WEB",
-        "url": "http://lists.opensuse.org/opensuse-security-announce/2019-08/msg00001.html"
-      },
-      {
-        "type": "WEB",
-        "url": "http://www.openwall.com/lists/oss-security/2019/03/22/1"
-      }
-    ],
-    "affected": [
-      {
-        "package": {
-          "name": "actionview",
-          "ecosystem": "RubyGems",
-          "purl": "pkg:gem/actionview"
-        },
-        "ranges": [
-          {
-            "type": "ECOSYSTEM",
-            "events": [
-              {
-                "introduced": "4.0.0"
-              },
-              {
-                "fixed": "4.2.11.1"
-              }
-            ]
-          }
-        ],
-        "versions": [
-          "4.1.0",
-          "4.1.0.beta1",
-          "4.1.0.beta2",
-          "4.1.0.rc1",
-          "4.1.0.rc2",
-          "4.1.1",
-          "4.1.10",
-          "4.1.10.rc1",
-          "4.1.10.rc2",
-          "4.1.10.rc3",
-          "4.1.10.rc4",
-          "4.1.11",
-          "4.1.12",
-          "4.1.12.rc1",
-          "4.1.13",
-          "4.1.13.rc1",
-          "4.1.14",
-          "4.1.14.1",
-          "4.1.14.2",
-          "4.1.14.rc1",
-          "4.1.14.rc2",
-          "4.1.15",
-          "4.1.15.rc1",
-          "4.1.16",
-          "4.1.16.rc1",
-          "4.1.2",
-          "4.1.2.rc1",
-          "4.1.2.rc2",
-          "4.1.2.rc3",
-          "4.1.3",
-          "4.1.4",
-          "4.1.5",
-          "4.1.6",
-          "4.1.6.rc1",
-          "4.1.6.rc2",
-          "4.1.7",
-          "4.1.7.1",
-          "4.1.8",
-          "4.1.9",
-          "4.1.9.rc1",
-          "4.2.0",
-          "4.2.0.beta1",
-          "4.2.0.beta2",
-          "4.2.0.beta3",
-          "4.2.0.beta4",
-          "4.2.0.rc1",
-          "4.2.0.rc2",
-          "4.2.0.rc3",
-          "4.2.1",
-          "4.2.1.rc1",
-          "4.2.1.rc2",
-          "4.2.1.rc3",
-          "4.2.1.rc4",
-          "4.2.10",
-          "4.2.10.rc1",
-          "4.2.11",
-          "4.2.2",
-          "4.2.3",
-          "4.2.3.rc1",
-          "4.2.4",
-          "4.2.4.rc1",
-          "4.2.5",
-          "4.2.5.1",
-          "4.2.5.2",
-          "4.2.5.rc1",
-          "4.2.5.rc2",
-          "4.2.6",
-          "4.2.6.rc1",
-          "4.2.7",
-          "4.2.7.1",
-          "4.2.7.rc1",
-          "4.2.8",
-          "4.2.8.rc1",
-          "4.2.9",
-          "4.2.9.rc1",
-          "4.2.9.rc2"
-        ],
-        "database_specific": {
-          "last_known_affected_version_range": "<= 4.2.11.0",
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2019/03/GHSA-m63j-wh5w-c252/GHSA-m63j-wh5w-c252.json"
-        }
-      },
-      {
-        "package": {
-          "name": "actionview",
-          "ecosystem": "RubyGems",
-          "purl": "pkg:gem/actionview"
-        },
-        "ranges": [
-          {
-            "type": "ECOSYSTEM",
-            "events": [
-              {
-                "introduced": "5.2.0"
-              },
-              {
-                "fixed": "5.2.2.1"
-              }
-            ]
-          }
-        ],
-        "versions": [
-          "5.2.0",
-          "5.2.1",
-          "5.2.1.1",
-          "5.2.1.rc1",
-          "5.2.2",
-          "5.2.2.rc1"
-        ],
-        "database_specific": {
-          "last_known_affected_version_range": "<= 5.2.2.0",
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2019/03/GHSA-m63j-wh5w-c252/GHSA-m63j-wh5w-c252.json"
-        }
-      },
-      {
-        "package": {
-          "name": "actionview",
-          "ecosystem": "RubyGems",
-          "purl": "pkg:gem/actionview"
-        },
-        "ranges": [
-          {
-            "type": "ECOSYSTEM",
-            "events": [
-              {
-                "introduced": "5.1.0"
-              },
-              {
-                "fixed": "5.1.6.2"
-              }
-            ]
-          }
-        ],
-        "versions": [
-          "5.1.0",
-          "5.1.1",
-          "5.1.2",
-          "5.1.2.rc1",
-          "5.1.3",
-          "5.1.3.rc1",
-          "5.1.3.rc2",
-          "5.1.3.rc3",
-          "5.1.4",
-          "5.1.4.rc1",
-          "5.1.5",
-          "5.1.5.rc1",
-          "5.1.6",
-          "5.1.6.1"
-        ],
-        "database_specific": {
-          "last_known_affected_version_range": "<= 5.1.6.1",
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2019/03/GHSA-m63j-wh5w-c252/GHSA-m63j-wh5w-c252.json"
-        }
-      },
-      {
-        "package": {
-          "name": "actionview",
-          "ecosystem": "RubyGems",
-          "purl": "pkg:gem/actionview"
-        },
-        "ranges": [
-          {
-            "type": "ECOSYSTEM",
-            "events": [
-              {
-                "introduced": "5.0.0"
-              },
-              {
-                "fixed": "5.0.7.2"
-              }
-            ]
-          }
-        ],
-        "versions": [
-          "5.0.0",
-          "5.0.0.1",
-          "5.0.1",
-          "5.0.1.rc1",
-          "5.0.1.rc2",
-          "5.0.2",
-          "5.0.2.rc1",
-          "5.0.3",
-          "5.0.4",
-          "5.0.4.rc1",
-          "5.0.5",
-          "5.0.5.rc1",
-          "5.0.5.rc2",
-          "5.0.6",
-          "5.0.6.rc1",
-          "5.0.7",
-          "5.0.7.1"
-        ],
-        "database_specific": {
-          "last_known_affected_version_range": "<= 5.0.7.1",
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2019/03/GHSA-m63j-wh5w-c252/GHSA-m63j-wh5w-c252.json"
-        }
-      },
-      {
-        "package": {
-          "name": "actionview",
-          "ecosystem": "RubyGems",
-          "purl": "pkg:gem/actionview"
-        },
-        "ranges": [
-          {
-            "type": "ECOSYSTEM",
-            "events": [
-              {
-                "introduced": "6.0.0.beta1"
-              },
-              {
-                "fixed": "6.0.0.beta3"
-              }
-            ]
-          }
-        ],
-        "versions": [
-          "6.0.0.beta1",
-          "6.0.0.beta2"
-        ],
-        "database_specific": {
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2019/03/GHSA-m63j-wh5w-c252/GHSA-m63j-wh5w-c252.json"
-        }
-      }
-    ],
-    "schema_version": "1.6.0",
-    "severity": [
-      {
-        "type": "CVSS_V3",
-        "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
-      }
-    ]
-  },
-  {
     "id": "GHSA-mcvf-2q2m-x72m",
     "summary": "Improper neutralization of data URIs may allow XSS in rails-html-sanitizer",
     "details": "## Summary\n\nrails-html-sanitizer `>= 1.0.3, < 1.4.4` is vulnerable to cross-site scripting via data URIs when used in combination with Loofah `>= 2.1.0`.\n\n\n## Mitigation\n\nUpgrade to rails-html-sanitizer `>= 1.4.4`.\n\n\n## Severity\n\nThe maintainers have evaluated this as [Medium Severity 6.1](https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N).\n\n\n## References\n\n- [CWE - CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') (4.9)](https://cwe.mitre.org/data/definitions/79.html)\n- [SVG MIME Type (image/svg+xml) is misleading to developers · Issue #266 · w3c/svgwg](https://github.com/w3c/svgwg/issues/266)\n- https://github.com/rails/rails-html-sanitizer/issues/135\n- https://hackerone.com/reports/1694173\n\n\n## Credit\n\nThis vulnerability was independently reported by Maciej Piechota (@haqpl) and Mrinmoy Das (@goromlagche).\n",
@@ -14833,61 +15224,175 @@
     ]
   },
   {
-    "id": "GHSA-mgvv-5mxp-xq67",
-    "summary": "SQLite3 addresses vulnerability in packaged version of libsqlite",
-    "details": "### Summary\n\nThe rubygem sqlite3 v1.5.1 upgrades the packaged version of libsqlite from v3.39.3 to [v3.39.4](https://sqlite.org/releaselog/3_39_4.html).\n\nlibsqlite v3.39.4 addresses a vulnerability described as follows in the release notification:\n\n> Version 3.39.4 is a minimal patch against the prior release that addresses issues found since the\n> prior release. In particular, a potential vulnerability in the FTS3 extension has been fixed, so\n> this should be considered a security update.\n>\n> In order to exploit the vulnerability, an attacker must have full SQL access and must be able to\n> construct a corrupt database with over 2GB of FTS3 content. The problem arises from a 32-bit\n> signed integer overflow.\n\nThis vulnerability has not been assigned a CVE and does not have a severity declared.\n\nPlease note that this advisory only applies to the sqlite3 gem v1.5.0, and only if the packaged libsqlite is being used. If you've overridden defaults at installation time to use system libraries instead of packaged libraries, you should instead pay attention to your distro's libsqlite release announcements.\n\n\n### Mitigation\n\nUpgrade to the rubygem sqlite3 v1.5.1 or later.\n\nUsers who are unable to upgrade the sqlite3 gem may also choose a more complicated mitigation: compile and link sqlite3 against external libsqlite >= 3.39.4 which will also address these same issues.\n\n\n### References\n\n- Upstream release notes: https://sqlite.org/releaselog/3_39_4.html\n- Instructions for compiling against system libraries: https://github.com/sparklemotion/sqlite3-ruby",
-    "modified": "2022-10-03T22:12:28Z",
-    "published": "2022-10-03T22:12:28Z",
+    "id": "GHSA-mhpp-875w-9cpv",
+    "summary": "Denial of Service in jquery",
+    "details": "Affected versions of `jquery` use a lowercasing logic on attribute names. When given a boolean attribute with a name that contains uppercase characters, `jquery` enters into an infinite recursion loop, exceeding the call stack limit, and resulting in a denial of service condition.\n\n\n## Recommendation\n\nUpdate to version 3.0.0 or later.",
+    "aliases": [
+      "CVE-2016-10707"
+    ],
+    "modified": "2024-02-12T15:03:44Z",
+    "published": "2018-01-22T13:32:42Z",
     "database_specific": {
-      "nvd_published_at": null,
-      "cwe_ids": [],
-      "severity": "LOW",
+      "nvd_published_at": "2018-01-18T23:29:00Z",
+      "cwe_ids": [
+        "CWE-400",
+        "CWE-674"
+      ],
+      "severity": "HIGH",
       "github_reviewed": true,
-      "github_reviewed_at": "2022-10-03T22:12:28Z"
+      "github_reviewed_at": "2020-06-16T21:46:22Z"
     },
     "references": [
       {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2016-10707"
+      },
+      {
         "type": "WEB",
-        "url": "https://github.com/sparklemotion/sqlite3-ruby/security/advisories/GHSA-mgvv-5mxp-xq67"
+        "url": "https://github.com/jquery/jquery/issues/3133"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/jquery/jquery/issues/3133#issuecomment-358978489"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/jquery/jquery/pull/3134"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://github.com/advisories/GHSA-mhpp-875w-9cpv"
       },
       {
         "type": "PACKAGE",
-        "url": "https://github.com/sparklemotion/sqlite3-ruby"
+        "url": "https://github.com/jquery/jquery"
       },
       {
         "type": "WEB",
-        "url": "https://github.com/sparklemotion/sqlite3-ruby/releases/tag/v1.5.1"
+        "url": "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/jquery-rails/CVE-2016-10707.yml"
+      },
+      {
+        "type": "WEB",
+        "url": "https://snyk.io/vuln/npm:jquery:20160529"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.npmjs.com/advisories/330"
       }
     ],
     "affected": [
       {
         "package": {
-          "name": "sqlite3",
-          "ecosystem": "RubyGems",
-          "purl": "pkg:gem/sqlite3"
+          "name": "jquery",
+          "ecosystem": "npm",
+          "purl": "pkg:npm/jquery"
+        },
+        "ranges": [
+          {
+            "type": "SEMVER",
+            "events": [
+              {
+                "introduced": "3.0.0-rc.1"
+              },
+              {
+                "fixed": "3.0.0"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "3.0.0-rc.1"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2018/01/GHSA-mhpp-875w-9cpv/GHSA-mhpp-875w-9cpv.json"
+        }
+      },
+      {
+        "package": {
+          "name": "jQuery",
+          "ecosystem": "NuGet",
+          "purl": "pkg:nuget/jQuery"
         },
         "ranges": [
           {
             "type": "ECOSYSTEM",
             "events": [
               {
-                "introduced": "1.5.0"
+                "introduced": "3.0.0-rc.1"
               },
               {
-                "fixed": "1.5.1"
+                "fixed": "3.0.0"
               }
             ]
           }
         ],
         "versions": [
-          "1.5.0"
+          "3.0.0-rc.1"
         ],
         "database_specific": {
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2022/10/GHSA-mgvv-5mxp-xq67/GHSA-mgvv-5mxp-xq67.json"
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2018/01/GHSA-mhpp-875w-9cpv/GHSA-mhpp-875w-9cpv.json"
+        }
+      },
+      {
+        "package": {
+          "name": "org.webjars.npm:jquery",
+          "ecosystem": "Maven",
+          "purl": "pkg:maven/org.webjars.npm/jquery"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "3.0.0-rc.1"
+              },
+              {
+                "fixed": "3.0.0"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "3.0.0-rc.1"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2018/01/GHSA-mhpp-875w-9cpv/GHSA-mhpp-875w-9cpv.json"
+        }
+      },
+      {
+        "package": {
+          "name": "jquery-rails",
+          "ecosystem": "RubyGems",
+          "purl": "pkg:gem/jquery-rails"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "3.0.0-rc.1"
+              },
+              {
+                "fixed": "3.0.0"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "3.0.0-rc.1"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2018/01/GHSA-mhpp-875w-9cpv/GHSA-mhpp-875w-9cpv.json"
         }
       }
     ],
-    "schema_version": "1.6.0"
+    "schema_version": "1.6.0",
+    "severity": [
+      {
+        "type": "CVSS_V3",
+        "score": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+      }
+    ]
   },
   {
     "id": "GHSA-mm33-5vfq-3mm3",
@@ -17308,217 +17813,6 @@
     "schema_version": "1.6.0"
   },
   {
-    "id": "GHSA-qcj6-vxwx-4rqv",
-    "summary": "Decidim vulnerable to data disclosure through the embed feature",
-    "details": "### Impact\n\nIf an attacker can infer the slug or URL of an unpublished or private resource, and this resource can be embedded (such as a Participatory Process, an Assembly, a Proposal, a Result, etc), then some data of this resource could be accessed. \n\n### Patches\n\nversion 0.27.6\n\nhttps://github.com/decidim/decidim/commit/1756fa639ef393ca8e8bb16221cab2e2e7875705\n\n### Workarounds\n\nDisallow access through your web server to the URLs finished with `/embed.html`\n",
-    "aliases": [
-      "CVE-2024-27090"
-    ],
-    "modified": "2024-07-11T21:45:48.725039Z",
-    "published": "2024-07-10T15:10:57Z",
-    "database_specific": {
-      "nvd_published_at": "2024-07-10T19:15:10Z",
-      "cwe_ids": [
-        "CWE-200"
-      ],
-      "severity": "MODERATE",
-      "github_reviewed": true,
-      "github_reviewed_at": "2024-07-10T15:10:57Z"
-    },
-    "references": [
-      {
-        "type": "WEB",
-        "url": "https://github.com/decidim/decidim/security/advisories/GHSA-qcj6-vxwx-4rqv"
-      },
-      {
-        "type": "ADVISORY",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-27090"
-      },
-      {
-        "type": "WEB",
-        "url": "https://github.com/decidim/decidim/pull/12528"
-      },
-      {
-        "type": "WEB",
-        "url": "https://github.com/decidim/decidim/commit/1756fa639ef393ca8e8bb16221cab2e2e7875705"
-      },
-      {
-        "type": "PACKAGE",
-        "url": "https://github.com/decidim/decidim"
-      },
-      {
-        "type": "WEB",
-        "url": "https://github.com/decidim/decidim/releases/tag/v0.27.6"
-      },
-      {
-        "type": "WEB",
-        "url": "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/decidim/CVE-2024-27090.yml"
-      }
-    ],
-    "affected": [
-      {
-        "package": {
-          "name": "decidim",
-          "ecosystem": "RubyGems",
-          "purl": "pkg:gem/decidim"
-        },
-        "ranges": [
-          {
-            "type": "ECOSYSTEM",
-            "events": [
-              {
-                "introduced": "0"
-              },
-              {
-                "fixed": "0.27.6"
-              }
-            ]
-          }
-        ],
-        "versions": [
-          "0.0.1",
-          "0.0.1.alpha1",
-          "0.0.1.alpha2",
-          "0.0.1.alpha3",
-          "0.0.1.alpha4",
-          "0.0.1.alpha5",
-          "0.0.1.alpha6",
-          "0.0.1.alpha7",
-          "0.0.1.alpha8",
-          "0.0.1.alpha9",
-          "0.0.2",
-          "0.0.3",
-          "0.0.4",
-          "0.0.5",
-          "0.0.6",
-          "0.0.7",
-          "0.0.8.1",
-          "0.1.0",
-          "0.10.0",
-          "0.10.1",
-          "0.11.0.pre1",
-          "0.11.1",
-          "0.11.2",
-          "0.12.0",
-          "0.12.0.pre",
-          "0.12.1",
-          "0.12.2",
-          "0.13.0",
-          "0.13.0.pre1",
-          "0.13.1",
-          "0.14.1",
-          "0.14.2",
-          "0.14.3",
-          "0.14.4",
-          "0.15.0",
-          "0.15.1",
-          "0.15.2",
-          "0.16.0",
-          "0.16.1",
-          "0.17.0",
-          "0.17.1",
-          "0.17.2",
-          "0.18.0",
-          "0.18.1",
-          "0.19.0",
-          "0.19.1",
-          "0.2.0",
-          "0.20.0",
-          "0.20.1",
-          "0.21.0",
-          "0.22.0",
-          "0.23.0",
-          "0.23.1",
-          "0.23.1.rc1",
-          "0.23.2",
-          "0.23.3",
-          "0.23.4",
-          "0.23.5",
-          "0.23.6",
-          "0.24.0",
-          "0.24.0.rc1",
-          "0.24.0.rc2",
-          "0.24.1",
-          "0.24.2",
-          "0.24.3",
-          "0.25.0",
-          "0.25.0.rc1",
-          "0.25.0.rc2",
-          "0.25.0.rc3",
-          "0.25.0.rc4",
-          "0.25.1",
-          "0.25.2",
-          "0.26.0",
-          "0.26.0.rc2",
-          "0.26.1",
-          "0.26.10",
-          "0.26.2",
-          "0.26.3",
-          "0.26.4",
-          "0.26.5",
-          "0.26.7",
-          "0.26.8",
-          "0.26.9",
-          "0.27.0",
-          "0.27.0.rc1",
-          "0.27.0.rc2",
-          "0.27.1",
-          "0.27.2",
-          "0.27.3",
-          "0.27.4",
-          "0.27.5",
-          "0.3.0",
-          "0.3.1",
-          "0.3.2",
-          "0.4.0",
-          "0.4.1",
-          "0.4.2",
-          "0.4.3",
-          "0.4.4",
-          "0.5.0",
-          "0.5.1",
-          "0.6.0",
-          "0.6.1",
-          "0.6.2",
-          "0.6.3",
-          "0.6.4",
-          "0.6.5",
-          "0.6.6",
-          "0.6.7",
-          "0.6.8",
-          "0.7.0",
-          "0.7.1",
-          "0.7.2",
-          "0.7.3",
-          "0.7.4",
-          "0.8.0",
-          "0.8.1",
-          "0.8.2",
-          "0.8.3",
-          "0.8.4",
-          "0.9.0",
-          "0.9.1",
-          "0.9.2",
-          "0.9.3"
-        ],
-        "database_specific": {
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2024/07/GHSA-qcj6-vxwx-4rqv/GHSA-qcj6-vxwx-4rqv.json"
-        }
-      }
-    ],
-    "schema_version": "1.6.0",
-    "severity": [
-      {
-        "type": "CVSS_V3",
-        "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N"
-      },
-      {
-        "type": "CVSS_V4",
-        "score": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N"
-      }
-    ]
-  },
-  {
     "id": "GHSA-qcqv-38jg-2r43",
     "summary": "Pageflow vulnerable to insecure direct object reference in membership update endpoint",
     "details": "### Impact\n\nPageflow has a membership edit feature which allows users to edit the roles of user memberships associated with an account that they have the `manager` role to (including their own). While the `Entity` dropdown select field is greyed out in the UI, an attacker can use tools which allow sending arbitrary HTTP request to craft a request to the `/admin/users/{user_id}/memberships/{membership_id}` endpoint containing an additional `membership[entity_id]` parameter. This parameter is honored when the membership is updated, allowing an attacker to update the membership object associated with their own account (with `manager` role) to be associated with a different attacker-chosen account instead. Since `account_id`s are enumerable, an attacker can compromise all accounts present on the platform.\n\n### Mitigation\n\nUpgrade to version 15.7.1 or 14.5.2 of the `pageflow` gem.\n\n### For more information\n\nIf you have any questions or comments about this advisory email us at info(at)codevise.de \n\n### Credits\n\n[Positive Security](https://positive.security/)",
@@ -19442,6 +19736,534 @@
     ]
   },
   {
+    "id": "GHSA-rmxg-73gg-4p98",
+    "summary": "Cross-Site Scripting (XSS) in jquery",
+    "details": "Affected versions of `jquery` interpret `text/javascript` responses from cross-origin ajax requests, and automatically execute the contents in `jQuery.globalEval`, even when the ajax request doesn't contain the `dataType` option.\n\n\n## Recommendation\n\nUpdate to version 3.0.0 or later.",
+    "aliases": [
+      "CVE-2015-9251"
+    ],
+    "modified": "2024-03-10T05:18:22.438189Z",
+    "published": "2018-01-22T13:32:06Z",
+    "database_specific": {
+      "nvd_published_at": "2018-01-18T23:29:00Z",
+      "cwe_ids": [
+        "CWE-79"
+      ],
+      "severity": "MODERATE",
+      "github_reviewed": true,
+      "github_reviewed_at": "2020-06-16T21:55:10Z"
+    },
+    "references": [
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2015-9251"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/jquery/jquery/issues/2432"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/jquery/jquery/issues/2432#issuecomment-403761229"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/jquery/jquery/pull/2588"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/jquery/jquery/pull/2588/commits/c254d308a7d3f1eac4d0b42837804cfffcba4bb2"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/jquery/jquery/commit/b078a62013782c7424a4a61a240c23c4c0b42614"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/jquery/jquery/commit/f60729f3903d17917dc351f3ac87794de379b0cc"
+      },
+      {
+        "type": "WEB",
+        "url": "https://access.redhat.com/errata/RHSA-2020:0481"
+      },
+      {
+        "type": "WEB",
+        "url": "https://seclists.org/bugtraq/2019/May/18"
+      },
+      {
+        "type": "WEB",
+        "url": "https://security.netapp.com/advisory/ntap-20210108-0004"
+      },
+      {
+        "type": "WEB",
+        "url": "https://security.snyk.io/vuln/SNYK-DOTNET-JQUERY-450227"
+      },
+      {
+        "type": "WEB",
+        "url": "https://snyk.io/vuln/npm:jquery:20150627"
+      },
+      {
+        "type": "WEB",
+        "url": "https://sw.aveva.com/hubfs/assets-2018/pdf/security-bulletin/SecurityBulletin_LFSec126.pdf"
+      },
+      {
+        "type": "WEB",
+        "url": "https://web.archive.org/web/20200227030101/http://www.securityfocus.com/bid/105658"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.oracle.com/security-alerts/cpuapr2020.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.oracle.com/security-alerts/cpujan2020.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.oracle.com/security-alerts/cpujul2020.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.oracle.com/security-alerts/cpuoct2020.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.oracle.com/technetwork/security-advisory/cpuapr2019-5072813.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.oracle.com/technetwork/security-advisory/cpujan2019-5072801.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.oracle.com/technetwork/security-advisory/cpujul2019-5072835.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.oracle.com/technetwork/security-advisory/cpuoct2019-5072832.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.tenable.com/security/tns-2019-08"
+      },
+      {
+        "type": "WEB",
+        "url": "https://access.redhat.com/errata/RHSA-2020:0729"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/jquery/jquery"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/rails/jquery-rails/blob/master/CHANGELOG.md#420"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/rails/jquery-rails/blob/v4.2.0/vendor/assets/javascripts/jquery3.js#L9377"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/rails/jquery-rails/releases/tag/v4.2.0"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/jquery-rails/CVE-2015-9251.yml"
+      },
+      {
+        "type": "WEB",
+        "url": "https://ics-cert.us-cert.gov/advisories/ICSA-18-212-04"
+      },
+      {
+        "type": "WEB",
+        "url": "https://kb.pulsesecure.net/articles/Pulse_Security_Advisories/SA44601"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/10f0f3aefd51444d1198c65f44ffdf2d78ca3359423dbc1c168c9731@%3Cdev.flink.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/17ff53f7999e74fbe3cc0ceb4e1c3b00b180b7c5afec8e978837bc49@%3Cuser.flink.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/519eb0fd45642dcecd9ff74cb3e71c20a4753f7d82e2f07864b5108f@%3Cdev.drill.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/52bafac05ad174000ea465fe275fd3cc7bd5c25535a7631c0bc9bfb2@%3Cuser.flink.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/54df3aeb4239b64b50b356f0ca6f986e3c4ca5b84c515dce077c7854@%3Cuser.flink.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/b0656d359c7d40ec9f39c8cc61bca66802ef9a2a12ee199f5b0c1442@%3Cdev.drill.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/ba79cf1658741e9f146e4c59b50aee56656ea95d841d358d006c18b6@%3Ccommits.roller.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/f9bc3e55f4e28d1dcd1a69aae6d53e609a758e34d2869b4d798e13cc@%3Cissues.drill.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "http://lists.opensuse.org/opensuse-security-announce/2020-03/msg00041.html"
+      },
+      {
+        "type": "WEB",
+        "url": "http://packetstormsecurity.com/files/152787/dotCMS-5.1.1-Vulnerable-Dependencies.html"
+      },
+      {
+        "type": "WEB",
+        "url": "http://packetstormsecurity.com/files/153237/RetireJS-CORS-Issue-Script-Execution.html"
+      },
+      {
+        "type": "WEB",
+        "url": "http://packetstormsecurity.com/files/156743/OctoberCMS-Insecure-Dependencies.html"
+      },
+      {
+        "type": "WEB",
+        "url": "http://seclists.org/fulldisclosure/2019/May/10"
+      },
+      {
+        "type": "WEB",
+        "url": "http://seclists.org/fulldisclosure/2019/May/11"
+      },
+      {
+        "type": "WEB",
+        "url": "http://seclists.org/fulldisclosure/2019/May/13"
+      },
+      {
+        "type": "WEB",
+        "url": "http://www.oracle.com/technetwork/security-advisory/cpuoct2018-4428296.html"
+      }
+    ],
+    "affected": [
+      {
+        "package": {
+          "name": "jquery",
+          "ecosystem": "npm",
+          "purl": "pkg:npm/jquery"
+        },
+        "ranges": [
+          {
+            "type": "SEMVER",
+            "events": [
+              {
+                "introduced": "0"
+              },
+              {
+                "fixed": "1.12.2"
+              }
+            ]
+          }
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2018/01/GHSA-rmxg-73gg-4p98/GHSA-rmxg-73gg-4p98.json"
+        }
+      },
+      {
+        "package": {
+          "name": "jQuery",
+          "ecosystem": "NuGet",
+          "purl": "pkg:nuget/jQuery"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "0"
+              },
+              {
+                "fixed": "1.12.2"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "1.10.0",
+          "1.10.0.1",
+          "1.10.1",
+          "1.10.2",
+          "1.11.0",
+          "1.11.1",
+          "1.11.2",
+          "1.11.3",
+          "1.12.0",
+          "1.12.1",
+          "1.4.1",
+          "1.4.2",
+          "1.4.3",
+          "1.4.4",
+          "1.5.0",
+          "1.5.1",
+          "1.5.2",
+          "1.6.0",
+          "1.6.1",
+          "1.6.2",
+          "1.6.3",
+          "1.6.4",
+          "1.7.0",
+          "1.7.1",
+          "1.7.1.1",
+          "1.7.2",
+          "1.8.0",
+          "1.8.1",
+          "1.8.2",
+          "1.8.3",
+          "1.9.0",
+          "1.9.1"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2018/01/GHSA-rmxg-73gg-4p98/GHSA-rmxg-73gg-4p98.json"
+        }
+      },
+      {
+        "package": {
+          "name": "jQuery",
+          "ecosystem": "NuGet",
+          "purl": "pkg:nuget/jQuery"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "1.12.3"
+              },
+              {
+                "fixed": "3.0.0"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "1.12.3",
+          "1.12.4",
+          "2.0.0",
+          "2.0.1",
+          "2.0.1.1",
+          "2.0.2",
+          "2.0.3",
+          "2.1.0",
+          "2.1.1",
+          "2.1.2",
+          "2.1.3",
+          "2.1.4",
+          "2.2.0",
+          "2.2.1",
+          "2.2.2",
+          "2.2.3",
+          "2.2.4"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2018/01/GHSA-rmxg-73gg-4p98/GHSA-rmxg-73gg-4p98.json"
+        }
+      },
+      {
+        "package": {
+          "name": "jquery",
+          "ecosystem": "npm",
+          "purl": "pkg:npm/jquery"
+        },
+        "ranges": [
+          {
+            "type": "SEMVER",
+            "events": [
+              {
+                "introduced": "1.12.3"
+              },
+              {
+                "fixed": "3.0.0"
+              }
+            ]
+          }
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2018/01/GHSA-rmxg-73gg-4p98/GHSA-rmxg-73gg-4p98.json"
+        }
+      },
+      {
+        "package": {
+          "name": "jquery-rails",
+          "ecosystem": "RubyGems",
+          "purl": "pkg:gem/jquery-rails"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "0"
+              },
+              {
+                "fixed": "4.2.0"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "0.1.1",
+          "0.1.2",
+          "0.1.3",
+          "0.2",
+          "0.2.1",
+          "0.2.2",
+          "0.2.3",
+          "0.2.4",
+          "0.2.5",
+          "0.2.6",
+          "0.2.7",
+          "1.0",
+          "1.0.1",
+          "1.0.10",
+          "1.0.11",
+          "1.0.12",
+          "1.0.13",
+          "1.0.14",
+          "1.0.15",
+          "1.0.16",
+          "1.0.17",
+          "1.0.18",
+          "1.0.19",
+          "1.0.2",
+          "1.0.3",
+          "1.0.4",
+          "1.0.5",
+          "1.0.6",
+          "1.0.7",
+          "1.0.8",
+          "1.0.9",
+          "1.0.rc",
+          "2.0.1",
+          "2.0.2",
+          "2.0.3",
+          "2.1.0",
+          "2.1.1",
+          "2.1.2",
+          "2.1.3",
+          "2.1.4",
+          "2.2.0",
+          "2.2.1",
+          "2.2.2",
+          "2.3.0",
+          "3.0.0",
+          "3.0.1",
+          "3.0.2",
+          "3.0.3",
+          "3.0.4",
+          "3.1.0",
+          "3.1.1",
+          "3.1.2",
+          "3.1.3",
+          "3.1.4",
+          "3.1.5",
+          "4.0.0",
+          "4.0.0.beta1",
+          "4.0.0.beta2",
+          "4.0.1",
+          "4.0.2",
+          "4.0.3",
+          "4.0.4",
+          "4.0.5",
+          "4.1.0",
+          "4.1.1"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2018/01/GHSA-rmxg-73gg-4p98/GHSA-rmxg-73gg-4p98.json"
+        }
+      },
+      {
+        "package": {
+          "name": "org.webjars.npm:jquery",
+          "ecosystem": "Maven",
+          "purl": "pkg:maven/org.webjars.npm/jquery"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "0"
+              },
+              {
+                "fixed": "1.12.2"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "1.11.0",
+          "1.11.1",
+          "1.11.3",
+          "1.12.1",
+          "1.7.2",
+          "1.7.3",
+          "1.8.2",
+          "1.8.3",
+          "1.9.1"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2018/01/GHSA-rmxg-73gg-4p98/GHSA-rmxg-73gg-4p98.json"
+        }
+      },
+      {
+        "package": {
+          "name": "org.webjars.npm:jquery",
+          "ecosystem": "Maven",
+          "purl": "pkg:maven/org.webjars.npm/jquery"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "1.12.3"
+              },
+              {
+                "fixed": "3.0.0"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "1.12.3",
+          "1.12.4",
+          "2.1.0",
+          "2.1.1",
+          "2.1.1-rc1",
+          "2.1.1-rc2",
+          "2.1.3",
+          "2.1.4",
+          "2.2.0",
+          "2.2.1",
+          "2.2.2",
+          "2.2.3",
+          "2.2.4",
+          "3.0.0-alpha1",
+          "3.0.0-beta1",
+          "3.0.0-rc1"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2018/01/GHSA-rmxg-73gg-4p98/GHSA-rmxg-73gg-4p98.json"
+        }
+      }
+    ],
+    "schema_version": "1.6.0",
+    "severity": [
+      {
+        "type": "CVSS_V3",
+        "score": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+      }
+    ]
+  },
+  {
     "id": "GHSA-rrfc-7g8p-99q8",
     "summary": "Possible XSS vulnerability with certain configurations of rails-html-sanitizer",
     "details": "## Summary\n\nThere is a possible XSS vulnerability with certain configurations of Rails::Html::Sanitizer. This is due to an incomplete fix of CVE-2022-32209.\n\n- Versions affected: ALL\n- Not affected: NONE\n- Fixed versions: 1.4.4\n\n\n## Impact\n\nA possible XSS vulnerability with certain configurations of Rails::Html::Sanitizer may allow an attacker to inject content if the application developer has overridden the sanitizer's allowed tags to allow both \"select\" and \"style\" elements.\n\nCode is only impacted if allowed tags are being overridden using either of the following two mechanisms:\n\n1. Using the Rails configuration `config.action_view.sanitized_allow_tags=`:\n\n  ```ruby\n  # In config/application.rb\n  config.action_view.sanitized_allowed_tags = [\"select\", \"style\"]\n  ```\n\n  (see https://guides.rubyonrails.org/configuring.html#configuring-action-view)\n\n2. Using the class method `Rails::Html::SafeListSanitizer.allowed_tags=`:\n\n  ```ruby\n  # class-level option\n  Rails::Html::SafeListSanitizer.allowed_tags = [\"select\", \"style\"]\n  ```\n\nAll users overriding the allowed tags by either of the above mechanisms to include both \"select\" and \"style\" should either upgrade or use one of the workarounds immediately.\n\nNOTE: Code is _not_ impacted if allowed tags are overridden using either of the following mechanisms:\n\n- the `:tags` option to the Action View helper method `sanitize`.\n- the `:tags` option to the instance method `SafeListSanitizer#sanitize`.\n\n\n## Workarounds\n\nRemove either \"select\" or \"style\" from the overridden allowed tags.\n\n\n## References\n\n- [CWE - CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') (4.9)](https://cwe.mitre.org/data/definitions/79.html)\n- https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32209\n- https://hackerone.com/reports/1654310\n\n\n## Credit\n\nThis vulnerability was responsibly reported by Dominic Breuker.\n",
@@ -19889,225 +20711,6 @@
       }
     ],
     "schema_version": "1.6.0"
-  },
-  {
-    "id": "GHSA-v6gp-9mmm-c6p5",
-    "summary": "Out-of-bounds Write in zlib affects Nokogiri",
-    "details": "## Summary\n\nNokogiri v1.13.4 updates the vendored zlib from 1.2.11 to 1.2.12, which addresses [CVE-2018-25032](https://nvd.nist.gov/vuln/detail/CVE-2018-25032). That CVE is scored as CVSS 7.4 \"High\" on the NVD record as of 2022-04-05.\n\nPlease note that this advisory only applies to the CRuby implementation of Nokogiri `< 1.13.4`, and only if the packaged version of `zlib` is being used. Please see [this document](https://nokogiri.org/LICENSE-DEPENDENCIES.html#default-platform-release-ruby) for a complete description of which platform gems vendor `zlib`. If you've overridden defaults at installation time to use system libraries instead of packaged libraries, you should instead pay attention to your distro's `zlib` release announcements. \n\n## Mitigation\n\nUpgrade to Nokogiri `>= v1.13.4`.\n\n## Impact\n\n### [CVE-2018-25032](https://nvd.nist.gov/vuln/detail/CVE-2018-25032) in zlib\n\n- **Severity**: High\n- **Type**: [CWE-787](https://cwe.mitre.org/data/definitions/787.html) Out of bounds write\n- **Description**: zlib before 1.2.12 allows memory corruption when deflating (i.e., when compressing) if the input has many distant matches.\n\n",
-    "modified": "2024-12-05T05:39:12.688270Z",
-    "published": "2022-04-11T21:21:28Z",
-    "database_specific": {
-      "nvd_published_at": null,
-      "cwe_ids": [
-        "CWE-787"
-      ],
-      "severity": "HIGH",
-      "github_reviewed": true,
-      "github_reviewed_at": "2022-04-11T21:21:28Z"
-    },
-    "references": [
-      {
-        "type": "WEB",
-        "url": "https://github.com/sparklemotion/nokogiri/security/advisories/GHSA-v6gp-9mmm-c6p5"
-      },
-      {
-        "type": "ADVISORY",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-25032"
-      },
-      {
-        "type": "ADVISORY",
-        "url": "https://github.com/advisories/GHSA-jc36-42cf-vqwj"
-      },
-      {
-        "type": "PACKAGE",
-        "url": "https://github.com/sparklemotion/nokogiri"
-      },
-      {
-        "type": "WEB",
-        "url": "https://github.com/sparklemotion/nokogiri/releases/tag/v1.13.4"
-      },
-      {
-        "type": "WEB",
-        "url": "https://groups.google.com/g/ruby-security-ann/c/vX7qSjsvWis/m/TJWN4oOKBwAJ?utm_medium=email&utm_source=footer"
-      }
-    ],
-    "affected": [
-      {
-        "package": {
-          "name": "nokogiri",
-          "ecosystem": "RubyGems",
-          "purl": "pkg:gem/nokogiri"
-        },
-        "ranges": [
-          {
-            "type": "ECOSYSTEM",
-            "events": [
-              {
-                "introduced": "0"
-              },
-              {
-                "fixed": "1.13.4"
-              }
-            ]
-          }
-        ],
-        "versions": [
-          "1.0.0",
-          "1.0.1",
-          "1.0.2",
-          "1.0.3",
-          "1.0.4",
-          "1.0.5",
-          "1.0.6",
-          "1.0.7",
-          "1.1.0",
-          "1.1.1",
-          "1.10.0",
-          "1.10.0.rc1",
-          "1.10.1",
-          "1.10.10",
-          "1.10.2",
-          "1.10.3",
-          "1.10.4",
-          "1.10.5",
-          "1.10.6",
-          "1.10.7",
-          "1.10.8",
-          "1.10.9",
-          "1.11.0",
-          "1.11.0.rc1",
-          "1.11.0.rc2",
-          "1.11.0.rc3",
-          "1.11.0.rc4",
-          "1.11.1",
-          "1.11.2",
-          "1.11.3",
-          "1.11.4",
-          "1.11.5",
-          "1.11.6",
-          "1.11.7",
-          "1.12.0",
-          "1.12.0.rc1",
-          "1.12.1",
-          "1.12.2",
-          "1.12.3",
-          "1.12.4",
-          "1.12.5",
-          "1.13.0",
-          "1.13.1",
-          "1.13.2",
-          "1.13.3",
-          "1.2.0",
-          "1.2.1",
-          "1.2.2",
-          "1.2.3",
-          "1.3.0",
-          "1.3.1",
-          "1.3.2",
-          "1.3.3",
-          "1.4.0",
-          "1.4.1",
-          "1.4.2",
-          "1.4.2.1",
-          "1.4.3",
-          "1.4.3.1",
-          "1.4.4",
-          "1.4.4.1",
-          "1.4.4.2",
-          "1.4.5",
-          "1.4.6",
-          "1.4.7",
-          "1.5.0",
-          "1.5.0.beta.1",
-          "1.5.0.beta.2",
-          "1.5.0.beta.3",
-          "1.5.0.beta.4",
-          "1.5.1",
-          "1.5.1.rc1",
-          "1.5.10",
-          "1.5.11",
-          "1.5.2",
-          "1.5.3",
-          "1.5.3.rc2",
-          "1.5.3.rc3",
-          "1.5.3.rc4",
-          "1.5.3.rc5",
-          "1.5.3.rc6",
-          "1.5.4",
-          "1.5.4.rc1",
-          "1.5.4.rc2",
-          "1.5.4.rc3",
-          "1.5.5",
-          "1.5.5.rc1",
-          "1.5.5.rc2",
-          "1.5.5.rc3",
-          "1.5.6",
-          "1.5.6.rc1",
-          "1.5.6.rc2",
-          "1.5.6.rc3",
-          "1.5.7",
-          "1.5.7.rc1",
-          "1.5.7.rc2",
-          "1.5.7.rc3",
-          "1.5.8",
-          "1.5.9",
-          "1.6.0",
-          "1.6.0.rc1",
-          "1.6.1",
-          "1.6.2",
-          "1.6.2.1",
-          "1.6.2.rc1",
-          "1.6.2.rc2",
-          "1.6.2.rc3",
-          "1.6.3",
-          "1.6.3.1",
-          "1.6.3.rc1",
-          "1.6.3.rc2",
-          "1.6.3.rc3",
-          "1.6.4",
-          "1.6.4.1",
-          "1.6.5",
-          "1.6.6.1",
-          "1.6.6.2",
-          "1.6.6.3",
-          "1.6.6.4",
-          "1.6.7",
-          "1.6.7.1",
-          "1.6.7.2",
-          "1.6.7.rc2",
-          "1.6.7.rc3",
-          "1.6.7.rc4",
-          "1.6.8",
-          "1.6.8.1",
-          "1.6.8.rc1",
-          "1.6.8.rc2",
-          "1.6.8.rc3",
-          "1.7.0",
-          "1.7.0.1",
-          "1.7.1",
-          "1.7.2",
-          "1.8.0",
-          "1.8.1",
-          "1.8.2",
-          "1.8.3",
-          "1.8.4",
-          "1.8.5",
-          "1.9.0",
-          "1.9.0.rc1",
-          "1.9.1"
-        ],
-        "database_specific": {
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2022/04/GHSA-v6gp-9mmm-c6p5/GHSA-v6gp-9mmm-c6p5.json"
-        }
-      }
-    ],
-    "schema_version": "1.6.0",
-    "severity": [
-      {
-        "type": "CVSS_V3",
-        "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
-      }
-    ]
   },
   {
     "id": "GHSA-vp9c-fpxx-744v",
@@ -21387,236 +21990,6 @@
     ]
   },
   {
-    "id": "GHSA-wf2x-8w6j-qw37",
-    "summary": "view_component Cross-site Scripting vulnerability",
-    "details": "### Impact\n_What kind of vulnerability is it? Who is impacted?_\n\nThis is an XSS vulnerability that has the potential to impact anyone rendering a component directly from a controller with the view_component gem. Note that only components that define a [`#call` method](https://viewcomponent.org/guide/templates.html#call) (i.e. instead of using a sidecar template) are affected. The return value of the `#call` method is not sanitized and can include user-defined content.\n\nIn addition, the return value of the [`#output_postamble` method](https://viewcomponent.org/api.html#output_postamble--string) is not sanitized, which can also lead to XSS issues.\n\n### Patches\n_Has the problem been patched? What versions should users upgrade to?_\n\nVersions 3.9.0 has been released and fully mitigates both the `#call` and the `#output_postamble` vulnerabilities.\n\n### Workarounds\n_Is there a way for users to fix or remediate the vulnerability without upgrading?_\n\nSanitize the return value of `#call`, eg:\n\n```ruby\nclass MyComponent < ApplicationComponent\n  def call\n    html_escape(\"<div>#{user_input}</div>\")\n  end\nend\n```\n\n### References\n_Are there any links users can visit to find out more?_\n\nhttps://github.com/ViewComponent/view_component/pull/1950\n\n### For more information\n\nIf you have any questions or comments about this advisory:\n\nOpen an issue in the [github/view_component](https://github.com/github/view_component) project.",
-    "aliases": [
-      "CVE-2024-21636"
-    ],
-    "modified": "2024-02-16T08:21:00.693343Z",
-    "published": "2024-01-04T21:54:34Z",
-    "database_specific": {
-      "nvd_published_at": "2024-01-04T20:15:25Z",
-      "cwe_ids": [
-        "CWE-79"
-      ],
-      "severity": "MODERATE",
-      "github_reviewed": true,
-      "github_reviewed_at": "2024-01-04T21:54:34Z"
-    },
-    "references": [
-      {
-        "type": "WEB",
-        "url": "https://github.com/ViewComponent/view_component/security/advisories/GHSA-wf2x-8w6j-qw37"
-      },
-      {
-        "type": "ADVISORY",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-21636"
-      },
-      {
-        "type": "WEB",
-        "url": "https://github.com/ViewComponent/view_component/pull/1950"
-      },
-      {
-        "type": "WEB",
-        "url": "https://github.com/ViewComponent/view_component/pull/1962"
-      },
-      {
-        "type": "WEB",
-        "url": "https://github.com/ViewComponent/view_component/commit/0d26944a8d2730ea40e60eae23d70684483e5017"
-      },
-      {
-        "type": "WEB",
-        "url": "https://github.com/ViewComponent/view_component/commit/c43d8bafa7117cbce479669a423ab266de150697"
-      },
-      {
-        "type": "PACKAGE",
-        "url": "https://github.com/ViewComponent/view_component"
-      },
-      {
-        "type": "WEB",
-        "url": "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/view_component/CVE-2024-21636.yml"
-      }
-    ],
-    "affected": [
-      {
-        "package": {
-          "name": "view_component",
-          "ecosystem": "RubyGems",
-          "purl": "pkg:gem/view_component"
-        },
-        "ranges": [
-          {
-            "type": "ECOSYSTEM",
-            "events": [
-              {
-                "introduced": "3.0.0"
-              },
-              {
-                "fixed": "3.9.0"
-              }
-            ]
-          }
-        ],
-        "versions": [
-          "3.0.0",
-          "3.1.0",
-          "3.2.0",
-          "3.3.0",
-          "3.4.0",
-          "3.5.0",
-          "3.6.0",
-          "3.7.0",
-          "3.8.0"
-        ],
-        "database_specific": {
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2024/01/GHSA-wf2x-8w6j-qw37/GHSA-wf2x-8w6j-qw37.json"
-        }
-      },
-      {
-        "package": {
-          "name": "view_component",
-          "ecosystem": "RubyGems",
-          "purl": "pkg:gem/view_component"
-        },
-        "ranges": [
-          {
-            "type": "ECOSYSTEM",
-            "events": [
-              {
-                "introduced": "0"
-              },
-              {
-                "fixed": "2.83.0"
-              }
-            ]
-          }
-        ],
-        "versions": [
-          "1.16.0",
-          "1.17.0",
-          "2.0.0",
-          "2.1.0",
-          "2.10.0",
-          "2.11.0",
-          "2.11.1",
-          "2.12.0",
-          "2.13.0",
-          "2.14.0",
-          "2.14.1",
-          "2.15.0",
-          "2.16.0",
-          "2.17.0",
-          "2.17.1",
-          "2.18.0",
-          "2.18.1",
-          "2.18.2",
-          "2.19.0",
-          "2.19.1",
-          "2.2.0",
-          "2.2.1",
-          "2.2.2",
-          "2.20.0",
-          "2.21.0",
-          "2.22.0",
-          "2.22.1",
-          "2.23.0",
-          "2.23.1",
-          "2.23.2",
-          "2.24.0",
-          "2.25.0",
-          "2.25.1",
-          "2.26.0",
-          "2.26.1",
-          "2.27.0",
-          "2.28.0",
-          "2.29.0",
-          "2.3.0",
-          "2.30.0",
-          "2.31.0",
-          "2.31.1",
-          "2.31.2",
-          "2.32.0",
-          "2.33.0",
-          "2.34.0",
-          "2.35.0",
-          "2.36.0",
-          "2.37.0",
-          "2.38.0",
-          "2.39.0",
-          "2.4.0",
-          "2.40.0",
-          "2.41.0",
-          "2.42.0",
-          "2.43.0",
-          "2.43.1",
-          "2.44.0",
-          "2.45.0",
-          "2.46.0",
-          "2.47.0",
-          "2.48.0",
-          "2.49.0",
-          "2.49.1",
-          "2.5.0",
-          "2.5.1",
-          "2.50.0",
-          "2.51.0",
-          "2.52.0",
-          "2.53.0",
-          "2.54.0",
-          "2.54.1",
-          "2.55.0",
-          "2.56.0",
-          "2.56.1",
-          "2.56.2",
-          "2.57.0",
-          "2.57.1",
-          "2.58.0",
-          "2.59.0",
-          "2.6.0",
-          "2.60.0",
-          "2.61.0",
-          "2.61.1",
-          "2.62.0",
-          "2.63.0",
-          "2.64.0",
-          "2.65.0",
-          "2.66.0",
-          "2.67.0",
-          "2.68.0",
-          "2.69.0",
-          "2.7.0",
-          "2.70.0",
-          "2.71.0",
-          "2.72.0",
-          "2.73.0",
-          "2.74.0",
-          "2.74.1",
-          "2.75.0",
-          "2.76.0",
-          "2.77.0",
-          "2.78.0",
-          "2.79.0",
-          "2.8.0",
-          "2.80.0",
-          "2.81.0",
-          "2.82.0",
-          "2.9.0"
-        ],
-        "database_specific": {
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2024/01/GHSA-wf2x-8w6j-qw37/GHSA-wf2x-8w6j-qw37.json"
-        }
-      }
-    ],
-    "schema_version": "1.6.0",
-    "severity": [
-      {
-        "type": "CVSS_V3",
-        "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
-      }
-    ]
-  },
-  {
     "id": "GHSA-wrvw-hg22-4m67",
     "summary": "A potential Denial of Service issue in protobuf-java",
     "details": "## Summary\n\nA potential Denial of Service issue in protobuf-java was discovered in the parsing procedure for binary data.\n\nReporter: [OSS-Fuzz](https://github.com/google/oss-fuzz)\n\nAffected versions: All versions of Java Protobufs (including Kotlin and JRuby) prior to the versions listed below. Protobuf \"javalite\" users (typically Android) are not affected.\n\n## Severity\n\n[CVE-2021-22569](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-22569) **High** - CVSS Score: 7.5,  An implementation weakness in how unknown fields are parsed in Java. A small (~800 KB) malicious payload can occupy the parser for several minutes by creating large numbers of short-lived objects that cause frequent, repeated GC pauses.\n\n## Proof of Concept\n\nFor reproduction details, please refer to the oss-fuzz issue that identifies the specific inputs that exercise this parsing weakness.\n\n## Remediation and Mitigation\n\nPlease update to the latest available versions of the following packages:\n\n- protobuf-java (3.16.1, 3.18.2, 3.19.2) \n- protobuf-kotlin (3.18.2, 3.19.2)\n- google-protobuf [JRuby  gem only] (3.19.2) \n",
@@ -22316,6 +22689,288 @@
         "score": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
       }
     ]
+  },
+  {
+    "id": "GHSA-wv67-q8rr-grjp",
+    "summary": "Duplicate Advisory: Prototype Pollution in jquery",
+    "details": "## Duplicate Advisory\nThis advisory is a duplicate of [GHSA-6c3j-c64m-qhgq](https://github.com/advisories/GHSA-6c3j-c64m-qhgq). This link is maintained to preserve external references.\n\n## Original Description\nVersions of `jquery`  prior to 3.4.0 are vulnerable to Prototype Pollution. The extend() method allows an attacker to modify the prototype for `Object` causing changes in properties that will exist on all objects.\n\n## Recommendation\nUpgrade to version 3.4.0 or later.",
+    "modified": "2024-12-07T05:57:41.314362Z",
+    "published": "2019-04-23T15:59:10Z",
+    "withdrawn": "2019-04-26T14:50:56Z",
+    "database_specific": {
+      "nvd_published_at": null,
+      "cwe_ids": [],
+      "severity": "MODERATE",
+      "github_reviewed": true,
+      "github_reviewed_at": "2019-04-23T15:57:18Z"
+    },
+    "references": [
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-5428"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/jquery/jquery/pull/4333"
+      },
+      {
+        "type": "WEB",
+        "url": "https://hackerone.com/reports/454365"
+      },
+      {
+        "type": "WEB",
+        "url": "https://blog.jquery.com/2019/04/10/jquery-3-4-0-released"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.npmjs.com/advisories/796"
+      }
+    ],
+    "affected": [
+      {
+        "package": {
+          "name": "jquery",
+          "ecosystem": "npm",
+          "purl": "pkg:npm/jquery"
+        },
+        "ranges": [
+          {
+            "type": "SEMVER",
+            "events": [
+              {
+                "introduced": "0"
+              },
+              {
+                "fixed": "3.4.0"
+              }
+            ]
+          }
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2019/04/GHSA-wv67-q8rr-grjp/GHSA-wv67-q8rr-grjp.json"
+        }
+      },
+      {
+        "package": {
+          "name": "jquery",
+          "ecosystem": "NuGet",
+          "purl": "pkg:nuget/jquery"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "0"
+              },
+              {
+                "fixed": "3.4.0"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "1.10.0",
+          "1.10.0.1",
+          "1.10.1",
+          "1.10.2",
+          "1.11.0",
+          "1.11.1",
+          "1.11.2",
+          "1.11.3",
+          "1.12.0",
+          "1.12.1",
+          "1.12.2",
+          "1.12.3",
+          "1.12.4",
+          "1.4.1",
+          "1.4.2",
+          "1.4.3",
+          "1.4.4",
+          "1.5.0",
+          "1.5.1",
+          "1.5.2",
+          "1.6.0",
+          "1.6.1",
+          "1.6.2",
+          "1.6.3",
+          "1.6.4",
+          "1.7.0",
+          "1.7.1",
+          "1.7.1.1",
+          "1.7.2",
+          "1.8.0",
+          "1.8.1",
+          "1.8.2",
+          "1.8.3",
+          "1.9.0",
+          "1.9.1",
+          "2.0.0",
+          "2.0.1",
+          "2.0.1.1",
+          "2.0.2",
+          "2.0.3",
+          "2.1.0",
+          "2.1.1",
+          "2.1.2",
+          "2.1.3",
+          "2.1.4",
+          "2.2.0",
+          "2.2.1",
+          "2.2.2",
+          "2.2.3",
+          "2.2.4",
+          "3.0.0",
+          "3.0.0.1",
+          "3.1.0",
+          "3.1.1",
+          "3.2.1",
+          "3.3.1"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2019/04/GHSA-wv67-q8rr-grjp/GHSA-wv67-q8rr-grjp.json"
+        }
+      },
+      {
+        "package": {
+          "name": "org.webjars.npm:jquery",
+          "ecosystem": "Maven",
+          "purl": "pkg:maven/org.webjars.npm/jquery"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "0"
+              },
+              {
+                "fixed": "3.4.0"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "1.11.0",
+          "1.11.1",
+          "1.11.3",
+          "1.12.1",
+          "1.12.2",
+          "1.12.3",
+          "1.12.4",
+          "1.7.2",
+          "1.7.3",
+          "1.8.2",
+          "1.8.3",
+          "1.9.1",
+          "2.1.0",
+          "2.1.1",
+          "2.1.1-rc1",
+          "2.1.1-rc2",
+          "2.1.3",
+          "2.1.4",
+          "2.2.0",
+          "2.2.1",
+          "2.2.2",
+          "2.2.3",
+          "2.2.4",
+          "3.0.0",
+          "3.0.0-alpha1",
+          "3.0.0-beta1",
+          "3.0.0-rc1",
+          "3.1.0",
+          "3.1.1",
+          "3.2.0",
+          "3.2.1",
+          "3.3.0",
+          "3.3.1"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2019/04/GHSA-wv67-q8rr-grjp/GHSA-wv67-q8rr-grjp.json"
+        }
+      },
+      {
+        "package": {
+          "name": "jquery-rails",
+          "ecosystem": "RubyGems",
+          "purl": "pkg:gem/jquery-rails"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "0"
+              },
+              {
+                "fixed": "3.4.0"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "0.1.1",
+          "0.1.2",
+          "0.1.3",
+          "0.2",
+          "0.2.1",
+          "0.2.2",
+          "0.2.3",
+          "0.2.4",
+          "0.2.5",
+          "0.2.6",
+          "0.2.7",
+          "1.0",
+          "1.0.1",
+          "1.0.10",
+          "1.0.11",
+          "1.0.12",
+          "1.0.13",
+          "1.0.14",
+          "1.0.15",
+          "1.0.16",
+          "1.0.17",
+          "1.0.18",
+          "1.0.19",
+          "1.0.2",
+          "1.0.3",
+          "1.0.4",
+          "1.0.5",
+          "1.0.6",
+          "1.0.7",
+          "1.0.8",
+          "1.0.9",
+          "1.0.rc",
+          "2.0.1",
+          "2.0.2",
+          "2.0.3",
+          "2.1.0",
+          "2.1.1",
+          "2.1.2",
+          "2.1.3",
+          "2.1.4",
+          "2.2.0",
+          "2.2.1",
+          "2.2.2",
+          "2.3.0",
+          "3.0.0",
+          "3.0.1",
+          "3.0.2",
+          "3.0.3",
+          "3.0.4",
+          "3.1.0",
+          "3.1.1",
+          "3.1.2",
+          "3.1.3",
+          "3.1.4",
+          "3.1.5"
+        ],
+        "database_specific": {
+          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2019/04/GHSA-wv67-q8rr-grjp/GHSA-wv67-q8rr-grjp.json"
+        }
+      }
+    ],
+    "schema_version": "1.6.0"
   },
   {
     "id": "GHSA-wx7c-8j35-mpg8",
@@ -23242,224 +23897,5 @@
       }
     ],
     "schema_version": "1.6.0"
-  },
-  {
-    "id": "GHSA-xxx9-3xcr-gjj3",
-    "summary": "XML Injection in Xerces Java affects Nokogiri",
-    "details": "## Summary\n\nNokogiri v1.13.4 updates the vendored `xerces:xercesImpl` from 2.12.0 to 2.12.2, which addresses [CVE-2022-23437](https://nvd.nist.gov/vuln/detail/CVE-2022-23437). That CVE is scored as CVSS 6.5 \"Medium\" on the NVD record.\n\nPlease note that this advisory only applies to the **JRuby** implementation of Nokogiri `< 1.13.4`.\n\n## Mitigation\n\nUpgrade to Nokogiri `>= v1.13.4`.\n\n## Impact\n\n### [CVE-2022-23437](https://nvd.nist.gov/vuln/detail/CVE-2022-23437) in xerces-J\n\n- **Severity**: Medium\n- **Type**: [CWE-91](https://cwe.mitre.org/data/definitions/91.html) XML Injection (aka Blind XPath Injection)\n- **Description**: There's a vulnerability within the Apache Xerces Java (XercesJ) XML parser when handling specially crafted XML document payloads. This causes, the XercesJ XML parser to wait in an infinite loop, which may sometimes consume system resources for prolonged duration. This vulnerability is present within XercesJ version 2.12.1 and the previous versions.\n- **See also**: https://github.com/advisories/GHSA-h65f-jvqw-m9fj\n\n",
-    "modified": "2024-12-05T05:38:49.092101Z",
-    "published": "2022-04-11T21:30:00Z",
-    "database_specific": {
-      "nvd_published_at": null,
-      "cwe_ids": [
-        "CWE-91"
-      ],
-      "severity": "MODERATE",
-      "github_reviewed": true,
-      "github_reviewed_at": "2022-04-11T21:30:00Z"
-    },
-    "references": [
-      {
-        "type": "WEB",
-        "url": "https://github.com/sparklemotion/nokogiri/security/advisories/GHSA-xxx9-3xcr-gjj3"
-      },
-      {
-        "type": "ADVISORY",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-23437"
-      },
-      {
-        "type": "ADVISORY",
-        "url": "https://github.com/advisories/GHSA-h65f-jvqw-m9fj"
-      },
-      {
-        "type": "PACKAGE",
-        "url": "https://github.com/sparklemotion/nokogiri"
-      },
-      {
-        "type": "WEB",
-        "url": "https://github.com/sparklemotion/nokogiri/releases/tag/v1.13.4"
-      },
-      {
-        "type": "WEB",
-        "url": "https://groups.google.com/g/ruby-security-ann/c/vX7qSjsvWis/m/TJWN4oOKBwAJ?utm_medium=email&utm_source=footer"
-      }
-    ],
-    "affected": [
-      {
-        "package": {
-          "name": "nokogiri",
-          "ecosystem": "RubyGems",
-          "purl": "pkg:gem/nokogiri"
-        },
-        "ranges": [
-          {
-            "type": "ECOSYSTEM",
-            "events": [
-              {
-                "introduced": "0"
-              },
-              {
-                "fixed": "1.13.4"
-              }
-            ]
-          }
-        ],
-        "versions": [
-          "1.0.0",
-          "1.0.1",
-          "1.0.2",
-          "1.0.3",
-          "1.0.4",
-          "1.0.5",
-          "1.0.6",
-          "1.0.7",
-          "1.1.0",
-          "1.1.1",
-          "1.10.0",
-          "1.10.0.rc1",
-          "1.10.1",
-          "1.10.10",
-          "1.10.2",
-          "1.10.3",
-          "1.10.4",
-          "1.10.5",
-          "1.10.6",
-          "1.10.7",
-          "1.10.8",
-          "1.10.9",
-          "1.11.0",
-          "1.11.0.rc1",
-          "1.11.0.rc2",
-          "1.11.0.rc3",
-          "1.11.0.rc4",
-          "1.11.1",
-          "1.11.2",
-          "1.11.3",
-          "1.11.4",
-          "1.11.5",
-          "1.11.6",
-          "1.11.7",
-          "1.12.0",
-          "1.12.0.rc1",
-          "1.12.1",
-          "1.12.2",
-          "1.12.3",
-          "1.12.4",
-          "1.12.5",
-          "1.13.0",
-          "1.13.1",
-          "1.13.2",
-          "1.13.3",
-          "1.2.0",
-          "1.2.1",
-          "1.2.2",
-          "1.2.3",
-          "1.3.0",
-          "1.3.1",
-          "1.3.2",
-          "1.3.3",
-          "1.4.0",
-          "1.4.1",
-          "1.4.2",
-          "1.4.2.1",
-          "1.4.3",
-          "1.4.3.1",
-          "1.4.4",
-          "1.4.4.1",
-          "1.4.4.2",
-          "1.4.5",
-          "1.4.6",
-          "1.4.7",
-          "1.5.0",
-          "1.5.0.beta.1",
-          "1.5.0.beta.2",
-          "1.5.0.beta.3",
-          "1.5.0.beta.4",
-          "1.5.1",
-          "1.5.1.rc1",
-          "1.5.10",
-          "1.5.11",
-          "1.5.2",
-          "1.5.3",
-          "1.5.3.rc2",
-          "1.5.3.rc3",
-          "1.5.3.rc4",
-          "1.5.3.rc5",
-          "1.5.3.rc6",
-          "1.5.4",
-          "1.5.4.rc1",
-          "1.5.4.rc2",
-          "1.5.4.rc3",
-          "1.5.5",
-          "1.5.5.rc1",
-          "1.5.5.rc2",
-          "1.5.5.rc3",
-          "1.5.6",
-          "1.5.6.rc1",
-          "1.5.6.rc2",
-          "1.5.6.rc3",
-          "1.5.7",
-          "1.5.7.rc1",
-          "1.5.7.rc2",
-          "1.5.7.rc3",
-          "1.5.8",
-          "1.5.9",
-          "1.6.0",
-          "1.6.0.rc1",
-          "1.6.1",
-          "1.6.2",
-          "1.6.2.1",
-          "1.6.2.rc1",
-          "1.6.2.rc2",
-          "1.6.2.rc3",
-          "1.6.3",
-          "1.6.3.1",
-          "1.6.3.rc1",
-          "1.6.3.rc2",
-          "1.6.3.rc3",
-          "1.6.4",
-          "1.6.4.1",
-          "1.6.5",
-          "1.6.6.1",
-          "1.6.6.2",
-          "1.6.6.3",
-          "1.6.6.4",
-          "1.6.7",
-          "1.6.7.1",
-          "1.6.7.2",
-          "1.6.7.rc2",
-          "1.6.7.rc3",
-          "1.6.7.rc4",
-          "1.6.8",
-          "1.6.8.1",
-          "1.6.8.rc1",
-          "1.6.8.rc2",
-          "1.6.8.rc3",
-          "1.7.0",
-          "1.7.0.1",
-          "1.7.1",
-          "1.7.2",
-          "1.8.0",
-          "1.8.1",
-          "1.8.2",
-          "1.8.3",
-          "1.8.4",
-          "1.8.5",
-          "1.9.0",
-          "1.9.0.rc1",
-          "1.9.1"
-        ],
-        "database_specific": {
-          "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2022/04/GHSA-xxx9-3xcr-gjj3/GHSA-xxx9-3xcr-gjj3.json"
-        }
-      }
-    ],
-    "schema_version": "1.6.0",
-    "severity": [
-      {
-        "type": "CVSS_V3",
-        "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H"
-      }
-    ]
   }
 ]

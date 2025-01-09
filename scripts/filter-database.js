@@ -20,6 +20,7 @@ const DEF_GUI_KEYWORDS = [
   'angular',
   'flutter',
   'android',
+  'jquery',
   'dart',
   'electron',
   'react-native',
@@ -65,7 +66,7 @@ const FOLDER_NAMES = [
 //=====================
 function containsWord(text, words = []) {
   return words.some(w => {
-    const regex = new RegExp(`\\b${w}\\b`, 'i'); // word delimitation, case-insensitive
+    const regex = new RegExp(`(?<!\\.)\\b${w}\\b`, 'i'); // word delimitation, case-insensitive
     return regex.test(text);
   })
 }
