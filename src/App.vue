@@ -5,7 +5,7 @@
       <h2>Summary or details search</h2>
       <div class="flex-center">
         <InputText v-model:text="temp_filter" type="search" :disabled="!out" placeholder="search in summary or details" />
-        <Btn @click="filterData" class="l-12">Search</Btn>
+        <Btn @click="searchData" class="l-12">Search</Btn>
       </div>
 
       <p class="t-12">{{ outFiltered?.length }} results found (tot. results: {{ out.length }})</p>
@@ -70,7 +70,7 @@
         </table>
       </section>
     </div>
-    <div class="right">
+    <div class="right" ref="right_ref">
       <Card v-for="o in outFiltered" :key="o.id" :item="o" :filter="filter" />
     </div>
   </div>
@@ -96,7 +96,7 @@ import Loading   from './components/Loading.vue';
 //====================================
 
 const CVE_KEYWORDS = {
-  // Each CVE is classified based on the presence of these keywords in summary or details
+  // Each CVE is classified based on the presence of these keywords
   crossSite: ['xss', 'cross-site', 'injection', 'csfr', 'xsrf'],
   denialOfService: ['dos', 'denial', 'service', 'redos', 'sanitize-html'],
   bufferOveflow: ['buffer', 'overflow'],
@@ -138,6 +138,7 @@ const temp_filter   = ref( undefined );
 const severityCount = ref( {} );
 const is_loading    = ref( false );
 const filter        = ref( undefined );
+const right_ref     = ref( undefined );
 
 const outFiltered        = computed( () => filter.value ? filterResults([filter.value]) : out.value);
 const cveType            = computed( () => classifyCVEs(CVE_KEYWORDS));
@@ -187,7 +188,7 @@ function countSeverity() {
 
 function classifyCVEs(obj) {
   const ret = [];
-  if (!Array.isArray(outFiltered.value) || outFiltered.value.length === 0) return ret;
+  if (!Array.isArray(outFiltered.value) || outFiltered.value.length === 0) {return ret};
 
   for (const [id, keywords] of Object.entries(obj)) {
     const matches = filterResults(keywords);
@@ -208,9 +209,12 @@ async function initData() {
   is_loading.value = false;
 }
 
-function filterData() {
+function searchData() {
   temp_filter.value = temp_filter.value?.trim();
   filter.value = temp_filter.value;
+  if ( right_ref.value ) {
+    right_ref.value.scrollTo( {top: 0, behavior: 'smooth'} );
+  }
 }
 
 
