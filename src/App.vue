@@ -1,31 +1,35 @@
 <template>
   <Loading v-show="is_loading" />
-  <div class="main">
+  <div class="main" v-show="!is_loading">
     <div class="left">
       <h2>Summary or details search</h2>
       <div class="flex-center">
-        <InputText v-model:text="temp_filter" type="search" :disabled="!out" placeholder="search in summary or details" />
+        <InputText v-model:text="temp_filter" type="search" :disabled="!out" placeholder="search in summary or details"
+          @keydown.enter="searchData" />
         <Btn @click="searchData" class="l-12">Search</Btn>
       </div>
-
       <p class="t-12">{{ outFiltered?.length }} results found (tot. results: {{ out.length }})</p>
-      <h2 class="t-24">Containing in the summary or details</h2>
-      <section v-show="!is_loading">
+
+      <section class="scrollable-content">
+        <h2 class="t-24">Containing in the summary or details</h2>
         <table class="t-12">
           <thead>
             <tr>
-              <th>Keywords</th>
+              <th>Category</th>
+              <th>Keywords used</th>
               <th>Abs.</th>
               <th>%</th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="cve in cveType" :key="cve.id">
+            <tr v-for="(cve, i) in cveType" :key="`${cve.id}-${i}`">
+              <td>{{ cve.id }}</td>
               <td>{{ CVE_KEYWORDS[cve.id]?.join(", ")?.toString() }}</td>
               <td>{{ cve.size }}</td>
               <td>{{ (cve.size / outFiltered.length * 100).toFixed(2) }}%</td>
             </tr>
             <tr v-if="totMultiClassified > 0" class="orange-text">
+              <td></td>
               <td>Classified in more than one category</td>
               <td>{{ totMultiClassified }}</td>
               <td>{{ (totMultiClassified / outFiltered.length * 100).toFixed(2) }}%</td>
@@ -56,12 +60,14 @@
           <thead>
             <tr>
               <th>Framework/language/software interface</th>
+              <th>Keyword used</th>
               <th>Abs.</th>
               <th>%</th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="lang in langTypes" :key="lang.id">
+            <tr v-for="(lang, i) in langTypes" :key="`${lang.id}-${i}`">
+              <td>{{ lang.id }}</td>
               <td>{{ FRAMEWORK[lang.id]?.join(", ")?.toString() }}</td>
               <td>{{ lang.size }}</td>
               <td>{{ (lang.size / outFiltered.length * 100).toFixed(2) }}%</td>
@@ -69,9 +75,10 @@
           </tbody>
         </table>
       </section>
+
     </div>
     <div class="right" ref="right_ref">
-      <Card v-for="o in outFiltered" :key="o.id" :item="o" :filter="filter" />
+      <Card v-for="(o, i) in outFiltered" :key="`${o.id}-${i}`" :item="o" :filter="filter" />
     </div>
   </div>
 </template>
@@ -85,60 +92,26 @@ import {
   watch,
   computed,
 } from 'vue';
+import {
+  CVE_KEYWORDS,
+  FRAMEWORK
+} from './utils/keywords.mjs';
 
-import Btn       from './components/Btn.vue';
-import Card      from './components/Card.vue';
+import Btn from './components/Btn.vue';
+import Card from './components/Card.vue';
 import InputText from './components/InputText.vue';
-import Loading   from './components/Loading.vue';
+import Loading from './components/Loading.vue';
 
 //====================================
 // Consts
 //====================================
 
-const CVE_KEYWORDS = {
-  // Each CVE is classified based on the presence of these keywords
-  crossSite: ['xss', 'cross-site', 'injection', 'csfr', 'xsrf'],
-  denialOfService: ['dos', 'denial', 'service', 'redos', 'sanitize-html'],
-  bufferOveflow: ['buffer', 'overflow'],
-  openRedirect: ['open redirect', 'navigation'],
-  prototypePollution: ['prototype pollution'],
-  spoofing: ['spoofing'],
-  crash: ['crash'],
-  directoryTraversal: ['directory traversal'],
-  remoteCodeExecution: ['code exececution', 'remote execution', 'command execution', 'remote command'],
-  smuggling: ['smuggling'],
-  contentSecurityPolicy: ['csp', 'content-security'],
-  cachePoisoning: ['cache poisoning'],
-  contextIsolationBypass: ['contextisolation', 'context isolation bypass', 'context bypass'],
-  asarIntegrity: ['asar integrity'],
-  fileRead: ['file read'],
-  trojan: ['trojan', 'horse'],
-  internalProcessCommunication: ['ipc', 'internal-process communication'],
-  autoupdater: ['autoupdater'],
-};
-
-const FRAMEWORK = {
-  vue: ['vue'],
-  angular: ['angular'],
-  react: ['react'],
-  electron: ['electron'],
-  three: ['three'],
-  vanillaJS: ['canvas', 'html', 'eslint'],
-  preact: ['preact'],
-  svelte: ['svelte'],
-  next: ['next.js'],
-  i18next: ['i18next']
-}
-
-//====================================
-// Consts
-//====================================
-const out           = ref( [] );
-const temp_filter   = ref( undefined );
-const severityCount = ref( {} );
-const is_loading    = ref( false );
-const filter        = ref( undefined );
-const right_ref     = ref( undefined );
+const out           = ref([]);
+const temp_filter   = ref(undefined);
+const severityCount = ref({});
+const is_loading    = ref(false);
+const filter        = ref(undefined);
+const right_ref     = ref(undefined);
 
 const outFiltered        = computed( () => filter.value ? filterResults([filter.value]) : out.value);
 const cveType            = computed( () => classifyCVEs(CVE_KEYWORDS));
@@ -188,7 +161,7 @@ function countSeverity() {
 
 function classifyCVEs(obj) {
   const ret = [];
-  if (!Array.isArray(outFiltered.value) || outFiltered.value.length === 0) {return ret};
+  if (!Array.isArray(outFiltered.value) || outFiltered.value.length === 0) { return ret };
 
   for (const [id, keywords] of Object.entries(obj)) {
     const matches = filterResults(keywords);
@@ -212,8 +185,8 @@ async function initData() {
 function searchData() {
   temp_filter.value = temp_filter.value?.trim();
   filter.value = temp_filter.value;
-  if ( right_ref.value ) {
-    right_ref.value.scrollTo( {top: 0, behavior: 'smooth'} );
+  if (right_ref.value) {
+    right_ref.value.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
 
@@ -249,8 +222,15 @@ initData();
 
   .left {
     height: 100%;
-    overflow-y: scroll;
     padding: 0 12px;
+    position: relative;
+
+    .scrollable-content {
+      position: absolute;
+      width: 100%;
+      height: 90%;
+      overflow-y: scroll;
+    }
   }
 
   .right {

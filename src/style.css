@@ -109,8 +109,10 @@ h2.title {
 }
 
 h3 {
+  font-size: 2rem;
+}
+h3.active {
   color: var(--secondary);
-  font-size: clamp(3rem, 5vw, 4rem);
 }
 
 h4 {
@@ -629,4 +631,13 @@ table tr, table td, table th {
 }
 table tr:nth-child(even) {
   background-color: #333;
+}
+
+.tab {
+  margin-top: 22px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
 }
