@@ -2,83 +2,76 @@
   <Loading v-show="is_loading" />
   <div class="main">
     <div class="left">
-      <InputText v-model:text="custom_filter" :disabled="!out" placeholder="search in summary or details" />
-      <div class="flex-center start t-12 flex-wrap">
-        <span
-          v-for="s in SRC_NAMES"
-          :key="s"
-          :class="{'active' : src === s.toLowerCase()}"
-          class="tag"
-          @click="() => { src = s.toLowerCase(); custom_filter = undefined; }"
-        >
-        {{ s }}
-      </span>
+      <h2>Summary or details search</h2>
+      <div class="flex-center">
+        <InputText v-model:text="temp_filter" type="search" :disabled="!out" placeholder="search in summary or details" />
+        <Btn @click="filterData" class="l-12">Search</Btn>
       </div>
-
-      <p class="grey-text t-12">The API data are a result of manually crafted APIs calls to the OSV server. Other data simply refers to filtered sections of the whole database</p>
 
       <p class="t-12">{{ outFiltered?.length }} results found (tot. results: {{ out.length }})</p>
       <h2 class="t-24">Containing in the summary or details</h2>
-      <table class="t-12">
-        <thead>
-          <tr>
-            <th>Keywords</th>
-            <th>Abs.</th>
-            <th>%</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="cve in cveType" :key="cve.id">
-            <td>{{ CVE_KEYWORDS[cve.id]?.join(", ")?.toString() }}</td>
-            <td>{{ cve.size }}</td>
-            <td>{{ (cve.size/outFiltered.length*100).toFixed(2) }}%</td>
-          </tr>
-          <tr v-if="totMultiClassified > 0" class="orange-text">
-            <td>Classified in more than one category</td>
-            <td>{{ totMultiClassified }}</td>
-            <td>{{ (totMultiClassified/outFiltered.length*100).toFixed(2) }}%</td>
-          </tr>
-        </tbody>
-      </table>
-      <template v-if="severityCount.critical || severityCount.high || severityCount.moderate || severityCount.low">
-        <h2 class="t-24">Severity</h2>
+      <section v-show="!is_loading">
         <table class="t-12">
           <thead>
             <tr>
-              <th>Severity</th>
+              <th>Keywords</th>
               <th>Abs.</th>
               <th>%</th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(count, severity) in severityCount" :key="severity">
-              <td>{{ severity }}</td>
-              <td>{{ count || 0 }}</td>
-              <td>{{ count ? ((count / outFiltered.length) * 100).toFixed(2) : 0 }}%</td>
+            <tr v-for="cve in cveType" :key="cve.id">
+              <td>{{ CVE_KEYWORDS[cve.id]?.join(", ")?.toString() }}</td>
+              <td>{{ cve.size }}</td>
+              <td>{{ (cve.size / outFiltered.length * 100).toFixed(2) }}%</td>
+            </tr>
+            <tr v-if="totMultiClassified > 0" class="orange-text">
+              <td>Classified in more than one category</td>
+              <td>{{ totMultiClassified }}</td>
+              <td>{{ (totMultiClassified / outFiltered.length * 100).toFixed(2) }}%</td>
             </tr>
           </tbody>
         </table>
-    </template>
-      <h2 class="t-24">Framework, language and library</h2>
-      <table class="t-12">
-        <thead>
-          <tr>
-            <th>Framework/language/software interface</th>
-            <th>Abs.</th>
-            <th>%</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="lang in langTypes" :key="lang.id">
-            <td>{{ FRAMEWORK[lang.id]?.join(", ")?.toString() }}</td>
-            <td>{{ lang.size }}</td>
-            <td>{{ (lang.size/outFiltered.length*100).toFixed(2) }}%</td>
-          </tr>
-        </tbody>
-      </table>
+        <template v-if="severityCount.critical || severityCount.high || severityCount.moderate || severityCount.low">
+          <h2 class="t-24">Severity</h2>
+          <table class="t-12">
+            <thead>
+              <tr>
+                <th>Severity</th>
+                <th>Abs.</th>
+                <th>%</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(count, severity) in severityCount" :key="severity">
+                <td>{{ severity }}</td>
+                <td>{{ count || 0 }}</td>
+                <td>{{ count ? ((count / outFiltered.length) * 100).toFixed(2) : 0 }}%</td>
+              </tr>
+            </tbody>
+          </table>
+        </template>
+        <h2 class="t-24">Framework, language and library</h2>
+        <table class="t-12">
+          <thead>
+            <tr>
+              <th>Framework/language/software interface</th>
+              <th>Abs.</th>
+              <th>%</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="lang in langTypes" :key="lang.id">
+              <td>{{ FRAMEWORK[lang.id]?.join(", ")?.toString() }}</td>
+              <td>{{ lang.size }}</td>
+              <td>{{ (lang.size / outFiltered.length * 100).toFixed(2) }}%</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
     </div>
     <div class="right">
-      <Card v-for="o in outFiltered" :key="o.id" :item="o" :custom_filter="custom_filter" />
+      <Card v-for="o in outFiltered" :key="o.id" :item="o" :filter="filter" />
     </div>
   </div>
 </template>
@@ -93,6 +86,7 @@ import {
   computed,
 } from 'vue';
 
+import Btn       from './components/Btn.vue';
 import Card      from './components/Card.vue';
 import InputText from './components/InputText.vue';
 import Loading   from './components/Loading.vue';
@@ -136,33 +130,16 @@ const FRAMEWORK = {
   i18next: ['i18next']
 }
 
-const SRC_NAMES = [
-  'AlmaLinux',
-  'Alpine',
-  'Android',
-  'api',
-  'GIT',
-  'Go',
-  'Hex',
-  'JavaScript',
-  'Maven',
-  'npm',
-  'NuGet',
-  'PyPI',
-  'RubyGems',
-];
-
 //====================================
 // Consts
 //====================================
-const out             = ref( [] );
-const custom_filter   = ref( undefined );
-const severityCount   = ref( {} );
-const src             = ref( 'api' );
-const is_loading      = ref( false );
-const debouncedFilter = ref( undefined );
+const out           = ref( [] );
+const temp_filter   = ref( undefined );
+const severityCount = ref( {} );
+const is_loading    = ref( false );
+const filter        = ref( undefined );
 
-const outFiltered        = computed( () =>  debouncedFilter.value ? filterResults([debouncedFilter.value]) : out.value);
+const outFiltered        = computed( () => filter.value ? filterResults([filter.value]) : out.value);
 const cveType            = computed( () => classifyCVEs(CVE_KEYWORDS));
 const langTypes          = computed( () => classifyCVEs(FRAMEWORK));
 const totMultiClassified = computed( () => cveType.value.reduce((acc, cve) => acc + cve.size, 0) - outFiltered.value.length);
@@ -178,9 +155,9 @@ function containsWord(text, words = []) {
   })
 }
 
-function filterResults( arr ) {
+function filterResults(arr) {
   return outFiltered.value.length ? outFiltered.value.filter(i => {
-    const text = `${i.summary || ''} ${i.details || ''}`.toLowerCase();
+    const text = `${i.id || ''} ${i.summary || ''} ${i.details || ''}`.toLowerCase();
     return containsWord(text, arr);
   }) : [];
 }
@@ -196,7 +173,7 @@ function countSeverity() {
 
   outFiltered.value.forEach(o => {
     let severity = o.database_specific?.severity?.toLowerCase();
-    if ( severity === 'medium' ) {
+    if (severity === 'medium') {
       severity = 'moderate';
     }
 
@@ -208,7 +185,7 @@ function countSeverity() {
   });
 }
 
-function classifyCVEs( obj ) {
+function classifyCVEs(obj) {
   const ret = [];
   if (!Array.isArray(outFiltered.value) || outFiltered.value.length === 0) return ret;
 
@@ -222,36 +199,35 @@ function classifyCVEs( obj ) {
   return ret;
 }
 
-
-//====================================
-// Life cycle
-//====================================
-watch(src, async (newSrc) => {
+async function initData() {
   is_loading.value = true;
-  if (newSrc) {
-    const data = await fetch(`${newSrc}.json`);
-    out.value = await data.json();
-    countSeverity();
-    is_loading.value = false;
-  }
-}, {immediate: true});
+  const jsonData = await fetch('data.json');
+  const { data } = await jsonData.json();
+  out.value = data;
+  countSeverity();
+  is_loading.value = false;
+}
+
+function filterData() {
+  temp_filter.value = temp_filter.value?.trim();
+  filter.value = temp_filter.value;
+}
 
 
+//====================================
+// Watcher
+//====================================
 watch(outFiltered, () => {
   if (!is_loading.value) {
     countSeverity();
   }
 });
 
-let debouncer;
-watch(custom_filter, (newValue) => {
-  clearTimeout(debouncer);
-  debouncer = setTimeout(() => {
-    debouncedFilter.value = newValue;
-  }, 500);
-});
 
-
+//====================================
+// Life cycle
+//====================================
+initData();
 
 </script>
 
@@ -266,6 +242,7 @@ watch(custom_filter, (newValue) => {
   box-sizing: border-box;
   overflow: hidden;
   padding: 32px 20px;
+
   .left {
     height: 100%;
     overflow-y: scroll;

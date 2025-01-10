@@ -1,6 +1,6 @@
 <template>
   <input
-    v-if="['text', 'password'].includes(type)"
+    v-if="['text', 'password', 'search'].includes(type)"
     :disabled="disabled"
     :type="type"
     :autocomplete="autocomplete"
