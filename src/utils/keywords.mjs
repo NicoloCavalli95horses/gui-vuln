@@ -74,7 +74,7 @@ export const CVE_KEYWORDS = Object.freeze({
     'email spoofing', 'url spoofing', 'phishing'
   ],
   crash: [
-    'crash', 'hang', 'termination', 'unexpected exit', 'process abort'
+    'crash', 'crashes', 'hang', 'termination', 'unexpected exit', 'process abort'
   ],
   directoryTraversal: [
     'directory traversal', 'path traversal', 'file inclusion',
@@ -121,10 +121,6 @@ export const CVE_KEYWORDS = Object.freeze({
   cryptographic: [
     'weak encryption', 'insecure hashing', 'key exposure',
     'cipher downgrade', 'replay attack', 'cryptographic bypass'
-  ],
-  injection: [
-    'sql injection', 'nosql injection', 'code injection',
-    'command injection', 'template injection', 'xml injection'
   ],
   authentication: [
     'authentication bypass', 'weak authentication', 'password brute force',
