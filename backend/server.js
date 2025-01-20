@@ -2,10 +2,10 @@
 // Import
 //==============================
 import {
-  getData,
-  runSeeder,
   closeConnection,
   connectToDatabase,
+  getCategory,
+  getCategories,
 } from './database.js';
 
 import express from 'express';
@@ -22,6 +22,7 @@ const corsOptions = {
 };
 
 const app = express();
+app.use(express.json());
 app.use(cors(corsOptions));
 
 await connectToDatabase();
@@ -30,13 +31,12 @@ await connectToDatabase();
 //==============================
 // Routes
 //==============================
-app.get('/api/data', async (req, res) => {
-  const data = await getData();
-  res.send(data)
+app.get('/api/get_categories', async (_, res) => {
+  res.send( await getCategories() );
 });
-app.get('/api/seed', async (req, res) => {
-  const data = await runSeeder();
-  res.send(`${data} data inserted`);
+
+app.post('/api/get_category', async (req, res) => {
+  res.send( await getCategory( req.body ) );
 });
 
 app.listen(PORT, () => {

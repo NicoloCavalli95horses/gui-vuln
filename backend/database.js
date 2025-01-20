@@ -7,7 +7,6 @@ import {
   ServerApiVersion,
 } from 'mongodb';
 import 'dotenv/config';
-import { readFile } from 'fs/promises';
 
 
 //==============================
@@ -23,8 +22,8 @@ export const client = new MongoClient(uri, {
   }
 });
 
-export const database = client.db("cves_database");
-export const cves_collection = database.collection("cves");
+export const cves_database = client.db("cves_database");
+export const cves_collection = cves_database.collection("cves");
 
 //==============================
 // Functions
@@ -53,16 +52,35 @@ export async function closeConnection() {
   console.log('Connection successfully closed');
 }
 
-export async function runSeeder() {
-  const res = JSON.parse(await readFile("../public/data.json", "utf8"));
-  if (!res.data?.length) {
-    console.log('Error while reading local JSON data');
-    return;
+export async function getCategories() {
+  const ret = {
+    categories: [],
+    total: 0,
+  };
+
+  const collections = await cves_database.listCollections().toArray();
+  
+  for (const col of collections) {
+    const length = await cves_database.collection(col.name).countDocuments();
+    if (length) {
+      ret.categories.push({ name: col.name, length });
+      ret.total += length;
+    }
   }
-  try {
-    const result = await cves_collection.insertMany(res.data);
-    return result?.insertedCount;
-  } catch (error) {
-    console.error("Error inserting data:", error);
-  }
+
+  ret.categories.sort((a, b) => b.length - a.length);
+
+  return ret;
 }
+
+export async function getCategory( {name, page = 1, pageSize = 100} ) {
+  const collection = await cves_database.collection(name);
+
+  // Calculate documents to skip
+  const skip = (page - 1) * pageSize;
+  // Get documents
+  const documents = await collection.find({}).skip(skip).limit(pageSize).toArray();
+
+  return documents;
+}
+

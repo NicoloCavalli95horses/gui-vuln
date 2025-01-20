@@ -73,7 +73,7 @@ function highlightWord(text) {
 <style lang="scss" scoped>
 .card {
   margin: 22px 0px;
-  border: 2px solid #444;
+  border: 1px solid var(--grey-33);
   padding: 12px;
   border-radius: 8px;
 }

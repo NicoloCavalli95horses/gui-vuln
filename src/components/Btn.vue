@@ -178,6 +178,7 @@
     text-transform: uppercase;
     user-select: none;
     color: var(--font-light);
+    white-space: nowrap;
     &.icon {
       padding: 0.5rem;
       border: 1px solid var(--grey-33);

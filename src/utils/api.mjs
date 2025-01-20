@@ -24,6 +24,23 @@ export async function apiTest() {
   return await _executeApi({ url, options });
 }
 
+export async function apiGetCategories() {
+  const url = `${BASE_URL}/get_categories`;
+  const options = _getApiOptions({
+    method: "GET",
+  });
+  return await _executeApi({ url, options });
+}
+
+export async function apiGetCategory( {name, page} ) {
+  const url = `${BASE_URL}/get_category`;
+  const options = _getApiOptions({
+    method: "POST",
+    body: JSON.stringify( {name, page} ),
+  });
+  return await _executeApi({ url, options });
+}
+
 
 //==============================
 // Private

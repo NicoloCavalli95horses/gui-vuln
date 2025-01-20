@@ -72,7 +72,7 @@ body {
 }
 
 /* Font */
-h2, h5, p, ul, li, a, span, input, textarea, label, summary, details, .article-content, table {
+h2, h5, p, ul, li, a, span, input, textarea, label, .label, summary, details, .article-content, table {
   font-family: 'Montserrat', monospace;
 }
 
@@ -81,7 +81,7 @@ h1, h3, h4 {
 }
 
 /* Color */
-h2, h3, h4, p, ul, li, a, span, label, summary, details, .article-content {
+h2, h3, h4, p, ul, li, a, span, .label, summary, details, .article-content {
   color: var(--font-light);
 }
 
@@ -254,6 +254,18 @@ a {
   left: 2.2rem;
 }
 
+.fix-top-right {
+  position: fixed;
+  top: 2.2rem;
+  right: 2.2rem;
+}
+
+.fix-top-left {
+  position: fixed;
+  top: 2.2rem;
+  left: 2.2rem;
+}
+
 svg {
   color: var(--font-light);
   height: 2.5rem;
@@ -422,9 +434,19 @@ svg {
 }
 
 .label {
-  background-color: #222;
-  padding: 4px 6px;
-  border-radius: 6px;
+  height: 16px;
+  background-color: var(--grey-33);
+  padding: 8px 10px;
+  border-radius: 12px;
+  margin: 4px;
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+}
+
+.label:hover, .label.active {
+  filter: brightness(150%);
+  transition-duration: 400ms;
 }
 
 .notouch {
@@ -521,11 +543,12 @@ svg {
 }
 
 /* commons tags */
-label {
+.label {
   display: block;
   color: var(--secondary);
   text-transform: uppercase;
   letter-spacing: 2px;
+  font-size: 12px;
 }
 
 .svg-18 {

@@ -1,6 +1,5 @@
 <template>
-  <Loading v-show="is_loading" />
-  <div class="main" v-show="!is_loading">
+  <div class="main">
     <div class="left">
       <h2>Summary or details search</h2>
       <div class="flex-center">
@@ -13,77 +12,43 @@
         />
         <Btn @click="searchData" class="l-12">Search</Btn>
       </div>
-      <p class="t-12">{{ outFiltered?.length }} results found (tot. results: {{ out.length }})</p>
+      <p class="t-12">{{ outFiltered?.length }} results found (tot. results: {{ cve.total }})</p>
 
       <section class="scrollable-content">
-        <h2 class="t-24">Containing in the summary or details</h2>
-        <table class="t-12">
-          <thead>
-            <tr>
-              <th>Category</th>
-              <th>Keywords used</th>
-              <th>Abs.</th>
-              <th>%</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="(cve, i) in cveType" :key="`${cve.id}-${i}`">
-              <td>{{ cve.id }}</td>
-              <td>{{ CVE_KEYWORDS[cve.id]?.join(", ")?.toString() }}</td>
-              <td>{{ cve.size }}</td>
-              <td>{{ (cve.size / outFiltered.length * 100).toFixed(2) }}%</td>
-            </tr>
-            <tr v-if="totMultiClassified > 0" class="orange-text">
-              <td></td>
-              <td>Classified in more than one category</td>
-              <td>{{ totMultiClassified }}</td>
-              <td>{{ (totMultiClassified / outFiltered.length * 100).toFixed(2) }}%</td>
-            </tr>
-          </tbody>
-        </table>
-        <template v-if="severityCount.critical || severityCount.high || severityCount.moderate || severityCount.low">
-          <h2 class="t-24">Severity</h2>
-          <table class="t-12">
-            <thead>
-              <tr>
-                <th>Severity</th>
-                <th>Abs.</th>
-                <th>%</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="(count, severity) in severityCount" :key="severity">
-                <td>{{ severity }}</td>
-                <td>{{ count || 0 }}</td>
-                <td>{{ count ? ((count / outFiltered.length) * 100).toFixed(2) : 0 }}%</td>
-              </tr>
-            </tbody>
-          </table>
-        </template>
-        <h2 class="t-24">Framework, language and library</h2>
-        <table class="t-12">
-          <thead>
-            <tr>
-              <th>Framework/language/software interface</th>
-              <th>Keyword used</th>
-              <th>Abs.</th>
-              <th>%</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="(lang, i) in langTypes" :key="`${lang.id}-${i}`">
-              <td>{{ lang.id }}</td>
-              <td>{{ FRAMEWORK[lang.id]?.join(", ")?.toString() }}</td>
-              <td>{{ lang.size }}</td>
-              <td>{{ (lang.size / outFiltered.length * 100).toFixed(2) }}%</td>
-            </tr>
-          </tbody>
-        </table>
+        <h2 class="t-24">Categories</h2>
+        <div v-if="cve.categories" class="categories-wrapper">
+          <div
+            v-for="category in cve.categories"
+            :key="category.id"
+            :class="{'active': category_sel === category.name}"
+            class="label"
+            @click="onChangeCategory(category.name)"
+          >
+            {{ formatCamelCase(category.name) }}
+            <div>
+              <span>({{ category.length }})</span>&nbsp;
+              <span>{{ (category.length / cve.total * 100).toFixed(2) }}%</span>
+
+            </div>
+        </div>
+        </div>
+        <p v-else>Loading...</p>
       </section>
 
     </div>
     <div class="right" ref="right_ref">
-      <Card v-for="(o, i) in outFiltered" :key="`${o.id}-${i}`" :item="o" :filter="filter" />
+      <div class="controls">
+        <Pagination :curr_page="curr_page" :tot_pages="totPages" :disabled="!outFiltered.length" @page="onNewPage" />
+        <div class="grow-1" />
+        <Btn :def="false" :disabled="!outFiltered.length" @click="onPageDownload">Download page ({{ outFiltered.length }})</Btn>
+        <Btn :def="false" :disabled="!outFiltered.length" @click="onDownloadAll">Download all ({{ currentTot }})</Btn>
+      </div>
+      <template v-if="out_loading">
+        <p>Loading...</p>
+      </template>
+      <template v-else>
+        <Card v-for="(o, i) in outFiltered" :key="`${o.id}-${i}`" :item="o" :filter="filter" />
+      </template>
     </div>
   </div>
 </template>
@@ -97,43 +62,51 @@ import {
   watch,
   computed,
 } from 'vue';
-import { useRoute } from 'vue-router';
 import {
   CVE_KEYWORDS,
   FRAMEWORK
 } from '../utils/keywords.mjs';
 import {
   apiTest,
+  apiGetCategory,
+  apiGetCategories,
 } from '../utils/api.mjs';
 
+import router from '../router/index.js';
 
-import Btn       from '../components/Btn.vue';
-import Card      from '../components/Card.vue';
-import Loading   from '../components/Loading.vue';
-import InputText from '../components/InputText.vue';
+import Btn        from '../components/Btn.vue';
+import Card       from '../components/Card.vue';
+import Loading    from '../components/Loading.vue';
+import InputText  from '../components/InputText.vue';
+import Pagination from '../components/Pagination.vue';
 
 //====================================
 // Consts
 //====================================
-const route = useRoute();
-console.log( route );
+const cve          = ref({});
+const category_sel = ref(undefined);
+const out          = ref([]);
+const out_loading  = ref(false);
+const temp_filter  = ref(undefined);
+const filter       = ref(undefined);
+const right_ref    = ref(undefined);
+const curr_page    = ref(1);
 
-const out           = ref([]);
-const temp_filter   = ref(undefined);
-const severityCount = ref({});
-const is_loading    = ref(false);
-const filter        = ref(undefined);
-const right_ref     = ref(undefined);
-
-const outFiltered        = computed( () => filter.value ? filterResults([filter.value]) : out.value);
-const cveType            = computed( () => classifyCVEs(CVE_KEYWORDS));
-const langTypes          = computed( () => classifyCVEs(FRAMEWORK));
-const totMultiClassified = computed( () => cveType.value.reduce((acc, cve) => acc + cve.size, 0) - outFiltered.value.length);
-
+const routeQuery   = computed( () => router.currentRoute?.value?.query);
+const outFiltered  = computed( () => filter.value ? filterOutput() : out.value );
+const currentTot   = computed( () => (cve.value?.categories && category_sel.value) ? cve.value.categories[ cve.value.categories.findIndex((el) => el.name == category_sel.value ) ]?.length : undefined );
+const totPages     = computed( () => currentTot.value ? Math.floor(currentTot.value / 100) : 0 );
 
 //====================================
 // Functions
 //====================================
+function filterOutput() {
+  return out.value.filter( cve => {
+    const text = `${cve.id} ${cve.details} ${cve.summary}`.toLowerCase();
+    return containsWord(text, [filter.value]);
+  })
+}
+
 function containsWord(text, words = []) {
   return words.some(w => {
     const regex = new RegExp(`\\b${w}\\b`, 'i'); // word delimitation, case-insensitive
@@ -141,57 +114,8 @@ function containsWord(text, words = []) {
   })
 }
 
-function filterResults(arr) {
-  return outFiltered.value.length ? outFiltered.value.filter(i => {
-    const text = `${i.id || ''} ${i.summary || ''} ${i.details || ''}`.toLowerCase();
-    return containsWord(text, arr);
-  }) : [];
-}
-
-function countSeverity() {
-  severityCount.value = {
-    critical: 0,
-    high: 0,
-    moderate: 0,
-    low: 0,
-    unknown: 0
-  };
-
-  outFiltered.value.forEach(o => {
-    let severity = o.database_specific?.severity?.toLowerCase();
-    if (severity === 'medium') {
-      severity = 'moderate';
-    }
-
-    if (severity) {
-      severityCount.value[severity] += 1;
-    } else {
-      severityCount.value.unknown += 1;
-    }
-  });
-}
-
-function classifyCVEs(obj) {
-  const ret = [];
-  if (!Array.isArray(outFiltered.value) || outFiltered.value.length === 0) { return ret };
-
-  for (const [id, keywords] of Object.entries(obj)) {
-    const matches = filterResults(keywords);
-    const obj = { id, matches, size: matches?.length || 0 };
-    ret.push(obj);
-  }
-
-  ret.sort((a, b) => b.size - a.size);
-  return ret;
-}
-
 async function initData() {
-  is_loading.value = true;
-  const data = await apiTest();
-  out.value = data;
-  countSeverity();
-  is_loading.value = false;
-  
+  cve.value = await apiGetCategories();
 }
 
 function searchData() {
@@ -202,15 +126,69 @@ function searchData() {
   }
 }
 
+function formatCamelCase(str) {
+  return str.replace(/([a-z])([A-Z])/g, '$1 $2').toLowerCase();
+}
+
+function onPageDownload() {
+  const filename = `${category_sel.value || 'data'}.json`;
+  const data = out.value;
+  saveAsFile( {filename, data} );
+}
+
+function saveAsFile( {filename, data} ) {
+  const blob = new Blob( [JSON.stringify(data)], {type: 'application/json'} );
+  const link = document.createElement("a");
+  link.download = filename;
+  link.href = window.URL.createObjectURL(blob);
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
+
+async function onNewPage( pag ) {
+  curr_page.value = pag;
+  out_loading.value = true;
+  out.value = await apiGetCategory( {name: category_sel.value, page: curr_page.value} );
+  router.push( {path: '/', query: {category: category_sel.value, page: curr_page.value} } );
+  out_loading.value = false;
+}
+
+async function onDownloadAll() {
+  // to do: api to download all collection
+  console.log('download all')  
+}
+
+function onChangeCategory(name) {
+  category_sel.value = (category_sel.value == name) ? undefined : name;
+  curr_page.value = 1;
+}
 
 //====================================
 // Watcher
 //====================================
-watch(outFiltered, () => {
-  if (!is_loading.value) {
-    countSeverity();
-  }
+watch(category_sel, async (category) => {
+  router.push( { path: '/', query: category ? {category, page: curr_page.value} : {} } );
+  filter.value = undefined;
+  temp_filter.value = undefined;
 });
+
+watch( routeQuery, async (newRoute) => {
+  const { category, page } = newRoute;
+  curr_page.value = parseInt(page) > 0 ? parseInt(page) : 1;
+  filter.value = undefined;
+  temp_filter.value = undefined;
+  if ( category ) {
+    category_sel.value = category;
+    out_loading.value = true;
+    out.value = await apiGetCategory( {name: category, page: curr_page.value} );
+    out_loading.value = false;
+  } else {
+    out.value = [];
+  }
+}, {immediate: true});
+
+
 
 
 //====================================
@@ -237,6 +215,16 @@ initData();
     padding: 0 12px;
     position: relative;
 
+    .categories-wrapper {
+      display: flex;
+      flex-direction: column;
+      .label {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
     .scrollable-content {
       position: absolute;
       width: 100%;
@@ -247,11 +235,17 @@ initData();
 
   .right {
     color: white;
-    background-color: #333;
     height: 100%;
     overflow-y: scroll;
     overflow-x: hidden;
     padding: 20px;
+    .controls {
+      position: sticky;
+      top: -30px;
+      display: flex;
+      padding: 10px 22px;
+      background-color: var(--grey-22);
+    }
   }
 }
 </style>
