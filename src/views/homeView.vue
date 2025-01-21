@@ -22,6 +22,7 @@
             :key="category.id"
             :class="{'active': category_sel === category.name}"
             class="label"
+            :title="`The CVEs in this category contains at least one of the following keywords: ${CVE_KEYWORDS[category.name]}`"
             @click="onChangeCategory(category.name)"
           >
             {{ formatCamelCase(category.name) }}
@@ -40,7 +41,7 @@
       <div class="controls">
         <Pagination :curr_page="curr_page" :tot_pages="totPages" :disabled="!outFiltered.length" @page="onNewPage" />
         <div class="grow-1" />
-        <Btn :def="false" :disabled="!outFiltered.length" @click="onPageDownload">Download page ({{ outFiltered.length }})</Btn>
+        <Btn :def="false" :disabled="!outFiltered.length" @click="onPageDownload(outFiltered)">Download page ({{ outFiltered.length }})</Btn>
         <Btn :def="false" :disabled="!outFiltered.length" @click="onDownloadAll">Download all ({{ currentTot }})</Btn>
       </div>
       <template v-if="out_loading">
@@ -63,20 +64,17 @@ import {
   computed,
 } from 'vue';
 import {
-  CVE_KEYWORDS,
-  FRAMEWORK
-} from '../utils/keywords.mjs';
-import {
-  apiTest,
   apiGetCategory,
   apiGetCategories,
 } from '../utils/api.mjs';
+import {
+  CVE_KEYWORDS,
+} from '../utils/keywords.mjs';
 
 import router from '../router/index.js';
 
 import Btn        from '../components/Btn.vue';
 import Card       from '../components/Card.vue';
-import Loading    from '../components/Loading.vue';
 import InputText  from '../components/InputText.vue';
 import Pagination from '../components/Pagination.vue';
 
@@ -119,6 +117,7 @@ async function initData() {
 }
 
 function searchData() {
+  // TO DO: data should be searched on the whole category and not on the page. Move the logic to the backend and use an API
   temp_filter.value = temp_filter.value?.trim();
   filter.value = temp_filter.value;
   if (right_ref.value) {
@@ -130,9 +129,8 @@ function formatCamelCase(str) {
   return str.replace(/([a-z])([A-Z])/g, '$1 $2').toLowerCase();
 }
 
-function onPageDownload() {
+function onPageDownload(data) {
   const filename = `${category_sel.value || 'data'}.json`;
-  const data = out.value;
   saveAsFile( {filename, data} );
 }
 
@@ -155,8 +153,8 @@ async function onNewPage( pag ) {
 }
 
 async function onDownloadAll() {
-  // to do: api to download all collection
-  console.log('download all')  
+  const data = await apiGetCategory( {name: category_sel.value, getAll: true} );
+  onPageDownload(data); 
 }
 
 function onChangeCategory(name) {

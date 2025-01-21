@@ -32,11 +32,11 @@ export async function apiGetCategories() {
   return await _executeApi({ url, options });
 }
 
-export async function apiGetCategory( {name, page} ) {
+export async function apiGetCategory( {name, page, getAll = false} ) {
   const url = `${BASE_URL}/get_category`;
   const options = _getApiOptions({
     method: "POST",
-    body: JSON.stringify( {name, page} ),
+    body: JSON.stringify( {name, page, getAll} ),
   });
   return await _executeApi({ url, options });
 }

@@ -1,23 +1,27 @@
 //==============================
 // Consts
 //==============================
-export const FRAMEWORK = Object.freeze({
-  vue: ['vue', 'vue.js', 'nuxt', 'nuxt.js'],
-  angular: ['angular', 'angular.js', 'ng', 'angular-cli', 'ngrx'],
-  react: ['react', 'react.js', 'react-native', 'react-dom', 'redux', 'react-router', 'vite'],
+export const DEF_GUI_KEYWORDS = Object.freeze({
+  gui: ['gui', 'hci'],
+  vue: ['vue', 'vue.js', 'nuxt', 'nuxt.js', 'vue-a11y'],
+  angular: ['angular', 'angular.js', 'angular-cli', 'ngrx'],
+  react: ['react', 'react.js', 'react-native', 'react-dom', 'redux', 'react-router', 'vite', 'react-intl', 'react-aria'],
   electron: ['electron', 'electron.js', 'electron-builder', 'electron-packager'],
-  three: ['three', 'three.js', 'webgl', 'threejs'],
+  three: ['three', 'three.js', 'webgl', 'threejs', 'babylon', 'moderngl'],
   vanillaJS: ['vanilla javascript', 'vanilla js', 'es6'],
   html: ['dom', 'canvas', 'html'],
   typescript: ['typescript'],
   jsTools: ['eslint', 'babel', 'esmodules'],
   preact: ['preact', 'preact-cli'],
   svelte: ['svelte', 'sveltekit'],
+  flutter: ['flutter', 'dart'],
   next: ['next.js', 'nextjs', 'next'],
   i18next: ['i18next', 'internationalization', 'i18n', 'translation', 'localization'],
   ember: ['ember', 'ember.js', 'ember-cli'],
   backbone: ['backbone', 'backbone.js'],
   jquery: ['jquery', 'jquery-ui'],
+  d3: ['d3'],
+  pixi: ['pixi.js'],
   alpine: ['alpine', 'alpine.js', 'alpinejs'],
   meteor: ['meteor', 'meteor.js'],
   lit: ['lit', 'lit-element', 'lit-html'],
@@ -42,6 +46,14 @@ export const FRAMEWORK = Object.freeze({
 
 
 export const CVE_KEYWORDS = Object.freeze({
+  guiIssues: [
+    'gui', 'user interface', 'graphical user interface',
+    'visual glitch', 'ui inconsistency', 'ui bypass', 'ui redress',
+    'clickjacking', 'hover hijacking', 'mouse event injection',
+    'keylogging', 'overlay attack', 'event spoofing', 'ui freezing',
+    'drag and drop exploit', 'clipboard hijacking', 'focus stealing',
+    'malicious tooltip', 'pop-up', 'dialog abuse', 'ui event listener'
+  ],
   crossSite: [
     'xss', 'cross-site', 'cross site', 'request forgery', 'csrf', 'xsrf',
     'injection', 'code execution', 'remote execution', 'command execution',
@@ -50,12 +62,12 @@ export const CVE_KEYWORDS = Object.freeze({
     'session hijacking', 'unsafe contexts', 'html escaping'
   ],
   denialOfService: [
-    'dos', 'denial', 'service', 'redos', 'sanitize-html', 'resource exhaustion',
+    'dos', 'denial', 'service', 'redos', 'sanitize-html', 'resource exhaustion', 'dompurify',
     'infinite loop', 'hang', 'timeout', 'deadlock', 'memory leak',
     'cpu spike', 'rate limiting', 'high memory usage', 'heap exhaustion',
     'stack overflow', 'thread starvation', 'socket exhaustion',
     'file descriptor exhaustion', 'unbounded resource consumption',
-    'regex complexity'
+    'regex complexity', 'xss-clean',
   ],
   bufferOverflow: [
     'buffer overflow', 'stack overflow', 'heap overflow',
@@ -74,7 +86,8 @@ export const CVE_KEYWORDS = Object.freeze({
     'email spoofing', 'url spoofing', 'phishing'
   ],
   crash: [
-    'crash', 'crashes', 'hang', 'termination', 'unexpected exit', 'process abort'
+    'crash', 'crashes', 'hang', 'termination', 'unexpected exit', 'process abort',
+    'ui freeze', 'unresponsive ui'
   ],
   directoryTraversal: [
     'directory traversal', 'path traversal', 'file inclusion',
@@ -95,36 +108,18 @@ export const CVE_KEYWORDS = Object.freeze({
     'context isolation', 'context bypass', 'isolation bypass',
     'sandbox escape'
   ],
-  asarIntegrity: [
-    'asar integrity', 'asar tampering', 'asar manipulation'
-  ],
   fileRead: [
     'file read', 'unauthorized file read', 'arbitrary file access',
     'file disclosure', 'file exposure'
-  ],
-  trojan: [
-    'trojan', 'horse', 'backdoor', 'malicious payload'
   ],
   internalProcessCommunication: [
     'ipc', 'internal-process communication', 'message passing',
     'process injection', 'unauthorized ipc'
   ],
-  autoupdater: [
-    'autoupdater', 'update injection', 'update spoofing',
-    'update tampering'
-  ],
   privilege: [
     'escalation of privilege', 'privilege escalation', 'vertical privilege',
     'horizontal privilege', 'local privilege', 'remote privilege',
     'elevation of privilege', 'unauthorized privilege'
-  ],
-  cryptographic: [
-    'weak encryption', 'insecure hashing', 'key exposure',
-    'cipher downgrade', 'replay attack', 'cryptographic bypass'
-  ],
-  authentication: [
-    'authentication bypass', 'weak authentication', 'password brute force',
-    'token hijacking', 'session fixation', 'replay attack'
   ],
   informationDisclosure: [
     'information disclosure', 'data leak', 'data exposure', 'arbitrary read',
@@ -132,44 +127,6 @@ export const CVE_KEYWORDS = Object.freeze({
   ]
 });
 
-
-export const DEF_GUI_KEYWORDS = [
-  'gui',
-  'ui',
-  'hci',
-  'canvas',
-  'html',
-  'vue',
-  'npm',
-  'react',
-  'angular',
-  'flutter',
-  'android',
-  'jquery',
-  'dart',
-  'electron',
-  'react-native',
-  'three.js',
-  'babylon',
-  'next.js',
-  'svelte',
-  'ember',
-  'preact',
-  'webgl',
-  'd3',
-  'pixi.js',
-  'sanitize-html',
-  'dompurify',
-  'xss-clean',
-  'glslify',
-  'twgl.js',
-  'moderngl',
-  'i18next',
-  'react-intl',
-  'formatjs',
-  'react-aria',
-  'vue-a11y'
-];
 
 export const FOLDER_NAMES = [
   'AlmaLinux',

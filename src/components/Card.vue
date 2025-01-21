@@ -15,7 +15,7 @@
     </p><br>
     <p>Id: <span class="grey" v-html="highlightId"></span></p>
     <p v-if="item.summary">Summary: <span class="grey" v-html="highlightSummary"></span></p><br>
-    <p v-if="item.details">Details <br><span class="grey"v-html="highlightDetails"></span></p>
+    <p v-if="item.details">Details <br><span class="grey break-spaces"v-html="highlightDetails"></span></p>
   </div>
 </template>
 
@@ -79,6 +79,9 @@ function highlightWord(text) {
 }
 .grey {
   color: #999;
+}
+.break-spaces {
+  white-space: pre-line;
 }
 
 </style>

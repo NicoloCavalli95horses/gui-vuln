@@ -4,8 +4,8 @@
 import fs from 'fs';
 import path from 'path';
 import {
-  CVE_KEYWORDS,
   FOLDER_NAMES,
+  CVE_KEYWORDS,
   DEF_GUI_KEYWORDS,
 } from './keywords.js';
 import {
@@ -54,7 +54,8 @@ function getRelevantCVEs( folderName ) {
       uniqueIds.add(id);
 
       // Filter relevant CVEs
-      if ( !containsWord(text, DEF_GUI_KEYWORDS) ) { return; }
+      const flatArray = Object.values(DEF_GUI_KEYWORDS).flat();
+      if ( !containsWord(text, flatArray) ) { return; }
       cves.push( jsonData );
     });
     console.log(`Successfully read ${folderName}`);
