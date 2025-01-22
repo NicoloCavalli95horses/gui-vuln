@@ -21,24 +21,24 @@ export async function apiTest() {
   const options = _getApiOptions({
     method: "GET",
   });
-  return await _executeApi({ url, options });
+  return await _executeApi( {url, options} );
 }
 
-export async function apiGetCategories() {
-  const url = `${BASE_URL}/get_categories`;
+export async function apiGetCVEsInfo() {
+  const url = `${BASE_URL}/get_cves_info`;
   const options = _getApiOptions({
     method: "GET",
   });
-  return await _executeApi({ url, options });
+  return await _executeApi( {url, options} );
 }
 
-export async function apiGetCategory( {name, page, getAll = false} ) {
-  const url = `${BASE_URL}/get_category`;
+export async function apiGetCVE( {name, page, filter, getAll = false} ) {
+  const url = `${BASE_URL}/get_cve`;
   const options = _getApiOptions({
     method: "POST",
-    body: JSON.stringify( {name, page, getAll} ),
+    body: JSON.stringify( {name, page, filter, getAll} ),
   });
-  return await _executeApi({ url, options });
+  return await _executeApi( {url, options} );
 }
 
 

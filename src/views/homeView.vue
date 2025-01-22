@@ -6,13 +6,13 @@
         <InputText
           v-model:text="temp_filter"
           type="search"
-          :disabled="!out"
+          :disabled="!category_sel"
           placeholder="search in summary or details"
           @keydown.enter="searchData"
         />
         <Btn @click="searchData" class="l-12">Search</Btn>
       </div>
-      <p class="t-12">{{ outFiltered?.length }} results found (tot. results: {{ cve.total }})</p>
+      <p class="t-12">{{ out.totalCount }} results found (tot. results: {{ cve.total }})</p>
 
       <section class="scrollable-content">
         <h2 class="t-24">Categories</h2>
@@ -39,14 +39,15 @@
     </div>
     <div class="right" ref="right_ref">
       <div class="controls">
-        <Pagination :curr_page="curr_page" :tot_pages="totPages" :disabled="!outFiltered.length" @page="onNewPage" />
+        <Pagination :curr_page="curr_page" :tot_pages="totPages" :disabled="!out.totalCount" @page="onNewPage" />
         <div class="grow-1" />
-        <Btn :def="false" :disabled="!outFiltered.length" @click="onPageDownload(outFiltered)">Download page ({{ outFiltered.length }})</Btn>
-        <Btn :def="false" :disabled="!outFiltered.length" @click="onDownloadAll">Download all ({{ currentTot }})</Btn>
+        <Btn :def="false" :disabled="!out.totalCount" @click="onPageDownload(out.documents)">Download page ({{ out.documents?.length }})</Btn>
+        <Btn :def="false" :disabled="!out.totalCount" @click="onDownloadAll">Download all ({{ out.totalCount }})</Btn>
       </div>
-      <p v-if="out_loading">Loading...</p>
+      <div class="log-box" v-if="out_loading"><p>Loading...</p></div>
+      <div class="log-box" v-else-if="!out.totalCount"><p>Select a category</p></div>
       <template v-else>
-        <Card v-for="(o, i) in outFiltered" :key="`${o.id}-${i}`" :item="o" :filter="filter" />
+        <Card v-for="(o, i) in out.documents" :key="`${o.id}-${i}`" :item="o" :filter="filter" />
       </template>
     </div>
   </div>
@@ -62,8 +63,8 @@ import {
   computed,
 } from 'vue';
 import {
-  apiGetCategory,
-  apiGetCategories,
+  apiGetCVE,
+  apiGetCVEsInfo,
 } from '../utils/api.mjs';
 import {
   CVE_KEYWORDS,
@@ -81,7 +82,7 @@ import Pagination from '../components/Pagination.vue';
 //====================================
 const cve          = ref({});
 const category_sel = ref(undefined);
-const out          = ref([]);
+const out          = ref({});
 const out_loading  = ref(false);
 const temp_filter  = ref(undefined);
 const filter       = ref(undefined);
@@ -89,38 +90,28 @@ const right_ref    = ref(undefined);
 const curr_page    = ref(1);
 
 const routeQuery   = computed( () => router.currentRoute?.value?.query);
-const outFiltered  = computed( () => filter.value ? filterOutput() : out.value );
-const currentTot   = computed( () => (cve.value?.categories && category_sel.value) ? cve.value.categories[ cve.value.categories.findIndex((el) => el.name == category_sel.value ) ]?.length : undefined );
-const totPages     = computed( () => currentTot.value ? Math.floor(currentTot.value / 100) : 0 );
+const totPages     = computed( () => out.value.totalCount ? Math.floor(out.value.totalCount / 100) : 0 );
 
 //====================================
 // Functions
 //====================================
-function filterOutput() {
-  return out.value.filter( cve => {
-    const text = `${cve.id} ${cve.details} ${cve.summary}`.toLowerCase();
-    return containsWord(text, [filter.value]);
-  })
-}
-
-function containsWord(text, words = []) {
-  return words.some(w => {
-    const regex = new RegExp(`\\b${w}\\b`, 'i'); // word delimitation, case-insensitive
-    return regex.test(text);
-  })
-}
-
 async function initData() {
-  cve.value = await apiGetCategories();
+  cve.value = await apiGetCVEsInfo();
 }
 
-function searchData() {
-  // TO DO: data should be searched on the whole category and not on the page. Move the logic to the backend and use an API
+async function searchData() {
+  out.value = {};
+  out_loading.value = true;
   temp_filter.value = temp_filter.value?.trim();
   filter.value = temp_filter.value;
+
+  out.value = await apiGetCVE( {name: category_sel.value, page: curr_page.value, filter: filter.value} );
+  router.push( { path: '/', query: {category: category_sel.value, page: curr_page.value, ...(filter.value ? {filter: filter.value} : {})} } );
+
   if (right_ref.value) {
     right_ref.value.scrollTo( {top: 0, behavior: 'smooth'} );
   }
+  out_loading.value = false;
 }
 
 function formatCamelCase(str) {
@@ -145,13 +136,13 @@ function saveAsFile( {filename, data} ) {
 async function onNewPage( pag ) {
   curr_page.value = pag;
   out_loading.value = true;
-  out.value = await apiGetCategory( {name: category_sel.value, page: curr_page.value} );
-  router.push( {path: '/', query: {category: category_sel.value, page: curr_page.value} } );
+  out.value = await apiGetCVE( {name: category_sel.value, page: curr_page.value, filter: filter.value} );
+  router.push( {path: '/', query: {category: category_sel.value, page: curr_page.value, ...(filter.value ? {filter: filter.value} : {})} } );
   out_loading.value = false;
 }
 
 async function onDownloadAll() {
-  const data = await apiGetCategory( {name: category_sel.value, getAll: true} );
+  const data = await apiGetCVE( {name: category_sel.value, getAll: true, filter: filter.value} );
   onPageDownload(data); 
 }
 
@@ -164,23 +155,32 @@ function onChangeCategory(name) {
 // Watcher
 //====================================
 watch(category_sel, async (category) => {
-  router.push( { path: '/', query: category ? {category, page: curr_page.value} : {} } );
-  filter.value = undefined;
-  temp_filter.value = undefined;
+  if ( category ) {
+    router.push({
+      path: '/',
+      query: {
+        category,
+        page: curr_page.value,
+        ...(filter.value ? {filter: filter.value} : {})
+      }
+    });
+  } else {
+    out.value = {};
+  }
 });
 
 watch( routeQuery, async (newRoute) => {
   const { category, page } = newRoute;
   curr_page.value = parseInt(page) > 0 ? parseInt(page) : 1;
-  filter.value = undefined;
-  temp_filter.value = undefined;
+  filter.value = newRoute.filter;
+  temp_filter.value = newRoute.filter;
   if ( category ) {
     category_sel.value = category;
     out_loading.value = true;
-    out.value = await apiGetCategory( {name: category, page: curr_page.value} );
+    out.value = await apiGetCVE( {name: category, page: curr_page.value, filter: filter.value} );
     out_loading.value = false;
   } else {
-    out.value = [];
+    out.value = {};
   }
 }, {immediate: true});
 
@@ -241,6 +241,11 @@ initData();
       display: flex;
       padding: 10px 22px;
       background-color: var(--grey-22);
+    }
+    .log-box {
+      display: grid;
+      place-content: center;
+      height: 60vh;
     }
   }
 }

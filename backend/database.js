@@ -43,7 +43,7 @@ export async function closeConnection() {
   console.log('Connection successfully closed');
 }
 
-export async function getCategories() {
+export async function getCVEsInfo() {
   const ret = {
     categories: [],
     total: 0,
@@ -64,19 +64,36 @@ export async function getCategories() {
   return ret;
 }
 
-export async function getCategory( {name, page = 1, pageSize = 100, getAll = false} ) {
+export async function getCVE( {name, page = 1, pageSize = 100, filter, getAll = false} ) {
   const collection = await cves_database.collection(name);
-  let documents = [];
+  let query = {};
 
-  // Get documents
-  if ( getAll ) {
-    documents = await collection.find({}).toArray();
-  } else {
-     // Calculate documents to skip
-     const skip = (page - 1) * pageSize;
-    documents = await collection.find({}).skip(skip).limit(pageSize).toArray();
+  if (filter) {
+    query = {
+      $or: [
+        { id: { $regex: `\\b${filter}\\b`, $options: 'i' } }, // case-insensitive
+        { summary: { $regex: `\\b${filter}\\b`, $options: 'i' } },
+        { details: { $regex: `\\b${filter}\\b`, $options: 'i' } },
+      ],
+    };
   }
 
-  return documents;
+  let documents = [];
+  let totalCount = 0;
+
+  if (getAll) {
+    // Total count
+    totalCount = await collection.countDocuments(query);
+    documents = await collection.find(query).toArray();
+  } else {
+    // Items that satisfy the query
+    totalCount = await collection.countDocuments(query);
+
+    // Calculate items to skip and return documents
+    const skip = (page - 1) * pageSize;
+    documents = await collection.find(query).skip(skip).limit(pageSize).toArray();
+  }
+
+  return { totalCount, documents };
 }
 

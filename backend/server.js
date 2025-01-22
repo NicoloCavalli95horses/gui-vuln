@@ -4,8 +4,8 @@
 import {
   closeConnection,
   connectToDatabase,
-  getCategory,
-  getCategories,
+  getCVE,
+  getCVEsInfo,
 } from './database.js';
 
 import express from 'express';
@@ -31,12 +31,12 @@ await connectToDatabase();
 //==============================
 // Routes
 //==============================
-app.get('/api/get_categories', async (_, res) => {
-  res.send( await getCategories() );
+app.get('/api/get_cves_info', async (_, res) => {
+  res.send( await getCVEsInfo() );
 });
 
-app.post('/api/get_category', async (req, res) => {
-  res.send( await getCategory( req.body ) );
+app.post('/api/get_cve', async (req, res) => {
+  res.send( await getCVE( req.body ) );
 });
 
 app.listen(PORT, () => {
