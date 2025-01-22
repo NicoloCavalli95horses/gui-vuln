@@ -214,6 +214,7 @@ initData();
     .categories-wrapper {
       display: flex;
       flex-direction: column;
+      padding: 0 10px 22px 0;
       .label {
         display: flex;
         align-items: center;
