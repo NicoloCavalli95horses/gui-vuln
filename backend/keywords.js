@@ -77,13 +77,64 @@ export const CVE_KEYWORDS = Object.freeze({
     'open redirect', 'url redirect', 'unsafe redirect', 'navigation',
     'url manipulation'
   ],
+  clickjacking: [
+    "clickjacking",
+    "ui-keylogger",
+    "click hijacking",
+    "hidden elements",
+    "redress attack",
+    "invisible overlay",
+    "transparent overlay",
+    "invisible frame",
+    "transparent frame",
+    "malicious framing",
+    "frame busting",
+    "cursor hijacking",
+    "interface manipulation",
+    "overlay attack",
+    "embedded frames"
+  ],
+  tabnabbing: [
+    "tabnabbing",
+    "tab hijacking",
+    "tab spoofing",
+    "tab-based phishing",
+    "tab switching",
+    "tab manipulation",
+    "tab stealing",
+    "inactive tab attack",
+    "malicious tab",
+    "phishing tabs",
+    "tab takeover",
+    "tabbed browsing attack",
+    "fake tabs",
+    "tab impersonation",
+    "tab reload attack"
+  ],
   prototypePollution: [
-    'prototype pollution', 'property injection', 'object prototype',
-    'prototype chain'
+    "prototype pollution",
+    "property injection",
+    "object prototype",
+    "prototype chain",
+    "prototype tampering",
+    "prototype inheritance",
+    "object property injection",
+    "polluted prototype",
+    "javascript prototype",
+    "prototype poisoning",
+    "object chain manipulation",
+    "prototype manipulation",
+    "unsafe merge",
+    "malicious property overwrite",
+    "object mutation",
+    "prototype modification",
+    "object property pollution",
+    "insecure object property",
+    "prototype traversal"
   ],
   spoofing: [
     'spoofing', 'identity spoofing', 'authentication bypass',
-    'email spoofing', 'url spoofing', 'phishing'
+    'email spoofing', 'url spoofing'
   ],
   crash: [
     'crash', 'crashes', 'hang', 'termination', 'unexpected exit', 'process abort',

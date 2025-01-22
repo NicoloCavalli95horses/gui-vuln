@@ -44,9 +44,7 @@
         <Btn :def="false" :disabled="!outFiltered.length" @click="onPageDownload(outFiltered)">Download page ({{ outFiltered.length }})</Btn>
         <Btn :def="false" :disabled="!outFiltered.length" @click="onDownloadAll">Download all ({{ currentTot }})</Btn>
       </div>
-      <template v-if="out_loading">
-        <p>Loading...</p>
-      </template>
+      <p v-if="out_loading">Loading...</p>
       <template v-else>
         <Card v-for="(o, i) in outFiltered" :key="`${o.id}-${i}`" :item="o" :filter="filter" />
       </template>
@@ -200,7 +198,7 @@ initData();
 <style scoped lang="scss">
 .main {
   display: grid;
-  grid-template-columns: 2fr 3fr;
+  grid-template-columns: 1fr 3fr;
   grid-gap: 20px;
   width: 100%;
   height: 100vh;
